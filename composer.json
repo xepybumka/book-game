@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/src",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Michail Chernov",
+      "email": "xepybumka@yandex.ru"
+    }
+  ],
+  "require": {
+  }
+}
