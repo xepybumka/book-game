@@ -8,6 +8,10 @@ function print_var($var) {
     echo "</pre>";
 }
 
+function hardResetGame() {
+    $_SESSION = [];
+}
+
 function newGame() {
     $hero = new Hero();
     $_SESSION['hero'] = $hero;

@@ -4,7 +4,6 @@ namespace GameBook\Classes;
 
 use GameBook\Classes\Common\Note;
 use GameBook\Classes\Config\Config;
-use GameBook\Classes\Facts\Fact;
 use GameBook\Classes\Weapons\Sword;
 use GameBook\Classes\Weapons\Weapon;
 

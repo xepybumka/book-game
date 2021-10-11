@@ -15,7 +15,7 @@
             </td>
             <td>
                 <form method="post" action="">
-                    <button class="button" type="submit" value="newGame">Начать новую игру</button>
+                    <button class="button" type="submit" name="restart">Начать новую игру</button>
                 </form>
             </td>
         </tr>
