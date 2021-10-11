@@ -1,14 +1,8 @@
 <?php
 
-
-namespace classes;
+namespace GameBook\Classes\Weapons;
 
 class Sword extends Weapon
 {
-    public function __construct()
-    {
-        $sword = app::get()->config['sword'];
-        $this->name = $sword['name'];
-        $this->damage = $sword['damage'];
-    }
+    protected $name = 'Меч';
 }

@@ -1,6 +1,11 @@
 <?php
 
-namespace classes;
+namespace GameBook\Classes;
+
+use GameBook\App;
+use GameBook\Classes\Config\Config;
+use GameBook\Classes\Weapons\Sword;
+use GameBook\Classes\Weapons\Weapon;
 
 class Hero
 {
@@ -44,12 +49,26 @@ class Hero
      */
     private $weapon;
 
-    public function __construct() {
-        $this->createHero();
+    /**
+     * Hero constructor.
+     * @param  int  $diceResult
+     */
+    public function __construct(int $diceResult = 0) {
+        if (!$diceResult) {
+            $diceResult = Dice::throwTwoDices();
+        }
+        $this->createHero($diceResult);
+        $this->setStats($diceResult);
+        $this->setWeapon(new Sword());
+        $this->setFood(3);
+        $this->setMoney(0);
+        $this->setBag(new Bag());
     }
 
-    private function createHero() {
-        $diceResult = Dice::throwTwoDices();
+    /**
+     * @param  int  $diceResult
+     */
+    private function createHero(int $diceResult) {
         $this->setStats($diceResult);
         $this->setWeapon(new Sword());
         $this->setFood(3);
@@ -61,7 +80,7 @@ class Hero
      * @param $diceResult int
      */
     private function setStats(int $diceResult) {
-        $startParams = app::get()->config['startParam'][$diceResult];
+        $startParams = Config::getStats($diceResult);
         $this->dexterity = $startParams['dexterity'];
         $this->power = $startParams['power'];
         $this->charisma = $startParams['charisma'];

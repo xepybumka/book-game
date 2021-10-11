@@ -1,8 +1,9 @@
 <?php
 
-namespace classes;
+namespace GameBook\Classes;
 
-use classes\items\Item;
+use GameBook\Classes\Items\EmptyItem;
+use GameBook\Classes\Items\Item;
 
 class Bag
 {
@@ -44,8 +45,7 @@ class Bag
     }
 
     private function getEmptyItem() {
-        $emptyItem = app::get()->config['items'][0];
-        return new Item($emptyItem->name, $emptyItem->id);
+        return new EmptyItem();
     }
 
     /**

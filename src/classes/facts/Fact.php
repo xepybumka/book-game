@@ -1,10 +1,10 @@
 <?php
 
-namespace GameBook\Classes\Weapons;
+namespace GameBook\Classes\Facts;
 
 use GameBook\Classes\Config\Config;
 
-abstract class Weapon
+abstract class Fact
 {
     /**
      * @var int
@@ -17,15 +17,15 @@ abstract class Weapon
     protected $name;
 
     /**
-     * @var int
+     * @var string
      */
-    protected $damage;
+    protected $text;
 
     public function __construct()
     {
-        $swordConfig = Config::getWeapon($this->name);
-        $this->id = $swordConfig['id'];
-        $this->damage = $swordConfig['damage'];
+        $fact = Config::getFact($this->name);
+        $this->id = $fact['id'];
+        $this->text = $fact['text'];
     }
 
     /**
@@ -37,10 +37,10 @@ abstract class Weapon
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getDamage(): int
+    public function getText(): string
     {
-        return $this->damage;
+        return $this->text;
     }
 }

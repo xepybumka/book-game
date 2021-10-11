@@ -1,25 +1,12 @@
 <?php
 
-namespace classes\items;
-
-use classes\app;
+namespace GameBook\Classes\Items;
 
 class EmptyItem extends Item
 {
     /**
-     * @var int
-     */
-    private $id;
-
-    /**
      * @var
      */
-    private $name;
+    protected  $name = 'Пусто';
 
-    public function __construct()
-    {
-        $emptyItem = app::get()->config['items'][0];
-        $this->setId($emptyItem['id']);
-        $this->setName($emptyItem['name']);
-    }
 }

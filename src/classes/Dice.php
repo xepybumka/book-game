@@ -1,6 +1,6 @@
 <?php
 
-namespace classes;
+namespace GameBook\Classes;
 
 class Dice
 {

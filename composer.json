@@ -1,14 +1,19 @@
 {
-  "name": "vendor_name/src",
-  "description": "description",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Michail Chernov",
-      "email": "xepybumka@yandex.ru"
-    }
-  ],
-  "require": {
-  }
+    "name": "blaggame/book-game",
+    "description": "This is a app for game-book \"Povelitel bezbrejnoy pustyni\" by \"Dmytry Braslavsky\" ",
+    "autoload": {
+        "psr-4": {
+            "GameBook\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Michail Blagodatskih",
+            "email": "michail.chernov@fastdev.se"
+        }
+    ],
+    "require": {}
 }

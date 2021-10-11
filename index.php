@@ -1,13 +1,19 @@
 <?php
 
+use GameBook\Classes\Config\Config;
+use GameBook\Classes\Hero;
+
 session_start();
 ini_set('display_errors', true);
-$filePath = __DIR__ . DIRECTORY_SEPARATOR;
-$srcPath = $filePath . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR;
-$templatePath = $srcPath . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
-$classesPath = $srcPath . 'classes' . DIRECTORY_SEPARATOR;
-require_once($templatePath . "main.php");
-require_once($srcPath . "App.php");
 
-$app = App::get();
+require_once 'vendor/autoload.php';
+
+$fileDirPath = __DIR__ . DIRECTORY_SEPARATOR;
+$srcDirPath = $fileDirPath . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR;
+$configDirPath = $srcDirPath . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR;
+$templateDirPath = $srcDirPath . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
+$classesDirPath = $srcDirPath . 'classes' . DIRECTORY_SEPARATOR;
+
+$config = new Config();
+require_once 'src/templates/main.php';
 ?>

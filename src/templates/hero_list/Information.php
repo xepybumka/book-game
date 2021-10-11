@@ -13,7 +13,7 @@
 <table>
     <?php foreach ($info as $key => $fact) { ?>
         <tr>
-            <td><?= $key ?>.  <?= $fact ?></td>
+            <td><?= $key + 1 ?>.  <?= $fact ?></td>
         </tr>
     <?php } ?>
 </table>

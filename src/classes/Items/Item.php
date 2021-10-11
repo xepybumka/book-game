@@ -1,25 +1,25 @@
 <?php
 
-namespace classes\items;
+namespace GameBook\Classes\Items;
 
-class Item
+use GameBook\Classes\Config\Config;
+
+abstract class Item
 {
-    /**
-     * @var string
-     */
-    private $name;
-
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
-     * @return string
+     * @var string
      */
-    public function getName(): string
+    protected $name;
+
+    public function __construct()
     {
-        return $this->name;
+        $item = Config::getItem($this->name);
+        $this->id = $item['id'];
     }
 
     /**
@@ -31,18 +31,10 @@ class Item
     }
 
     /**
-     * @param  string  $name
+     * @return string
      */
-    public function setName(string $name): void
+    public function getName(): string
     {
-        $this->name = $name;
-    }
-
-    /**
-     * @param  int  $id
-     */
-    public function setId(int $id): void
-    {
-        $this->id = $id;
+        return $this->name;
     }
 }
