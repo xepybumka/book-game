@@ -1,6 +1,9 @@
 <?php
-    $templatePath = 'src/templates/';
-    $heroListPath = $templatePath . "hero_list/"
+
+use GameBook\Classes\Helpers\PathHelper;
+
+$templatePath = PathHelper::getTemplateDirPath();
+$heroListPath = $templatePath . "hero_list/";
 ?>
 
 <!doctype html>
