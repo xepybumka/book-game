@@ -14,6 +14,24 @@ $configDirPath = $srcDirPath . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARA
 $templateDirPath = $srcDirPath . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR;
 $classesDirPath = $srcDirPath . 'classes' . DIRECTORY_SEPARATOR;
 
+$_SESSION = [];
+
 $config = new Config();
+
+if (empty($_SESSION)) {
+    newGame();
+}
+//TODO::хранение состояния игры и обработка входящих данных происходит через отдельный класс и паттерн
+if (!empty($_POST['newGame'])) {
+    if ($_POST['newGame']) {
+        newGame();
+    }
+}
+
+/**
+ * @var Hero
+ */
+$hero = $_SESSION['hero'];
+
 require_once 'src/templates/main.php';
 ?>

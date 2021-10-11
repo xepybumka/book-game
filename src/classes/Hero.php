@@ -2,8 +2,9 @@
 
 namespace GameBook\Classes;
 
-use GameBook\App;
+use GameBook\Classes\Common\Note;
 use GameBook\Classes\Config\Config;
+use GameBook\Classes\Facts\Fact;
 use GameBook\Classes\Weapons\Sword;
 use GameBook\Classes\Weapons\Weapon;
 
@@ -40,9 +41,9 @@ class Hero
     private $bag;
 
     /**
-     * @var array
+     * @var Note
      */
-    private $information;
+    private $note;
 
     /**
      * @var Weapon
@@ -74,6 +75,7 @@ class Hero
         $this->setFood(3);
         $this->setMoney(0);
         $this->setBag(new Bag());
+        $this->setNote(new Note());
     }
 
     /**
@@ -87,36 +89,51 @@ class Hero
     }
 
     /**
-     * @param  Weapon  $weapon
+     * @return int
      */
-    public function setWeapon(Weapon $weapon): void
+    public function getPower(): int
     {
-        $this->weapon = $weapon;
-    }
-
-
-    /**
-     * @param  int  $food
-     */
-    public function setFood(int $food): void
-    {
-        $this->food = $food;
+        return $this->power;
     }
 
     /**
-     * @param  int  $money
+     * @param  int  $power
      */
-    public function setMoney(int $money): void
+    public function setPower(int $power): void
     {
-        $this->money = $money;
+        $this->power = $power;
     }
 
     /**
-     * @param  Bag  $bag
+     * @return int
      */
-    public function setBag(Bag $bag): void
+    public function getDexterity(): int
     {
-        $this->bag = $bag;
+        return $this->dexterity;
+    }
+
+    /**
+     * @param  int  $dexterity
+     */
+    public function setDexterity(int $dexterity): void
+    {
+        $this->dexterity = $dexterity;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCharisma(): int
+    {
+        return $this->charisma;
+    }
+
+    /**
+     * @param  int  $charisma
+     */
+    public function setCharisma(int $charisma): void
+    {
+        $this->charisma = $charisma;
     }
 
     /**
@@ -128,11 +145,27 @@ class Hero
     }
 
     /**
+     * @param  int  $money
+     */
+    public function setMoney(int $money): void
+    {
+        $this->money = $money;
+    }
+
+    /**
      * @return int
      */
     public function getFood(): int
     {
         return $this->food;
+    }
+
+    /**
+     * @param  int  $food
+     */
+    public function setFood(int $food): void
+    {
+        $this->food = $food;
     }
 
     /**
@@ -144,11 +177,27 @@ class Hero
     }
 
     /**
-     * @return array
+     * @param  Bag  $bag
      */
-    public function getInformation(): array
+    public function setBag(Bag $bag): void
     {
-        return $this->information;
+        $this->bag = $bag;
+    }
+
+    /**
+     * @return Note
+     */
+    public function getNote(): Note
+    {
+        return $this->note;
+    }
+
+    /**
+     * @param  Note  $note
+     */
+    public function setNote(Note $note): void
+    {
+        $this->note = $note;
     }
 
     /**
@@ -157,5 +206,13 @@ class Hero
     public function getWeapon(): Weapon
     {
         return $this->weapon;
+    }
+
+    /**
+     * @param  Weapon  $weapon
+     */
+    public function setWeapon(Weapon $weapon): void
+    {
+        $this->weapon = $weapon;
     }
 }

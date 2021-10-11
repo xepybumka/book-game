@@ -2,19 +2,21 @@
 
 ?>
 <div class="footer">
-    <table class="game-buttons">
+    <table class="footer-buttons">
         <tr>
             <td>
                 <button class="button">Кнопка 1</button>
             </td>
             <td>
-                <button class="button">Кнопка 2</button>
+                <button class="button">Загрузить</button>
             </td>
             <td>
-                <button class="button">Кнопка 3</button>
+                <button class="button">Сохранить</button>
             </td>
             <td>
-                <button class="button">Начать новую игру</button>
+                <form method="post" action="">
+                    <button class="button" type="submit" value="newGame">Начать новую игру</button>
+                </form>
             </td>
         </tr>
     </table>

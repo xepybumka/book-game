@@ -1,11 +1,18 @@
 <?php
-    $items = ['1', '2', '3', '4', '5', '6', '7'];
+
+use GameBook\Classes\Hero;
+use GameBook\Classes\Items\Item;
+
+/** @var Hero $hero */
+$hero = $_SESSION['hero'];
+$bag = $hero->getBag();
 ?>
 
 <table>
-    <?php foreach ($items as $key => $item) { ?>
+    <?php /** @var Item $item */
+    foreach ($bag->getItems() as $key => $item) { ?>
         <tr>
-            <td><?= $key + 1 ?>.  <?= $item ?></td>
+            <td><?= $key ?>.  <?= $item->getName() ?></td>
         </tr>
     <?php } ?>
 </table>

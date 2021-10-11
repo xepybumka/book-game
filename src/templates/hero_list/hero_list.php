@@ -1,13 +1,19 @@
 <?php
-    $templatePath = 'src/templates/';
-    $heroListPath = $templatePath . "hero_list/";
 
-    $dexterity = 0;
-    $power = 0;
-    $maxPower = 0;
-    $charisma = 0;
-    $money = 0;
-    $food = 0;
+use GameBook\Classes\Hero;
+
+$templatePath = 'src/templates/';
+$heroListPath = $templatePath . "hero_list/";
+
+/** @var Hero $hero */
+$hero = $_SESSION['hero'];
+$dexterity = $hero->getDexterity();
+$power = $hero->getPower();
+//TODO::Максимальное кол-во сил
+$maxPower = $power;
+$charisma = $hero->getCharisma();
+$money = $hero->getMoney();
+$food = $hero->getFood();
 ?>
 
 <div class="hero-list">
@@ -41,20 +47,20 @@
     <div class="line-table-separator"></div>
     <table>
         <tr>
-            <th>В заплечном мешке</th>
-            <th>Информация</th>
+            <th style="width: 35%;">В заплечном мешке</th>
+            <th style="width: 65%;">Информация</th>
         </tr>
         <tr>
-            <td class="item-list">
+            <td style="width: 35%;" class="item-list" >
                 <?php require_once ($heroListPath . "bag.php")?>
             </td>
-            <td class="info">
-                <?php require_once ($heroListPath . "information.php")?>
+            <td style="width: 65%;" class="info">
+                <?php require_once ($heroListPath . "notes.php")?>
             </td>
         </tr>
     </table>
 
-    <div class="hero-list-buttons">
+    <div class="game-buttons">
         <button class="button">Восполнить здоровье (Еда: <?= $food ?>)</button>
     </div>
 </div>
