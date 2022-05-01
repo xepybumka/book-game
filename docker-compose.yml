@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+
+  nginx:
+    image: nginx
+    environment:
+      - VIRTUAL_HOST=game.book
+    depends_on:
+      - php
+    volumes:
+      - ./docker/nginx/conf.d/default.nginx:/etc/nginx/conf.d/default.conf
+      - ./app/:/var/www/game-book/
+    networks:
+      - frontend
+      - backend
+
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./app/:/var/www/game-book/
+    networks:
+      - backend
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - backend
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      - VIRTUAL_HOST=phpmyadmin.local
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    networks:
+      - frontend
+      - backend
+
+networks:
+  frontend:
+    external:
+      name: proxy_proxy
+  backend:
