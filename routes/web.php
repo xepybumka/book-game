@@ -12,7 +12,30 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+$router->get('/', function () {
+    $menuPoints = [
+        'Главная',
+        'Правила'
+    ];
+    $parameters = [
+        'Ловкость',
+        'Сила',
+        'Сила мысли',
+        'Деньги',
+        'Еда',
+    ];
+    $testValues = [5, 12, 4, 6, 3];
+    $content = 'Hello World. Start page.';
+    return view('main',
+                [
+                    'content' => $content,
+                    'menuPoints' => $menuPoints,
+                    'parameters' => $parameters,
+                    'testValues' => $testValues
+                ]
+    );
+});
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/page/{$pageId}', function ($pageId) {
+    return 'Hello World. Page number #'.$pageId;
 });
