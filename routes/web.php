@@ -13,27 +13,7 @@
 |
 */
 $router->get('/', function () {
-    $menuPoints = [
-        'Главная',
-        'Правила'
-    ];
-    $parameters = [
-        'Ловкость',
-        'Сила',
-        'Сила мысли',
-        'Деньги',
-        'Еда',
-    ];
-    $testValues = [5, 12, 4, 6, 3];
-    $content = 'Hello World. Start page.';
-    return view('main',
-                [
-                    'content' => $content,
-                    'menuPoints' => $menuPoints,
-                    'parameters' => $parameters,
-                    'testValues' => $testValues
-                ]
-    );
+    return view('main');
 });
 
 $router->get('/page/{$pageId}', function ($pageId) {

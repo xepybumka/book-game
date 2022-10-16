@@ -1,4 +1,4 @@
-<header class="header mb-1">
+<header class="header mb-1 w-80">
     <nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
