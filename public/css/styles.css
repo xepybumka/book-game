@@ -93,7 +93,6 @@ pre {
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-    background: url("../images/sidebar-background-image.jpg");
 }
 
 /* The sidebar links */
@@ -104,10 +103,6 @@ pre {
     color: #818181;
     display: block;
     transition: 0.3s;
-}
-
-.sidebar div ul li {
-    background: url("../images/sidebar-background-image.jpg");
 }
 
 /* The sidebar links */
