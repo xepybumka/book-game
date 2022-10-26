@@ -34,13 +34,24 @@ div {
     line-height: 15.4px;
 }
 
-p {
+.content {
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     font-size: 16px;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
     line-height: 20px;
+    transition: left 2s cubic-bezier(0.0, 0.5, 0.5, 1.0);
+}
+
+.rules {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    display: none;
 }
 
 blockquote {
@@ -118,6 +129,11 @@ pre {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.rules .closebtn {
+    position: relative;
+    font-size: 36px;
 }
 
 .sidebar-texts p {

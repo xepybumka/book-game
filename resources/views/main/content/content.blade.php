@@ -1,5 +1,5 @@
-<div>
-    <h3>Content here</h3>
+<div id="content" class="content">
+    <h3>Заголовок текста книги</h3>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id magna felis. Vestibulum rutrum convallis
         malesuada. Etiam dictum varius ornare. Morbi bibendum consectetur tortor sit amet hendrerit. Morbi eleifend erat

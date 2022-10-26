@@ -8,7 +8,9 @@
         <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
             <div class="btn-group-justified px-1 mt-1" role="toolbar">
                 <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block">Новая игра</button>
+                    <button type="button" class="btn btn-primary btn-block">
+                        Новая игра
+                    </button>
                 </div>
                 <div class="btn-group px-2 header__button">
                     <button type="button" class="btn btn-primary btn-block">
@@ -21,8 +23,7 @@
                     </button>
                 </div>
                 <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block" data-toggle="collapse"
-                            data-target="#navbarNavDropdown">
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#collapseExample" onclick="showRules()">
                         Правила
                     </button>
                 </div>
