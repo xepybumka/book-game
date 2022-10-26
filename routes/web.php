@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -12,9 +16,7 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/', function () {
-    return view('main');
-});
+$router->get('/', 'MainController@index');
 
 $router->get('/page/{$pageId}', function ($pageId) {
     return 'Hello World. Page number #'.$pageId;

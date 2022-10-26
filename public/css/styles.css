@@ -93,6 +93,7 @@ pre {
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+    background: url("../images/sidebar-background-image.jpg");
 }
 
 /* The sidebar links */
@@ -103,6 +104,16 @@ pre {
     color: #818181;
     display: block;
     transition: 0.3s;
+}
+
+.sidebar div ul li {
+    background: url("../images/sidebar-background-image.jpg");
+}
+
+/* The sidebar links */
+.sidebar .parameter{
+    font-family: 'Beer money';
+    font-weight: 400;
 }
 
 /* Position and style the close button (top right corner) */
@@ -132,6 +143,12 @@ pre {
     border: none;
 }
 
+.new-game-button {
+    background: url(../icons/new-game.png) no-repeat;
+    background-size: 3em;
+    float: left;
+    width: 50px;
+    height: 50px;}
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidebar {
@@ -141,4 +158,11 @@ pre {
     .sidebar a {
         font-size: 18px;
     }
+}
+
+@font-face {
+    font-family: 'Beer money';
+    src: local('beer money'), local('beermoney'), url('../fonts/beermoney.woff2') format('woff2'), url('../fonts/beermoney.woff') format('woff'), url('../fonts/beermoney.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
