@@ -8,12 +8,12 @@ function closeNav() {
     document.getElementById("button-show-sidebar").style.display = "block";
 }
 
-function showRules() {
+function showTutorial() {
     $("#content").fadeOut();
-    $("#rules").fadeIn();
+    $("#tutorial").fadeIn();
 }
 
-function closeRules() {
+function closeTutorial() {
     $("#content").fadeIn();
-    $("#rules").fadeOut();
+    $("#tutorial").fadeOut();
 }

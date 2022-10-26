@@ -23,7 +23,7 @@
                     </button>
                 </div>
                 <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#collapseExample" onclick="showRules()">
+                    <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#collapseExample" onclick="showTutorial()">
                         Правила
                     </button>
                 </div>

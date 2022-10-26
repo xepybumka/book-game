@@ -23,7 +23,7 @@
             <p class="parameter">Предмет 4</p>
             <p class="parameter">Предмет 5</p>
             <p class="parameter">Предмет 6</p>
-            <p>Предмет 7</p>
+            <p class="parameter">Предмет 7</p>
         </li>
         <li class="list-group-item">
             <h4>Информация</h4>

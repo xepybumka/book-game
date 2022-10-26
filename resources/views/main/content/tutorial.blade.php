@@ -1,5 +1,5 @@
-<div id="rules" class="rules">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeRules()">&times;</a>
+<div id="tutorial" class="tutorial">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeTutorial()">&times;</a>
         <h3>Правила</h3>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id magna felis. Vestibulum rutrum convallis

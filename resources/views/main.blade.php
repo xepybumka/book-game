@@ -13,7 +13,6 @@
     <script src="/js/jquery-3.6.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/scripts.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">
@@ -21,10 +20,9 @@
     <div class="float-right w-15">
         @include('main.content.sidebar')
     </div>
-
     <div class="float-left w-80">
         @include('main.content.content')
-        @include('main.content.rules')
+        @include('main.content.tutorial')
     </div>
 </div>
 </body>
