@@ -3,6 +3,7 @@
 }
 
 .menu-hidden-buttons {
+    margin-top: 15px;
     position: fixed;
     display: block;
     left: -700px;
