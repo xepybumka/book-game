@@ -1,5 +1,7 @@
 <div id="tutorial" class="tutorial">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeTutorial()">&times;</a>
+    <a href="javascript:void(0)" onclick="closeTutorial()">
+        <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">
+    </a>
     <h3>Правила</h3>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id magna felis. Vestibulum rutrum convallis

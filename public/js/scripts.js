@@ -17,3 +17,13 @@ function closeTutorial() {
     $("#content").fadeIn();
     $("#tutorial").fadeOut();
 }
+
+function showMenu(){
+    $('.menu-hidden-buttons').removeClass('hidden').addClass('active');
+    document.getElementById("open-menu-button").style.opacity = '0';
+}
+
+function closeMenu(){
+    $('.menu-hidden-buttons').removeClass('active');
+    document.getElementById("open-menu-button").style.opacity = '1';
+}

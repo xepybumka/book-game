@@ -1,3 +1,45 @@
+.header {
+    margin: 10px;
+}
+
+.menu-hidden-buttons {
+    position: fixed;
+    display: block;
+    left: -700px;
+    top: 0;
+    z-index: 50;
+    animation-name: menuClose;
+    animation-duration: 1s;
+}
+
+.menu-hidden-buttons.active {
+    left: 0;
+    animation-name: menuOpen;
+    animation-duration: 1s;
+}
+
+.menu-hidden-buttons.active .close-menu {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 70px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+.close-menu {
+    transform: scale(0);
+    transition: transform 1s;
+}
+.close-menu-active {
+    transform: scale(1);
+    transition: transform 1s 1s;
+}
+
 header, h1 {
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     font-size: 24px;
@@ -92,6 +134,10 @@ pre {
     text-align: center;
 }
 
+.sidebar-button-block {
+    margin-right: 15px;
+}
+
 /* The sidebar menu */
 .sidebar {
     height: 100%; /* 100% Full-height */
@@ -163,6 +209,15 @@ pre {
     height: 50px;
 }
 
+.menu-button {
+    border: none;
+    border-radius: 40px;
+}
+
+.hidden {
+    display: none !important;
+}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidebar {
@@ -179,4 +234,22 @@ pre {
     src: local('beer money'), local('beermoney'), url('../fonts/beermoney.woff2') format('woff2'), url('../fonts/beermoney.woff') format('woff'), url('../fonts/beermoney.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+}
+
+@keyframes menuOpen {
+    from {
+        left: -700px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes menuClose {
+    from {
+        left: 0;
+    }
+    to {
+        left: -700px;
+    }
 }

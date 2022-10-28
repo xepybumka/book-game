@@ -17,7 +17,7 @@
 <body>
 <div class="container-fluid">
     @include('main.content.header')
-    <div class="float-right w-15">
+    <div class="float-right sidebar-button-block">
         @include('main.content.sidebar')
     </div>
     <div class="float-left w-80">

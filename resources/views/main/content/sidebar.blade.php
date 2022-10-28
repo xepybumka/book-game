@@ -1,10 +1,10 @@
-<button id="button-show-sidebar" style="display: block;" class="ws-btn w3-dark-grey w3-padding w3-margin-bottom"
-        onclick="openNav()">☰ Лист персонажа
+<button id="button-show-sidebar" class="menu-button" onclick="openNav()">
+      <img src="/icons/icons8-about.svg" width="50" height="50" alt="О персонаже">
 </button>
-
 <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+        <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">
+    </a>
     <ul class="list-group">
         <li class="list-group-item">
             <p class="parameter">Ловкость <span class="number_circle">12</span></p>

@@ -1,33 +1,34 @@
-<header class="header mb-1 w-80">
+<header class="mb-1 w-80 mt-1">
     <nav class="navbar navbar-toggleable-md navbar-light pt-0 pb-0">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarNavDropdown">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="float-left"><a href="#" class="button-left"><span class="fa fa-fw fa-bars "></span></a></div>
-        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNavDropdown">
+        <div class="аlex-row-reverse mt-1" id="navbarNavDropdown">
             <div class="btn-group-justified px-1 mt-1" role="toolbar">
-                <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block">
-                        Новая игра
-                    </button>
+                <div id="menu-button">
+                    <div class="btn-group px-2 ">
+                            <div id="open-menu-button">
+                                <button class="menu-button" type="button" onclick="showMenu()">
+                                    <img src="/icons/icons8-menu.svg" width="50" height="50" alt="Меню">
+                                </button>
+                            </div>
+                        <div id="menu-hidden-buttons" class="menu-hidden-buttons hidden">
+                            <button class="menu-button" type="button" onclick="closeMenu()">
+                                <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">
+                            </button>
+                            <button type="button" class="menu-button">
+                                <img src="/icons/icons8-news.svg" width="50" height="50" alt="Новая игра">
+                            </button>
+                            <button type="button" class="menu-button">
+                                <img src="/icons/icons8-edit.svg" width="50" height="50" alt="Сохранить">
+                            </button>
+                            <button type="button" class="menu-button">
+                                <img src="/icons/icons8-edit.svg" width="50" height="50" alt="Сохранить">
+                            </button>
+                            <button type="button" class="menu-button" onclick="showTutorial()">
+                                <img src="/icons/icons8-bookmark.svg" width="50" height="50" alt="Правила">
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block">
-                        Сохранить
-                    </button>
-                </div>
-                <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block">
-                        Загрузить
-                    </button>
-                </div>
-                <div class="btn-group px-2 header__button">
-                    <button type="button" class="btn btn-primary btn-block" data-toggle="collapse"
-                            data-target="#collapseExample" onclick="showTutorial()">
-                        Правила
-                    </button>
-                </div>
+
             </div>
         </div>
     </nav>
