@@ -18,12 +18,12 @@ function closeTutorial() {
     $("#tutorial").fadeOut();
 }
 
-function showMenu(){
+function showMenu() {
     $('.menu-hidden-buttons').removeClass('hidden').addClass('active');
     document.getElementById("open-menu-button").style.opacity = '0';
 }
 
-function closeMenu(){
+function closeMenu() {
     $('.menu-hidden-buttons').removeClass('active');
-   setTimeout( "document.getElementById('open-menu-button').style.opacity = '1';", 300);
+    setTimeout("document.getElementById('open-menu-button').style.opacity = '1';", 300);
 }
