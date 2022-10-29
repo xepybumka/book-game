@@ -16,8 +16,11 @@ error_reporting(E_ALL);
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/', 'MainController@index');
+$router->get('/', 'MainController@index'); // Start page
 
-$router->get('/page/{$pageId}', function ($pageId) {
-    return 'Hello World. Page number #'.$pageId;
-});
+$router->get('/new_game', 'MainController@newGame'); // New Game page
+$router->get('/create_character', 'MainController@createCharacter'); // Creating character page
+$router->get('/tutorial', 'MainController@tutorial'); // Full tutorial page
+$router->get('/add_content', 'MainController@addContent'); // Admin add page/content page to the databases
+
+$router->post('/page/{pageId}','MainController@show');

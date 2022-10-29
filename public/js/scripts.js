@@ -11,6 +11,7 @@ function closeNav() {
 function showTutorial() {
     $("#content").fadeOut();
     $("#tutorial").fadeIn();
+    closeMenu();
 }
 
 function closeTutorial() {

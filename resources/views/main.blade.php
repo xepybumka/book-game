@@ -22,8 +22,8 @@
         @include('main.content.sidebar')
     </div>
     <div class="float-left w-80">
-        @include('main.content.content')
-        @include('main.content.tutorial')
+        @include('main.content.content', ['title'=>$contentTitle, 'text'=>$contentText])
+        @include('main.content.tutorial', ['title'=>$tutorialTitle, 'text'=>$tutorialText])
     </div>
 </div>
 </body>

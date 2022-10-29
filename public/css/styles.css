@@ -88,6 +88,14 @@ div {
     transition: left 2s cubic-bezier(0.0, 0.5, 0.5, 1.0);
 }
 
+.page-text {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+}
+
 .tutorial {
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     font-size: 16px;
