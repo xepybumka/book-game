@@ -1,6 +1,3 @@
-<button id="button-show-sidebar" class="menu-button" onclick="openNav()">
-      <img src="/icons/icons8-about.svg" width="50" height="50" alt="О персонаже">
-</button>
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
         <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">

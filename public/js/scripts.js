@@ -25,5 +25,5 @@ function showMenu(){
 
 function closeMenu(){
     $('.menu-hidden-buttons').removeClass('active');
-    document.getElementById("open-menu-button").style.opacity = '1';
+   setTimeout( "document.getElementById('open-menu-button').style.opacity = '1';", 300);
 }
