@@ -29,23 +29,28 @@ class MainController extends Controller
         return view('main', $data);
     }
 
-    public function newGame() {
+    public function newGame()
+    {
         return view('main');
     }
 
-    public function createCharacter() {
+    public function createCharacter()
+    {
         return view('main');
     }
 
-    public function tutorial() {
+    public function tutorial()
+    {
         return view('main');
     }
 
-    public function addContent() {
+    public function addContent()
+    {
         return view('main');
     }
 
-    public function show(Request $request) {
+    public function show(Request $request)
+    {
         dd($request);
         return view('main');
     }

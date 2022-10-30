@@ -23,4 +23,4 @@ $router->get('/create_character', 'MainController@createCharacter'); // Creating
 $router->get('/tutorial', 'MainController@tutorial'); // Full tutorial page
 $router->get('/add_content', 'MainController@addContent'); // Admin add page/content page to the databases
 
-$router->post('/page/{pageId}','MainController@show');
+$router->post('/page/{pageId}', 'MainController@show');

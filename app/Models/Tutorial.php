@@ -28,7 +28,7 @@ class Tutorial extends Model
         $rules = [];
         $rulesJson = file_get_contents('../database/sources/rules.json');
         if ($rulesJson) {
-            foreach(json_decode($rulesJson) as $paragraph) {
+            foreach (json_decode($rulesJson) as $paragraph) {
                 $rules[] = [
                     'title' => $paragraph->title,
                     'text' => $paragraph->text
