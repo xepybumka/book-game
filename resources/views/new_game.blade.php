@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('header')
-    @include('main.content.header')
+    @include('main.content.header', ['showTutorialButton'=>false, 'showHomeButton' =>true])
 @endsection
 
 @section('sidebar')

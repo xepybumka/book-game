@@ -21,9 +21,7 @@
     <div class="float-right sidebar-button-block">
         @yield('sidebar')
     </div>
-    <div class="float-left w-80">
-        @yield('content')
-    </div>
+    @yield('content')
 </div>
 </body>
 </html>

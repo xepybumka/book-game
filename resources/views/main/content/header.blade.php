@@ -21,9 +21,16 @@
                         <button type="button" class="menu-button">
                             <img src="/icons/icons8-image-file.svg" width="50" height="50" alt="Загрузить">
                         </button>
-                        <button type="button" class="menu-button" onclick="showTutorial()">
-                            <img src="/icons/icons8-bookmark.svg" width="50" height="50" alt="Правила">
-                        </button>
+                        @if($showTutorialButton)
+                            <button type="button" class="menu-button" onclick="showTutorial()">
+                                <img src="/icons/icons8-bookmark.svg" width="50" height="50" alt="Правила">
+                            </button>
+                        @endif
+                        @if($showHomeButton)
+                            <button type="button" class="menu-button" onclick="redirectTo('{{url("/")}}');">
+                                <img src="/icons/icons8-external-link.svg" width="50" height="50" alt="На главную страницу">
+                            </button>
+                        @endif
                     </div>
                 </div>
             </div>
