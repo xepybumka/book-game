@@ -44,7 +44,7 @@ Roadmap:
 * php -S localhost:8000 -t public
 
 В папку /database/sources/ необходимо разместить необходимые файлы:
-    - rules.json
+* rules.json
 
 Игра будет доступна по адресу http://localhost:8000/
 
