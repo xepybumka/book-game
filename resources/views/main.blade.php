@@ -23,7 +23,7 @@
     </div>
     <div class="float-left w-80">
         @include('main.content.content', ['title'=>$contentTitle, 'text'=>$contentText])
-        @include('main.content.tutorial', ['title'=>$tutorialTitle, 'text'=>$tutorialText])
+        @include('main.content.tutorial', ['title'=>$tutorialTitle, 'content'=>$tutorialContent])
     </div>
 </div>
 </body>
