@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tutorial;
 use Illuminate\Http\Request;
 
-class MainController extends Controller
+class BookController extends Controller
 {
     public function index()
     {
@@ -19,19 +19,25 @@ class MainController extends Controller
             Для того чтобы начать игру, нажмите кнопку в верхнем левом углу и выберите "Новая игра".
         ';
         $tutorialTitle = 'Правила';
-        $tutorialContent = $tutorial->getRules();
+        $rules = $tutorial->getRules();
         $data = [
             'contentTitle' => $contentTitle,
             'contentText' => $contentText,
             'tutorialTitle' => $tutorialTitle,
-            'tutorialContent' => $tutorialContent
+            'rules' => $rules
         ];
-        return view('main', $data);
+        return view('index', $data);
     }
 
     public function newGame()
     {
-        return view('main');
+        $tutorial = new Tutorial();
+        $title = 'Новая игра';
+        $data = [
+            'title'=> $title,
+            'rules'=>$tutorial->getRules()
+        ];
+        return view('new_game', $data);
     }
 
     public function createCharacter()
@@ -40,11 +46,6 @@ class MainController extends Controller
     }
 
     public function tutorial()
-    {
-        return view('main');
-    }
-
-    public function addContent()
     {
         return view('main');
     }

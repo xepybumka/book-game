@@ -17,13 +17,12 @@
 </head>
 <body>
 <div class="container-fluid">
-    @include('main.content.header')
+    @yield ('header')
     <div class="float-right sidebar-button-block">
-        @include('main.content.sidebar')
+        @yield('sidebar')
     </div>
     <div class="float-left w-80">
-        @include('main.content.content', ['title'=>$contentTitle, 'text'=>$contentText])
-        @include('main.content.tutorial', ['title'=>$tutorialTitle, 'content'=>$tutorialContent])
+        @yield('content')
     </div>
 </div>
 </body>

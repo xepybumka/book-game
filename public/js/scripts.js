@@ -28,3 +28,7 @@ function closeMenu() {
     $('.menu-hidden-buttons').removeClass('active');
     setTimeout("document.getElementById('open-menu-button').style.opacity = '1';", 300);
 }
+
+function redirectTo(url) {
+    window.location.href = url;
+}

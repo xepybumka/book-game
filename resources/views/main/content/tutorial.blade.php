@@ -3,8 +3,7 @@
         <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">
     </a>
     <h3>{{$title}}</h3>
-    @foreach($content as $paragraph)
-        <h4 class="text-center">{{$paragraph['title']}}</h4>
-        <p class="text-center">{{$paragraph['text']}}</p>
+    @foreach($rules as $rule)
+        @include('main.content.rule',['title'=>$rule['title'],'text'=>$rule['text']])
     @endforeach
 </div>

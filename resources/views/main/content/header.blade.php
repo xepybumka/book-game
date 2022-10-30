@@ -12,14 +12,14 @@
                         <button class="menu-button" type="button" onclick="closeMenu()">
                             <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">
                         </button>
-                        <button type="button" class="menu-button">
+                        <button type="button" class="menu-button" onclick="redirectTo('{{url("new_game")}}');">
                             <img src="/icons/icons8-news.svg" width="50" height="50" alt="Новая игра">
                         </button>
                         <button type="button" class="menu-button">
                             <img src="/icons/icons8-edit.svg" width="50" height="50" alt="Сохранить">
                         </button>
                         <button type="button" class="menu-button">
-                            <img src="/icons/icons8-edit.svg" width="50" height="50" alt="Сохранить">
+                            <img src="/icons/icons8-image-file.svg" width="50" height="50" alt="Загрузить">
                         </button>
                         <button type="button" class="menu-button" onclick="showTutorial()">
                             <img src="/icons/icons8-bookmark.svg" width="50" height="50" alt="Правила">
@@ -27,11 +27,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="float-right">
-            <button id="button-show-sidebar" class="menu-button" onclick="openNav()">
-                <img src="/icons/icons8-about.svg" width="50" height="50" alt="О персонаже">
-            </button>
         </div>
     </nav>
 </header>
