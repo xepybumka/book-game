@@ -106,6 +106,7 @@ div {
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
+    text-align: justify;
 }
 
 .tutorial {

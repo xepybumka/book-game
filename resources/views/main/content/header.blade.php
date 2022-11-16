@@ -8,7 +8,8 @@
                         <img src="/icons/icons8-menu.svg" width="50" height="50">
                     </button>
                     <div id="menu-hidden-buttons" class="header__menu-hidden-buttons hidden">
-                        <button class="header__menu-button" data-title="Свернуть меню" type="button" onclick="closeMenu()">
+                        <button class="header__menu-button" data-title="Свернуть меню" type="button"
+                                onclick="closeMenu()">
                             <img src="/icons/icons8-cancel.svg" width="50" height="50">
                         </button>
                         <button id="header-menu-new-game-button" data-title="Новая игра" type="button"

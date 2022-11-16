@@ -22,7 +22,7 @@ class BookController extends Controller
             'contentText' => $contentText,
             'showTutorialButton' => false,
             'showHomeButton' => false,
-            'showSidebarButton' => true
+            'showSidebarButton' => false
         ];
         return view('index', $data);
     }
@@ -32,7 +32,10 @@ class BookController extends Controller
         $tutorial = new Tutorial();
         $data = [
             'title' => 'Новая игра',
-            'rules' => $tutorial->getRules()
+            'rules' => $tutorial->getRules(),
+            'showTutorialButton' => false,
+            'showHomeButton' => true,
+            'showSidebarButton' => false
         ];
         return view('new_game', $data);
     }

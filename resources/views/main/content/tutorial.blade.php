@@ -4,6 +4,6 @@
     </a>
     <h3>{{$title}}</h3>
     @foreach($rules as $rule)
-        @include('main.content.rule',['title'=>$rule['title'],'text'=>$rule['text']])
+        @include('main.content.rule', ['title' => $rule['title'], 'text' => $rule['text']])
     @endforeach
 </div>

@@ -1,2 +1,2 @@
-<h4 class="text-center">{{$title}}</h4>
-<p class="text-center">{{$text}}</p>
+<h4>{{$title}}</h4>
+<p>{{$text}}</p>

@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('header')
-    @include('main.content.header', ['showTutorialButton'=>false, 'showHomeButton' =>true])
+    @include('main.content.header', ['showTutorialButton' => $showTutorialButton, 'showHomeButton' => $showHomeButton])
 @endsection
 
 @section('sidebar')
@@ -11,9 +11,9 @@
 @section('content')
     <div id="content" class="content mb-5">
         <h3 class="text-center">{{$title}}</h3>
-        <div id="page" class="text-center page-text">
+        <div class="page-text">
             @foreach($rules as $rule)
-                @include('main.content.rule',['title'=>$rule['title'],'text'=>$rule['text']])
+                @include('main.content.rule', ['title' => $rule['title'], 'text' => $rule['text']])
             @endforeach
         </div>
         <div class="text-center page-text mt-5 border">
