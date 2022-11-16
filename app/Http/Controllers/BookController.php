@@ -16,9 +16,13 @@ class BookController extends Controller
             Надеюсь, что вам понравится то приключение, что подготовили вам разработчик и писатель. Ну-с! Чего мы ждем?
             Для того чтобы начать игру, нажмите кнопку в верхнем левом углу и выберите "Новая игра".
         ';
+
         $data = [
             'contentTitle' => 'Добро пожаловать!',
             'contentText' => $contentText,
+            'showTutorialButton' => false,
+            'showHomeButton' => false,
+            'showSidebarButton' => false
         ];
         return view('index', $data);
     }

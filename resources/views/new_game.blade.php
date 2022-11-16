@@ -20,7 +20,7 @@
             <p class="mt-3">
                 Я внимательно прочел(ла) все правила и готов(а) начать приключение!
             </p>
-            <button class="menu-button" type="button" onclick="redirectTo('{{url("create_character")}}');">
+            <button class="header__menu-button" type="button" onclick="redirectTo('{{url("create_character")}}');">
                 <img src="/icons/icons8-tick-box.svg" width="50" height="50" alt="Меню">
             </button>
         </div>

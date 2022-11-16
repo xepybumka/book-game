@@ -1,11 +1,11 @@
 function openNav() {
     document.getElementById("mySidebar").style.width = "20%";
-    document.getElementById("button-show-sidebar").style.display = "none";
+    document.getElementById("header-show-sidebar-button").style.display = "none";
 }
 
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("button-show-sidebar").style.display = "block";
+    document.getElementById("header-show-sidebar-button").style.display = "block";
 }
 
 function showTutorial() {
@@ -20,12 +20,12 @@ function closeTutorial() {
 }
 
 function showMenu() {
-    $('.menu-hidden-buttons').removeClass('hidden').addClass('active');
+    $('.header__menu-hidden-buttons').removeClass('hidden').addClass('active');
     document.getElementById("open-menu-button").style.opacity = '0';
 }
 
 function closeMenu() {
-    $('.menu-hidden-buttons').removeClass('active');
+    $('.header__menu-hidden-buttons').removeClass('active');
     setTimeout("document.getElementById('open-menu-button').style.opacity = '1';", 300);
 }
 
