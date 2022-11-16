@@ -22,7 +22,7 @@ class BookController extends Controller
             'contentText' => $contentText,
             'showTutorialButton' => false,
             'showHomeButton' => false,
-            'showSidebarButton' => false
+            'showSidebarButton' => true
         ];
         return view('index', $data);
     }

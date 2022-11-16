@@ -197,6 +197,9 @@ pre {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    border: none;
+    border-radius: 40px;
+    transition-duration: 0.4s;
 }
 
 .tutorial .closebtn {
@@ -233,10 +236,19 @@ pre {
     display: none !important;
 }
 
-
-
+.closebtn:hover,
 .header__menu-button:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.closebtn:hover:hover::after,
+.header__menu-button:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    transition: 0.5s;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */

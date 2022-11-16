@@ -1,7 +1,9 @@
 <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
-        <img src="/icons/icons8-cancel.svg" width="50" height="50" alt="Меню">
-    </a>
+
+    <button id="open-menu-button" data-title="Свернуть" class="closebtn" type="button"
+            onclick="closeNav()">
+        <img src="/icons/icons8-cancel.svg" width="50" height="50">
+    </button>
     <ul class="list-group">
         <li class="list-group-item">
             <p class="parameter">Ловкость <span class="number_circle">12</span></p>
