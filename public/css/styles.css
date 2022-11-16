@@ -1,0 +1,289 @@
+.header {
+    margin: 10px;
+}
+
+.header__sidebar-button {
+    margin-top: 15px;
+}
+
+.header__menu-hidden-buttons {
+    margin-top: 15px;
+    position: fixed;
+    display: block;
+    left: -700px;
+    top: 0;
+    z-index: 50;
+    animation-name: menuClose;
+    animation-duration: 1s;
+}
+
+.header__menu-hidden-buttons.active {
+    left: 0;
+    animation-name: menuOpen;
+    animation-duration: 1s;
+}
+
+.header__menu-hidden-buttons.active .close-menu {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 70px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+.close-menu {
+    transform: scale(0);
+    transition: transform 1s;
+}
+
+.close-menu-active {
+    transform: scale(1);
+    transition: transform 1s 1s;
+}
+
+header, h1 {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+
+h3 {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+button {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+
+div {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+.content {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    transition: left 2s cubic-bezier(0.0, 0.5, 0.5, 1.0);
+}
+
+.content__text {
+    text-align: center;
+    hyphens: auto;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 0.25rem !important;
+}
+
+.page-text {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.tutorial {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+    display: none;
+}
+
+blockquote {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+pre {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 13px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 18.5714px;
+}
+
+.header__button {
+    width: 24%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.number_circle {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 16px;
+    width: 12px;
+    line-height: 12px;
+    text-align: center;
+}
+
+.sidebar-button-block {
+    margin-right: 15px;
+}
+
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #f8f9fa; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* The sidebar links */
+.sidebar .parameter {
+    font-family: 'Beer money';
+    font-weight: 400;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    border: none;
+    border-radius: 40px;
+    transition-duration: 0.4s;
+}
+
+.tutorial .closebtn {
+    position: relative;
+    font-size: 36px;
+}
+
+.sidebar-texts p {
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-size: 21px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.header__menu-button {
+    border: none;
+    border-radius: 40px;
+    transition-duration: 0.4s;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.closebtn:hover,
+.header__menu-button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.closebtn:hover:hover::after,
+.header__menu-button:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    transition: 0.5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+@font-face {
+    font-family: 'Beer money';
+    src: local('beer money'), local('beermoney'), url('../fonts/beermoney.woff2') format('woff2'), url('../fonts/beermoney.woff') format('woff'), url('../fonts/beermoney.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@keyframes menuOpen {
+    from {
+        left: -700px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes menuClose {
+    from {
+        left: 0;
+    }
+    to {
+        left: -700px;
+    }
+}

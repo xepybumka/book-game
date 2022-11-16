@@ -1,19 +1,40 @@
 {
-    "name": "blaggame/book-game",
-    "description": "This is a app for game-book \"Povelitel bezbrejnoy pustyni\" by \"Dmytry Braslavsky\" ",
+    "name": "laravel/lumen",
+    "description": "The Laravel Lumen Framework.",
+    "keywords": ["framework", "laravel", "lumen"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "laravel/lumen-framework": "^9.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "phpunit/phpunit": "^9.5.10"
+    },
     "autoload": {
         "psr-4": {
-            "GameBook\\": "src/"
-        },
-        "files": [
-            "src/functions.php"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
-    "authors": [
-        {
-            "name": "Michail Blagodatskih",
-            "email": "michail.chernov@fastdev.se"
-        }
-    ],
-    "require": {}
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
