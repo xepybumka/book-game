@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+
+    nginx:
+        container_name: nginx
+        image: nginx:latest
+        ports:
+            - "8080:80"
+            - "443:443"
+        volumes:
+            - ./app:/var/www/project
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php
+
+    php:
+        container_name: php
+        build:
+            context: .
+            dockerfile: ./php/Dockerfile
+        ports:
+            -   "9000:9000"
+        volumes:
+            - ./app:/var/www/project
+            - ./docker/configs/php/php.ini:/usr/local/etc/php/conf.d/custom.ini
+
+    postgres:
+        container_name: postgres
+        image: postgres:latest
+        volumes:
+            - ./postgres:/data/postgres
+        restart: always # always restart unless stopped manually
+        environment:
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        ports:
+            - 5432:5432
+
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+            PGADMIN_CONFIG_SERVER_MODE: 'False'
+        volumes:
+            - ./pgadmin:/var/lib/pgadmin
+        ports:
+            - "${PGADMIN_PORT:-5050}:80"
+        restart: unless-stopped
