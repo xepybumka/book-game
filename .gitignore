@@ -1,6 +1,9 @@
 ### PhpStorm ###
 /.idea/
 
+## Env ###
+.env
+
 ### PHPUnit ###
 # Covers PHPUnit
 # Reference: https://phpunit.de/
@@ -76,3 +79,4 @@
 
 ### Postgres ###
 /pgadmin/
+
