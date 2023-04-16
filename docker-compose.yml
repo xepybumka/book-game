@@ -2,33 +2,31 @@ version: '3.8'
 services:
 
     nginx:
-        container_name: nginx
+        container_name: ${COMPOSE_PROJECT_NAME}-nginx
         image: nginx:latest
         ports:
             - "8080:80"
             - "443:443"
         volumes:
-            - ./app:/var/www/project
-            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./src:/var/www
+            - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
         links:
             - php
 
     php:
-        container_name: php
-        extra_hosts:
-            -   "host.docker.internal:host-gateway"
+        container_name: ${COMPOSE_PROJECT_NAME}-php
         build:
-            context: .
-            dockerfile: ./php/Dockerfile
-        ports:
-            -   "9000:9000"
+            args:
+                user: mchernov
+                uid: 1000
+            context: ./
+            dockerfile: ./.docker/php/Dockerfile
         volumes:
-            - ./app:/var/www/project
-            - ./php/php.ini:/usr/local/etc/php/conf.d/custom.ini
-            - ./php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+            - ./src:/var/www/
+            - ./.docker/php/php.ini:/usr/local/etc/php/conf.d/custom.ini
 
     postgres:
-        container_name: postgres
+        container_name: ${COMPOSE_PROJECT_NAME}-postgres
         image: postgres:latest
         volumes:
             - ./postgres:/data/postgres
@@ -38,17 +36,15 @@ services:
             - POSTGRES_USER=${POSTGRES_USER}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
         ports:
-            - 5432:5432
+            - ${POSTGRES_PORT:-5432}:5432
 
     pgadmin:
-        container_name: pgadmin
+        container_name: ${COMPOSE_PROJECT_NAME}-pgadmin
         image: dpage/pgadmin4
         environment:
             PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
             PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
             PGADMIN_CONFIG_SERVER_MODE: 'False'
-        volumes:
-            - ./pgadmin:/var/lib/pgadmin
         ports:
             - "${PGADMIN_PORT:-5050}:80"
         restart: unless-stopped
