@@ -1,11 +1,10 @@
 ### PhpStorm ###
 /.idea/
-
-### PgAdmin ###
-/postgres/
-
-### Postgres ###
-/pgadmin/
-
 ### Configs ###
 .env
+
+### Docker ###
+/docker
+/nginx
+/pgadmin
+/postgres

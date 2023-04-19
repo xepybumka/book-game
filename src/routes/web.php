@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Основные роуты для пользователей
+Route::get('/', [GameController::class, 'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Роуты для администрации игры
+Route::get('/admin', [AdminController::class, 'index']);
+
