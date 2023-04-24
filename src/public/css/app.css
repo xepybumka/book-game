@@ -1,4 +1,4 @@
-    /* Reset */
+/* Reset */
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
@@ -367,7 +367,7 @@ textarea {
     padding: 0.2em 0;
 }
 
-    /* Fonts */
+/* Fonts */
 
 /* gabriela-regular - latin */
 @font-face {
@@ -388,7 +388,7 @@ textarea {
     url('../fonts/salsa-v17-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-    /* Styles */
+/* Styles */
 
 html {
     box-sizing: border-box;
@@ -397,7 +397,23 @@ html {
     box-sizing: inherit;
 }
 
-.header__top-menu {
+body {
+    font-family: 'Salsa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    color: #FFFCFC;
+}
+
+.header__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.top-menu {
     position: absolute;
     width: 623px;
     height: 67px;
@@ -406,4 +422,27 @@ html {
 
     background: rgba(16, 20, 27, 0.4);
     border-radius: 0px 0px 30px 0px;
+}
+
+.top-menu__arrow {
+    margin-left: 0px;
+    position: absolute;
+    top: calc(50% - 20px/2 + 0.5px);
+    transform: translateY(-50%);
+}
+
+.top-menu__nav {
+    margin-left: 106px;
+    position: absolute;
+    top: calc(50% - 20px/2 + 0.5px);
+    transform: translateY(-50%);
+}
+
+.top-menu__list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-menu__item {
+    margin-left: 30px;
 }
