@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\GameController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Основные роуты для пользователей
-Route::get('/', [GameController::class, 'index']);
+Route::get('/', [BookController::class, 'index']);
 
 // Роуты для администрации игры
 Route::get('/admin', [AdminController::class, 'index']);
