@@ -4,20 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Book game</title>
-
-        <!-- Fonts -->
-
-        <!-- Styles -->
-        <link href="../css/app.css" rel="stylesheet"/>
+        <link href="../../css/app.css" rel="stylesheet"/>
     </head>
     <body>
         <header class="header">
             @yield('header')
         </header>
-
-        <div class="container">
+        <main class="main">
             @yield('content')
-        </div>
+        </main>
         <footer class="footer">
             @yield('footer')
         </footer>

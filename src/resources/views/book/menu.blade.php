@@ -8,16 +8,16 @@
         <nav class="top-menu__nav">
             <ul class="top-menu__list">
                 <li class="top-menu__item">
-                    <a href="#!" class="top-menu__point">Новая игра</a>
+                    <a href="#!" class="top-menu__link">Новая игра</a>
                 </li>
                 <li class="top-menu__item">
-                    <a href="#!" class="top-menu__point">Загрузить</a>
+                    <a href="#!" class="top-menu__link">Загрузить</a>
                 </li>
                 <li class="top-menu__item">
-                    <a href="#!" class="top-menu__point">Сохранить</a>
+                    <a href="#!" class="top-menu__link">Сохранить</a>
                 </li>
                 <li class="top-menu__item">
-                    <a href="#!" class="top-menu__point">Правила</a>
+                    <a href="#!" class="top-menu__link">Правила</a>
                 </li>
             </ul>
         </nav>

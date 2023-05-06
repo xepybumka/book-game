@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 // Основные роуты для пользователей
 Route::get('/', [BookController::class, 'index']);
+Route::get('/book', [BookController::class, 'book']);
+Route::get('/rules', [BookController::class, 'rules']);
 
 // Роуты для администрации игры
 Route::get('/admin', [AdminController::class, 'index']);
