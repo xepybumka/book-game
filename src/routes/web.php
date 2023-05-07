@@ -1,24 +1,29 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Paragraphs\ParagraphsController;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-// Основные роуты для пользователей
 Route::get('/', [BookController::class, 'index']);
 Route::get('/book', [BookController::class, 'book']);
 Route::get('/rules', [BookController::class, 'rules']);
 
-// Роуты для администрации игры
-Route::get('/admin', [AdminController::class, 'index']);
+// Административная панель
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+
+    Route::controller(ParagraphsController::class)->group(function () {
+        Route::get('/paragraphs/', 'index')->name('paragraphs.list');
+        Route::get('/paragraphs/{id}', 'show')->name('paragraphs.show');
+        Route::get('/paragraphs/{id}/edit', 'edit')->name('paragraphs.edit');
+        Route::get('/paragraphs/create', 'create')->name('paragraphs.create');
+        Route::get('/paragraphs/{id}/delete', 'delete')->name('paragraphs.delete');
+
+        Route::post('/paragraphs/{id}/edit', 'edit')->name('paragraphs.edit');
+        Route::post('/paragraphs/add', 'add')->name('paragraphs.add');
+        Route::post('/paragraphs/{id}/delete', 'delete')->name('paragraphs.delete');
+
+    });
+});
 
