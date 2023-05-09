@@ -5,15 +5,6 @@
 @section('content')
     <h1>{{$title}}</h1>
 
-    @if(Session::has('success'))
-        <div class="alert alert-success">
-            {{ Session::get('success') }}
-            @php
-                Session::forget('success');
-            @endphp
-        </div>
-    @endif
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Ошибка!</strong>
