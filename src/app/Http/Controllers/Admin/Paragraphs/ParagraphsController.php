@@ -121,4 +121,14 @@ class ParagraphsController extends Controller
         }
         return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно обновлён');
     }
+
+    /**
+     * @param int $id
+     * @return RedirectResponse
+     */
+    public function destroy(int $id): RedirectResponse
+    {
+        Paragraph::destroy($id);
+        return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно удален!');
+    }
 }
