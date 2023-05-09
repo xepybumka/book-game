@@ -7,7 +7,6 @@ use App\Models\Paragraph;
 use DateTime;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -21,7 +20,9 @@ class ParagraphsController extends Controller
     {
         //TODO:: add pagination
         $title = 'Параграфы';
-        $paragraphs = Paragraph::where('active', true)->get();
+        $paragraphs = Paragraph::where('active', true)
+            ->orderBy('position')
+            ->get();
         return view('admin.paragraphs.index', [
             'title' => $title,
             'paragraphs' => $paragraphs
