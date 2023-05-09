@@ -7,6 +7,7 @@ use App\Models\Paragraph;
 use DateTime;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -21,7 +22,7 @@ class ParagraphsController extends Controller
         //TODO:: add pagination
         $title = 'Параграфы';
         $paragraphs = Paragraph::where('active', true)->get();
-        return view('admin.paragraphs.index',[
+        return view('admin.paragraphs.index', [
             'title' => $title,
             'paragraphs' => $paragraphs
         ]);
@@ -35,7 +36,7 @@ class ParagraphsController extends Controller
     {
         $title = 'Параграф №' . $id;
         $paragraph = '';
-        return view('admin.paragraphs.show',[
+        return view('admin.paragraphs.show', [
             'title' => $title,
             'paragraph' => $paragraph
         ]);
@@ -49,7 +50,7 @@ class ParagraphsController extends Controller
     {
         $title = 'Редактирование: Параграф №' . $id;
         $paragraph = Paragraph::find($id);
-        return view('admin.paragraphs.edit',[
+        return view('admin.paragraphs.edit', [
             'title' => $title,
             'paragraph' => $paragraph
         ]);
@@ -61,7 +62,7 @@ class ParagraphsController extends Controller
     public function create(): View
     {
         $title = 'Создание: Параграф';
-        return view('admin.paragraphs.create',[
+        return view('admin.paragraphs.create', [
             'title' => $title
         ]);
     }
@@ -73,23 +74,20 @@ class ParagraphsController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $position = (int) $request->get('position');
-        $text = (string) $request->get('text');
-
         //TODO:: move to the middleware
         $rules = [
-            'position' =>  ['required', 'unique:paragraphs'],
+            'position' => 'required',
             'text' => 'required',
         ];
         $params = [
             'position.required' => 'Номер параграфа обязателен для ввода',
-            'position.unique' => 'Параграф с таким номером уже есть в базе данных',
             'text.required' => 'Текст параграфа обязателен для ввода',
         ];
+
         $request->validate($rules, $params);
         $paragraph = new Paragraph();
-        $paragraph->position = $position;
-        $paragraph->text = $text;
+        $paragraph->position = (int)$request->position;
+        $paragraph->text = (string)$request->text;
         $paragraph->active = true;
         $paragraph->created_at = new DateTime();
         $paragraph->updated_at = new DateTime();
@@ -100,32 +98,27 @@ class ParagraphsController extends Controller
         return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно добавлен!');
     }
 
-     public function update(Request $request, int $id)
-     {
-         $rules = [
-             'position' =>  ['required', 'unique:paragraphs'],
-             'text' => 'required',
-         ];
-         $params = [
-             'position.required' => 'Номер параграфа обязателен для ввода',
-             'text.required' => 'Текст параграфа обязателен для ввода',
-         ];
+    public function update(Request $request, int $id)
+    {
+        //TODO:: move to the middleware
+        $rules = [
+            'position' => 'required',
+            'text' => 'required',
+        ];
+        $params = [
+            'position.required' => 'Номер параграфа обязателен для ввода',
+            'text.required' => 'Текст параграфа обязателен для ввода',
+        ];
 
-         $paragraph = Paragraph::find($id);
-         $position = (int) $request->get('position');
-         $text = (string) $request->get('text');
+        $request->validate($rules, $params);
 
-         if ($paragraph->name !== $position) {
-             $rules['position'][] = 'unique:paragraphs';
-             $params[] = ['position.unique' => 'Параграф с таким номером уже есть в базе данных'];
-         }
-         $request->validate($rules, $params);
-         $paragraph->position = $position;
-         $paragraph->text = $text;
-         $paragraph->updated_at = new DateTime();
-         if (!$paragraph->save()) {
-             throw new Exception();
-         }
-         return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно обновлён');
-     }
+        $paragraph = Paragraph::find($id);
+        $paragraph->position = (int)$request->position;
+        $paragraph->text = (string)$request->text;
+        $paragraph->updated_at = new DateTime();
+        if (!$paragraph->save()) {
+            throw new Exception();
+        }
+        return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно обновлён');
+    }
 }
