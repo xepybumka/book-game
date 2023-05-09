@@ -32,12 +32,19 @@
                     <div class=" flex-column  text-center"><p
                             class="fw-light text-wrap">{{$paragraph['text']}}</p></div>
                     <div class="ms-auto text-end">
-                        <a class="btn btn-link text-danger text-gradient px-3 mb-0"
-                           href="{{ route('paragraphs.destroy', ['id'=>$paragraph['id']]) }}">
-                            <i class="material-icons text-sm me-2">delete</i>Delete</a>
-                        <a class="btn btn-link text-dark px-3 mb-0"
-                           href="{{ route('paragraphs.edit', ['id'=>$paragraph['id']]) }}">
-                            <i class="material-icons text-sm me-2">edit</i>Edit</a>
+                        <form method="get" action="{{ route('paragraphs.edit', ['id'=>$paragraph['id']]) }}">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-warning" value="Редактировать">
+                            </div>
+                        </form>
+                        <form method="post" action="{{ route('paragraphs.destroy', ['id'=>$paragraph['id']]) }}">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-danger" value="Удалить">
+                            </div>
+                        </form>
                     </div>
                 </li>
             @endforeach
