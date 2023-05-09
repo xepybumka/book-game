@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\Admin\Paragraphs;
 
 use App\Http\Controllers\Controller;
+use App\Models\Paragraph;
+use DateTime;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
 class ParagraphsController extends Controller
 {
     /**
@@ -12,8 +19,9 @@ class ParagraphsController extends Controller
      */
     public function index(): View
     {
+        //TODO:: add pagination
         $title = 'Параграфы';
-        $paragraphs = [];
+        $paragraphs = Paragraph::where('active', true)->get();
         return view('admin.paragraphs.index',[
             'title' => $title,
             'paragraphs' => $paragraphs
@@ -42,9 +50,48 @@ class ParagraphsController extends Controller
     {
         $title = 'Редактирование: Параграф №' . $id;
         $paragraph = '';
-        return view('admin.paragraphs.show',[
+        return view('admin.paragraphs.edit',[
             'title' => $title,
             'paragraph' => $paragraph
         ]);
+    }
+
+    /**
+     * @return View
+     */
+    public function create(): View
+    {
+        $title = 'Создание: Параграф';
+        return view('admin.paragraphs.create',[
+            'title' => $title
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     * @throws Exception
+     */
+    public function store(Request $request): RedirectResponse
+    {
+        //TODO:: move to the middleware
+        $validatedData = $request->validate([
+            'position' => 'required',
+            'text' => 'required',
+        ], [
+            'position.required' => 'Номер параграфа обязателен для ввода',
+            'text.required' => 'Текст параграфа обязателен для ввода',
+        ]);
+
+        $paragraph = new Paragraph();
+        $paragraph->position = (int) $request->get('position');
+        $paragraph->text = (string) $request->get('text');
+        $paragraph->active = true;
+        $paragraph->created_at = new DateTime();
+        $paragraph->updated_at = new DateTime();
+        if (!$paragraph->save()) {
+            throw new Exception();
+        }
+        return back()->with('success', 'Параграф успешно добавлен');
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('position')->unique();
             $table->string('text');
+            $table->boolean('active');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
             $table->index(['id', 'position']);
