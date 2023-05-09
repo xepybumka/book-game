@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('paragraphs', function (Blueprint $table) {
             $table->id();
             $table->integer('position')->unique();
-            $table->string('text');
+            $table->text('text');
             $table->boolean('active');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');

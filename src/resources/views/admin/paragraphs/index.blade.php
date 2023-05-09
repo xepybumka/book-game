@@ -5,6 +5,15 @@
 @section('content')
     <h1>{{$title}}</h1>
 
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+            @php
+                Session::forget('success');
+            @endphp
+        </div>
+    @endif
+
     <div class="col-6 mb-2">
         <a class="btn bg-gradient-dark mb-0" href="{{ route('paragraphs.create') }}">
             <i class="material-icons text-sm">add</i>

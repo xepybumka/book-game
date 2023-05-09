@@ -21,8 +21,8 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/paragraphs/{id}', 'show')->name('paragraphs.show');
         Route::get('/paragraphs/{id}/edit', 'edit')->name('paragraphs.edit');
-        Route::put('/paragraphs/{id}', 'update')->name('paragraphs.uprate');
-        Route::patch('/paragraphs/{id}', 'update')->name('paragraphs.uprate');
+        Route::put('/paragraphs/{id}', 'update')->name('paragraphs.update');
+        Route::patch('/paragraphs/{id}', 'update')->name('paragraphs.update');
         Route::delete('/paragraphs/{id}', 'destroy')->name('paragraphs.destroy');
 
     });
