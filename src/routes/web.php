@@ -15,14 +15,15 @@ Route::prefix('admin')->group(function () {
 
     Route::controller(ParagraphsController::class)->group(function () {
         Route::get('/paragraphs/', 'index')->name('paragraphs.list');
+
+        Route::get('/paragraphs/create', 'create')->name('paragraphs.create');
+        Route::post('/paragraphs/create', 'store')->name('paragraphs.store');
+
         Route::get('/paragraphs/{id}', 'show')->name('paragraphs.show');
         Route::get('/paragraphs/{id}/edit', 'edit')->name('paragraphs.edit');
-        Route::get('/paragraphs/create', 'create')->name('paragraphs.create');
-        Route::get('/paragraphs/{id}/delete', 'delete')->name('paragraphs.delete');
-
-        Route::post('/paragraphs/{id}/edit', 'edit')->name('paragraphs.edit');
-        Route::post('/paragraphs/add', 'add')->name('paragraphs.add');
-        Route::post('/paragraphs/{id}/delete', 'delete')->name('paragraphs.delete');
+        Route::put('/paragraphs/{id}', 'update')->name('paragraphs.uprate');
+        Route::patch('/paragraphs/{id}', 'update')->name('paragraphs.uprate');
+        Route::delete('/paragraphs/{id}', 'destroy')->name('paragraphs.destroy');
 
     });
 });
