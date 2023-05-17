@@ -22,7 +22,6 @@
     <div class="card mb-2">
         <ul class="list-group">
             @foreach ($paragraphs as $paragraph)
-
                 <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
                     <div class="flex-column">
                         <h6 class="mb-3 text-sm">№: {{$paragraph['position']}}</h6>
