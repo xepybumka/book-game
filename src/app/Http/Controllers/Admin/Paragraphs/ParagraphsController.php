@@ -9,7 +9,6 @@ use App\Models\Paragraph;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ParagraphsController extends Controller
@@ -23,7 +22,7 @@ class ParagraphsController extends Controller
         $title = 'Параграфы';
         $paragraphs = Paragraph::where('active', true)
             ->orderBy('position')
-            ->get();
+            ->paginate(3);
         return view('admin.paragraphs.index', [
             'title' => $title,
             'paragraphs' => $paragraphs
