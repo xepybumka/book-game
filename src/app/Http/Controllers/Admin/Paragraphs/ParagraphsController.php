@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Admin\Paragraphs;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreParagraphRequest;
+use App\Http\Requests\UpdateParagraphRequest;
 use App\Models\Paragraph;
 use DateTime;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class ParagraphsController extends Controller
 {
@@ -18,11 +19,10 @@ class ParagraphsController extends Controller
      */
     public function index(): View
     {
-        //TODO:: add pagination
         $title = 'Параграфы';
         $paragraphs = Paragraph::where('active', true)
             ->orderBy('position')
-            ->get();
+            ->paginate(3);
         return view('admin.paragraphs.index', [
             'title' => $title,
             'paragraphs' => $paragraphs
@@ -69,23 +69,12 @@ class ParagraphsController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param StoreParagraphRequest $request
      * @return RedirectResponse
      * @throws Exception
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreParagraphRequest $request): RedirectResponse
     {
-        //TODO:: move to the middleware
-        $rules = [
-            'position' => 'required',
-            'text' => 'required',
-        ];
-        $params = [
-            'position.required' => 'Номер параграфа обязателен для ввода',
-            'text.required' => 'Текст параграфа обязателен для ввода',
-        ];
-
-        $request->validate($rules, $params);
         $paragraph = new Paragraph();
         $paragraph->position = (int)$request->position;
         $paragraph->text = (string)$request->text;
@@ -99,20 +88,14 @@ class ParagraphsController extends Controller
         return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно добавлен!');
     }
 
-    public function update(Request $request, int $id)
+    /**
+     * @param UpdateParagraphRequest $request
+     * @param int $id
+     * @return RedirectResponse
+     * @throws Exception
+     */
+    public function update(UpdateParagraphRequest $request, int $id)
     {
-        //TODO:: move to the middleware
-        $rules = [
-            'position' => 'required',
-            'text' => 'required',
-        ];
-        $params = [
-            'position.required' => 'Номер параграфа обязателен для ввода',
-            'text.required' => 'Текст параграфа обязателен для ввода',
-        ];
-
-        $request->validate($rules, $params);
-
         $paragraph = Paragraph::find($id);
         $paragraph->position = (int)$request->position;
         $paragraph->text = (string)$request->text;

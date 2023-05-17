@@ -19,8 +19,6 @@
             <i class="material-icons text-sm">add</i>
             &nbsp;&nbsp; Добавить</a>
     </div>
-    @include('admin.paragraphs.parts.pagination')
-
     <div class="card mb-2">
         <ul class="list-group">
             @foreach ($paragraphs as $paragraph)
@@ -50,8 +48,6 @@
             @endforeach
         </ul>
     </div>
-
-
-    @include('admin.paragraphs.parts.pagination')
+    {{$paragraphs->links('vendor.pagination.bootstrap-5')}}
 @endsection
 
