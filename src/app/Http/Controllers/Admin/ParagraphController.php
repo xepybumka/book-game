@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Paragraphs;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreParagraphRequest;
@@ -11,7 +11,7 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class ParagraphsController extends Controller
+class ParagraphController extends Controller
 {
     /**
      *
@@ -23,7 +23,7 @@ class ParagraphsController extends Controller
         $paragraphs = Paragraph::where('active', true)
             ->orderBy('position')
             ->paginate(10);
-        return view('admin.paragraphs.index', [
+        return view('admin.paragraph.index', [
             'title' => $title,
             'paragraphs' => $paragraphs
         ]);
@@ -37,7 +37,7 @@ class ParagraphsController extends Controller
     {
         $title = 'Параграф №' . $id;
         $paragraph = '';
-        return view('admin.paragraphs.show', [
+        return view('admin.paragraph.show', [
             'title' => $title,
             'paragraph' => $paragraph
         ]);
@@ -51,7 +51,7 @@ class ParagraphsController extends Controller
     {
         $title = 'Редактирование: Параграф №' . $id;
         $paragraph = Paragraph::find($id);
-        return view('admin.paragraphs.edit', [
+        return view('admin.paragraph.edit', [
             'title' => $title,
             'paragraph' => $paragraph
         ]);
@@ -63,7 +63,7 @@ class ParagraphsController extends Controller
     public function create(): View
     {
         $title = 'Создание: Параграф';
-        return view('admin.paragraphs.create', [
+        return view('admin.paragraph.create', [
             'title' => $title
         ]);
     }
@@ -85,7 +85,7 @@ class ParagraphsController extends Controller
         if (!$paragraph->save()) {
             throw new Exception();
         }
-        return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно добавлен!');
+        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно добавлен!');
     }
 
     /**
@@ -103,7 +103,7 @@ class ParagraphsController extends Controller
         if (!$paragraph->save()) {
             throw new Exception();
         }
-        return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно обновлён');
+        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно обновлён');
     }
 
     /**
@@ -113,6 +113,6 @@ class ParagraphsController extends Controller
     public function destroy(int $id): RedirectResponse
     {
         Paragraph::destroy($id);
-        return redirect()->route('paragraphs.list')->with('success', 'Параграф успешно удален!');
+        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно удален!');
     }
 }
