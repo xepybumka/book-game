@@ -15,7 +15,7 @@
     @endif
 
     <div class="col-6 mb-2">
-        <a class="btn bg-gradient-dark mb-0" href="{{ route('paragraphs.create') }}">
+        <a class="btn bg-gradient-dark mb-0" href="{{ route('paragraph.create') }}">
             <i class="material-icons text-sm">add</i>
             &nbsp;&nbsp; Добавить</a>
     </div>
@@ -29,13 +29,13 @@
                     <div class=" flex-column  text-center"><p
                             class="fw-light text-wrap">{{$paragraph['text']}}</p></div>
                     <div class="ms-auto text-end">
-                        <form method="get" action="{{ route('paragraphs.edit', ['id'=>$paragraph['id']]) }}">
+                        <form method="get" action="{{ route('paragraph.edit', ['id'=>$paragraph['id']]) }}">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <input type="submit" class="btn btn-warning" value="Редактировать">
                             </div>
                         </form>
-                        <form method="post" action="{{ route('paragraphs.destroy', ['id'=>$paragraph['id']]) }}">
+                        <form method="post" action="{{ route('paragraph.destroy', ['id'=>$paragraph['id']]) }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <div class="form-group">

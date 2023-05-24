@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('paragraphs.create') }}">
+    <form method="POST" action="{{ route('paragraph.create') }}">
         @csrf
 
         <div class="form-group">

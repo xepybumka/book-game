@@ -38,9 +38,9 @@ class UpdateParagraphRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'position.required' => 'Номер параграфа обязателен для ввода.',
+            'position.required' => 'Обязательно наличие параметра "Номер параграфа".',
             'position.unique' => 'Номер должен быть уникальным.',
-            'text.required' => 'Текст параграфа обязателен для ввода.',
+            'text.required' => 'Обязательно наличие параметра "Текст".',
         ];
     }
 }

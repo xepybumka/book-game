@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\Paragraphs\ParagraphsController;
+use App\Http\Controllers\Admin\ParagraphController;
+use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,18 +14,30 @@ Route::get('/rules', [BookController::class, 'rules']);
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
 
-    Route::controller(ParagraphsController::class)->group(function () {
-        Route::get('/paragraphs/', 'index')->name('paragraphs.list');
+    Route::controller(ParagraphController::class)->group(function () {
+        Route::get('/paragraph/', 'index')->name('paragraph.list');
 
-        Route::get('/paragraphs/create', 'create')->name('paragraphs.create');
-        Route::post('/paragraphs/create', 'store')->name('paragraphs.store');
+        Route::get('/paragraph/create', 'create')->name('paragraph.create');
+        Route::post('/paragraph/create', 'store')->name('paragraph.store');
 
-        Route::get('/paragraphs/{id}', 'show')->name('paragraphs.show');
-        Route::get('/paragraphs/{id}/edit', 'edit')->name('paragraphs.edit');
-        Route::put('/paragraphs/{id}', 'update')->name('paragraphs.update');
-        Route::patch('/paragraphs/{id}', 'update')->name('paragraphs.update');
-        Route::delete('/paragraphs/{id}', 'destroy')->name('paragraphs.destroy');
+        Route::get('/paragraph/{id}', 'show')->name('paragraph.show');
+        Route::get('/paragraph/{id}/edit', 'edit')->name('paragraph.edit');
+        Route::put('/paragraph/{id}', 'update')->name('paragraph.update');
+        Route::patch('/paragraph/{id}', 'update')->name('paragraph.update');
+        Route::delete('/paragraph/{id}', 'destroy')->name('paragraph.destroy');
+    });
 
+    Route::controller(WeaponController::class)->group(function () {
+        Route::get('/weapon/', 'index')->name('weapon.list');
+
+        Route::get('/weapon/create', 'create')->name('weapon.create');
+        Route::post('/weapon/create', 'store')->name('weapon.store');
+
+        Route::get('/weapon/{id}', 'show')->name('weapon.show');
+        Route::get('/weapon/{id}/edit', 'edit')->name('weapon.edit');
+        Route::put('/weapon/{id}', 'update')->name('weapon.update');
+        Route::patch('/weapon/{id}', 'update')->name('weapon.update');
+        Route::delete('/weapon/{id}', 'destroy')->name('weapon.destroy');
     });
 });
 

@@ -17,26 +17,25 @@
         </div>
     @endif
 
-    <form method="post" action="{{ route('paragraphs.update',['id' => $paragraph->id]) }}">
+    <form method="post" action="{{ route('weapon.update',['id' => $weapon->id]) }}">
         @csrf
         {{ method_field('PUT') }}
         <div class="form-group">
-            <label for="paragraph_number">Номер параграфа</label>
-            <input type="text" class="form-control @error('position') is-invalid @enderror" id="position"
-                   value="{{$paragraph->position}}" name="position" placeholder="12345">
-            @error('position')
+            <label for="paragraph_number">Название оружия</label>
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                   value="{{$weapon->name}}" name="name" placeholder="Название оружия">
+            @error('name')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="paragraph_text">Example textarea</label>
-            <textarea class="form-control @error('text') is-invalid @enderror" id="text" name="text" rows="3"
-                      placeholder="Какой-то текст параграфа">{{$paragraph->text}}</textarea>
-            @error('text')
+            <label for="paragraph_number">Сила оружия</label>
+            <input type="number" class="form-control @error('power') is-invalid @enderror" id="power"
+                   value="{{$weapon->power}}" name="power" placeholder="Сила оружия">
+            @error('name')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-        <!-- Equivalent to... -->
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
             <button class="btn btn-success btn-submit">Обновить</button>
