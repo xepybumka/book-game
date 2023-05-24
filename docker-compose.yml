@@ -29,7 +29,7 @@ services:
         container_name: ${COMPOSE_PROJECT_NAME}-postgres
         volumes:
             - ./postgres:/data/postgres
-            - ./docker/postgrsql/datadir:/var/lib/postgrsql/data
+            - ./docker/postgresql/data:/var/lib/postgresql/data
         ports:
             - ${POSTGRES_PORT:-5432}:5432
         environment:
