@@ -22,7 +22,7 @@ class ParagraphsController extends Controller
         $title = 'Параграфы';
         $paragraphs = Paragraph::where('active', true)
             ->orderBy('position')
-            ->paginate(3);
+            ->paginate(10);
         return view('admin.paragraphs.index', [
             'title' => $title,
             'paragraphs' => $paragraphs
