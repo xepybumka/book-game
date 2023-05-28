@@ -26,9 +26,17 @@
                     <div class="flex-column">
                         <h6 class="mb-3 text-sm">№: {{$weapon['id']}}</h6>
                     </div>
-                    <div class=" flex-column  text-center">
-                        <p class="fw-light text-wrap">{{$weapon['name']}}</p>
-                        <p class="fw-light text-wrap">{{$weapon['power']}}</p>
+                    <div class="mb-3">
+                        <label class="form-label">Наименование</label>
+                        <div class="ml-4">
+                            <p class="fw-light text-wrap">{{$weapon['name']}}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Сила оружия</label>
+                        <div class="ml-4">
+                            <p class="fw-light text-wrap">{{$weapon['power']}}</p>
+                        </div>
                     </div>
                     <div class="ms-auto text-end">
                         <form method="get" action="{{ route('weapon.edit', ['id'=>$weapon['id']]) }}">

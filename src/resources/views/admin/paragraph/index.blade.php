@@ -26,8 +26,12 @@
                     <div class="flex-column">
                         <h6 class="mb-3 text-sm">№: {{$paragraph['position']}}</h6>
                     </div>
-                    <div class=" flex-column  text-center"><p
-                            class="fw-light text-wrap">{{$paragraph['text']}}</p></div>
+                    <div class="mb-3">
+                        <label class="form-label">Текст параграфа</label>
+                        <div class="ml-4">
+                            <p class="fw-light text-wrap">{{$paragraph['text']}}
+                        </div>
+                    </div>
                     <div class="ms-auto text-end">
                         <form method="get" action="{{ route('paragraph.edit', ['id'=>$paragraph['id']]) }}">
                             {{ csrf_field() }}
