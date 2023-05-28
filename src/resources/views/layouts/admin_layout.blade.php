@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ URL::asset('assets/css/material-dashboard.css') }}" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link id="pagestyle" href="{{ URL::asset('assets/css/bootstrap.css') }}" rel="stylesheet"/>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -127,7 +127,7 @@
 </main>
 <!--   Core JS Files   -->
 <script src="{{ URL::asset('assets/js/core /popper.min.js') }}"></script>
-<script src="{{ URL::asset('assets/js/core/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/bootstrap.js') }}"></script>
 <script src="{{ URL::asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
 <script>

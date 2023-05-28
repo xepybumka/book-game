@@ -20,38 +20,40 @@
             Добавить
         </a>
     </div>
-    <div class="card mb-2">
-        <ul class="list-group">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Название</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
             @foreach ($items as $item)
-                <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
-                    <div class="flex-column">
-                        <h6 class="mb-3 text-sm">№: {{$item['id']}}</h6>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Название</label>
-                        <div class="ml-4">
-                            <p class="fw-light text-wrap">{{$item['name']}}
-                        </div>
-                    </div>
-                    <div class="ms-auto text-end">
-                        <form method="get" action="{{ route('item.edit', ['id'=>$item['id']]) }}">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-warning" value="Редактировать">
-                            </div>
-                        </form>
-                        <form method="post" action="{{ route('item.destroy', ['id'=>$item['id']]) }}">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-danger" value="Удалить">
-                            </div>
-                        </form>
-                    </div>
-                </li>
+            <td class="w-5">{{$item['id']}}</td>
+            <td class="w-90 text-wrap">{{$item['name']}}</td>
+            <td class="w-5">
+                <div class="btn-group">
+                    <form method="get" action="{{ route('item.show', ['id'=>$item['id']]) }}">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                    </form>
+                    <form method="get" action="{{ route('item.edit', ['id'=>$item['id']]) }}">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    </form>
+                    <form method="get" action="{{ route('item.destroy', ['id'=>$item['id']]) }}">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            </td>
             @endforeach
-        </ul>
-    </div>
+        </tr>
+        </tbody>
+    </table>
     {{$items->links('vendor.pagination.bootstrap-5')}}
 @endsection
 
