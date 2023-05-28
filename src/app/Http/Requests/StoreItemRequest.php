@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWeaponRequest extends FormRequest
+class StoreItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,13 +15,12 @@ class UpdateWeaponRequest extends FormRequest
     }
 
     /**
-     * @return array
+     * @return array[]
      */
     public function rules(): array
     {
         return [
-            'name' => ['required','string'],
-            'power' => ['required','integer']
+            'name' => ['required', 'string'],
         ];
     }
 
@@ -31,8 +30,7 @@ class UpdateWeaponRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Обязательно наличие параметра "Название" для оружия',
-            'power.required' => 'Обязательно наличие параметра "Сила" для оружия'
+            'name.required' => 'Обязательно наличие параметра "Название" для предмета',
         ];
     }
 }

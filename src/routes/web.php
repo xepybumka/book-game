@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\ParagraphController;
 use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\BookController;
@@ -38,6 +39,19 @@ Route::prefix('admin')->group(function () {
         Route::put('/weapon/{id}', 'update')->name('weapon.update');
         Route::patch('/weapon/{id}', 'update')->name('weapon.update');
         Route::delete('/weapon/{id}', 'destroy')->name('weapon.destroy');
+    });
+
+    Route::controller(ItemController::class)->group(function () {
+        Route::get('/item/', 'index')->name('item.list');
+
+        Route::get('/item/create', 'create')->name('item.create');
+        Route::post('/item/create', 'store')->name('item.store');
+
+        Route::get('/item/{id}', 'show')->name('item.show');
+        Route::get('/item/{id}/edit', 'edit')->name('item.edit');
+        Route::put('/item/{id}', 'update')->name('item.update');
+        Route::patch('/item/{id}', 'update')->name('item.update');
+        Route::delete('/item/{id}', 'destroy')->name('item.destroy');
     });
 });
 
