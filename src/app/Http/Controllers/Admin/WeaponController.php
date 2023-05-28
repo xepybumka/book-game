@@ -76,7 +76,7 @@ class WeaponController extends Controller
     public function store(StoreWeaponRequest $request): RedirectResponse
     {
         $paragraph = new Weapon();
-        $paragraph->name = (string)$request->text;
+        $paragraph->name = (string)$request->name;
         $paragraph->power = (int)$request->power;
         $paragraph->active = true;
         $paragraph->created_at = new DateTime();

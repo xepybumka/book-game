@@ -19,36 +19,43 @@
             <i class="material-icons text-sm">add</i>
             &nbsp;&nbsp; Добавить</a>
     </div>
-    <div class="card mb-2">
-        <ul class="list-group">
-            @foreach ($weapons as $weapon)
-                <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
-                    <div class="flex-column">
-                        <h6 class="mb-3 text-sm">№: {{$weapon['id']}}</h6>
-                    </div>
-                    <div class=" flex-column  text-center">
-                        <p class="fw-light text-wrap">{{$weapon['name']}}</p>
-                        <p class="fw-light text-wrap">{{$weapon['power']}}</p>
-                    </div>
-                    <div class="ms-auto text-end">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Название</th>
+            <th>Сила оружия</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ($weapons as $weapon)
+            <tr>
+                <td class="w-5">{{$weapon['id']}}</td>
+                <td class="w-30 text-wrap">{{$weapon['name']}}</td>
+                <td class="w-50 text-wrap">{{$weapon['power']}}</td>
+                <td class="w-5">
+                    <div class="btn-group">
+                        <form method="get" action="{{ route('weapon.show', ['id'=>$weapon['id']]) }}">
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
+                        </form>
                         <form method="get" action="{{ route('weapon.edit', ['id'=>$weapon['id']]) }}">
                             {{ csrf_field() }}
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-warning" value="Редактировать">
-                            </div>
+                            <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
-                        <form method="post" action="{{ route('weapon.destroy', ['id'=>$weapon['id']]) }}">
+                        <form method="get" action="{{ route('weapon.destroy', ['id'=>$weapon['id']]) }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <div class="form-group">
-                                <input type="submit" class="btn btn-danger" value="Удалить">
-                            </div>
+                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </form>
                     </div>
-                </li>
-            @endforeach
-        </ul>
-    </div>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
     {{$weapons->links('vendor.pagination.bootstrap-5')}}
 @endsection
 

@@ -20,8 +20,8 @@ class StoreWeaponRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'power' => ['required','integer'],
-            'name' => ['required','string']
+            'name' => ['required','string'],
+            'power' => ['required','integer']
         ];
     }
 
