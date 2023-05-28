@@ -38,11 +38,11 @@
                     <div class="btn-group">
                         <form method="get" action="{{ route('weapon.show', ['id'=>$weapon['id']]) }}">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                         </form>
                         <form method="get" action="{{ route('weapon.edit', ['id'=>$weapon['id']]) }}">
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                            <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
                         <form method="get" action="{{ route('weapon.destroy', ['id'=>$weapon['id']]) }}">
                             {{ csrf_field() }}

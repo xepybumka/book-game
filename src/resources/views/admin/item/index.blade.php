@@ -37,11 +37,11 @@
                 <div class="btn-group">
                     <form method="get" action="{{ route('item.show', ['id'=>$item['id']]) }}">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                        <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                     </form>
                     <form method="get" action="{{ route('item.edit', ['id'=>$item['id']]) }}">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                        <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                     </form>
                     <form method="get" action="{{ route('item.destroy', ['id'=>$item['id']]) }}">
                         {{ csrf_field() }}
