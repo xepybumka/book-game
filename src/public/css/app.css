@@ -499,3 +499,122 @@ body {
 .menu__link:hover, .menu__link:focus {
     opacity: 75%;
 }
+
+.left_sidebar {
+    position: absolute;
+    width: 242px;
+    left: 20px;
+    top: 80px;
+    bottom: 80px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2.5px);
+
+    border-radius: 12px;
+}
+
+.left_sidebar__left_top_ungle{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 6px;
+    top: 6px;
+
+    background: url("../images/png/sidebar__ungle.png");
+}
+
+.left_sidebar__right_top_ungle{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right: 6px;
+    top: 6px;
+
+    transform: rotate(90deg);
+    background: url("../images/png/sidebar__ungle.png");
+}
+
+.left_sidebar__right_bottom_ungle{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right: 6px;
+    bottom: 6px;
+
+    transform: rotate(180deg);
+    background: url("../images/png/sidebar__ungle.png");
+}
+
+.left_sidebar__left_bottom_ungle{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 6px;
+    bottom: 6px;
+
+    transform: rotate(-90deg);
+    background: url("../images/png/sidebar__ungle.png");
+}
+
+.left-sidebar__character-parameters {
+    text-align: center;
+    margin-top: 60px;
+
+    font-family: 'Gabriela', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 140%;
+    /* or 34px */
+
+    color: #FFFFFF;
+}
+
+.left_sidebar__separator {
+    height: 0px;
+    margin: 30px;
+    border: 1px dashed #A2A2A2;
+    background: url("../images/png/sidebar_separator.png");
+}
+
+.left-sidebar__character-pockets {
+    text-align: center;
+    font-family: 'Gabriela', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 140%;
+    /* or 34px */
+
+    color: #FFFFFF;
+}
+
+.sidebar-paramerers__nav {
+}
+
+.sidebar-paramerers__list {
+}
+
+.sidebar-paramerers__item {
+    margin-top: 15px;
+}
+
+.left-sidebar__character-bag {
+    font-family: 'Gabriela';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    /* or 34px */
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.character-bag__list {
+
+}
+
+.character-bag__item {
+
+}
