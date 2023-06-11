@@ -30,7 +30,7 @@ class StoreItemRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Обязательно наличие параметра "Название" для предмета',
+            'name.required' => 'Обязательно наличие параметра "Название".',
         ];
     }
 }

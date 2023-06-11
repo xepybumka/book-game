@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EnemyController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\ParagraphController;
 use App\Http\Controllers\Admin\WeaponController;
@@ -52,6 +53,19 @@ Route::prefix('admin')->group(function () {
         Route::put('/item/{id}', 'update')->name('item.update');
         Route::patch('/item/{id}', 'update')->name('item.update');
         Route::delete('/item/{id}', 'destroy')->name('item.destroy');
+    });
+
+    Route::controller(EnemyController::class)->group(function () {
+        Route::get('/enemy/', 'index')->name('enemy.list');
+
+        Route::get('/enemy/create', 'create')->name('enemy.create');
+        Route::post('/enemy/create', 'store')->name('enemy.store');
+
+        Route::get('/enemy/{id}', 'show')->name('enemy.show');
+        Route::get('/enemy/{id}/edit', 'edit')->name('enemy.edit');
+        Route::put('/enemy/{id}', 'update')->name('enemy.update');
+        Route::patch('/enemy/{id}', 'update')->name('enemy.update');
+        Route::delete('/enemy/{id}', 'destroy')->name('enemy.destroy');
     });
 });
 

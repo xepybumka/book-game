@@ -17,28 +17,36 @@
         </div>
     @endif
 
-    <form method="post" action="{{ route('weapon.update',['id' => $weapon->id]) }}">
+    <form method="POST" action="{{ route('enemy.create') }}">
         @csrf
-        {{ method_field('PUT') }}
+
         <div class="form-group">
-            <label for="name">Название оружия</label>
+            <label for="name">Название противника</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                   value="{{$weapon->name}}" name="name" placeholder="Название оружия">
+                   name="name" placeholder="Название противника">
             @error('name')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="power">Сила оружия</label>
-            <input type="number" class="form-control @error('power') is-invalid @enderror" id="power"
-                   value="{{$weapon->power}}" name="power" placeholder="Сила оружия">
-            @error('name')
+            <label for="power">Сила противника</label>
+            <input class="form-control @error('power') is-invalid @enderror" id="power" name="power"
+                   placeholder="123">
+            @error('power')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="agility">Ловкость противника</label>
+            <input class="form-control @error('agility') is-invalid @enderror" id="agility" name="agility"
+                   placeholder="123">
+            @error('agility')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
-            <button class="btn btn-success btn-submit">Обновить</button>
+            <button class="btn btn-success btn-submit">Добавить</button>
         </div>
     </form>
 @endsection
