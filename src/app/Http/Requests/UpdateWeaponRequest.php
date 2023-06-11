@@ -31,8 +31,8 @@ class UpdateWeaponRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Обязательно наличие параметра "Название" для оружия',
-            'power.required' => 'Обязательно наличие параметра "Сила" для оружия'
+            'name.required' => 'Обязательно наличие параметра "Название".',
+            'power.required' => 'Обязательно наличие параметра "Сила".'
         ];
     }
 }

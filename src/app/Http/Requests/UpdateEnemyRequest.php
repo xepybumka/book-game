@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateItemRequest extends FormRequest
+class UpdateEnemyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,6 +21,8 @@ class UpdateItemRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'power' => ['required', 'integer'],
+            'agility' => ['required', 'integer'],
         ];
     }
 
@@ -31,6 +33,8 @@ class UpdateItemRequest extends FormRequest
     {
         return [
             'name.required' => 'Обязательно наличие параметра "Название".',
+            'power.required' => 'Обязательно наличие параметра "Сила".',
+            'agility.required' => 'Обязательно наличие параметра "Ловкость".',
         ];
     }
 }

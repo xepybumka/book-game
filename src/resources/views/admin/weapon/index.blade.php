@@ -37,16 +37,16 @@
                 <td class="w-5">
                     <div class="btn-group">
                         <form method="get" action="{{ route('weapon.show', ['id'=>$weapon['id']]) }}">
-                            {{ csrf_field() }}
+                            @csrf
                             <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                         </form>
                         <form method="get" action="{{ route('weapon.edit', ['id'=>$weapon['id']]) }}">
-                            {{ csrf_field() }}
+                            @csrf
                             <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
-                        <form method="get" action="{{ route('weapon.destroy', ['id'=>$weapon['id']]) }}">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
+                        <form method="post" action="{{ route('weapon.destroy', ['id'=>$weapon['id']]) }}">
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </form>
                     </div>

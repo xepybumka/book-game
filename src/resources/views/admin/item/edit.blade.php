@@ -21,7 +21,7 @@
         @csrf
         {{ method_field('PUT') }}
         <div class="form-group">
-            <label for="paragraph_number">Название предмета</label>
+            <label for="name">Название предмета</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                    value="{{$item->name}}" name="name" placeholder="Название предмета">
             @error('name')
