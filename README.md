@@ -38,7 +38,7 @@
 7. Подключиться к локальному контейнеру командой <strong>docker exec -it book-game-php bash</strong>.
 8. В контейнере выполняем команду <strong>php artisan migrate</strong>.
 9. Играть!
-Игра будет доступна по адресу http://localhost:8080/
+Игра будет доступна по адресу http://localhost:8081/
 
 Структура проекта:
 -----
