@@ -6,7 +6,7 @@
         <title>Book game</title>
         <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet"/>
     </head>
-    <body>
+    <body class="book-body">
         <header class="header">
             @yield('header')
         </header>

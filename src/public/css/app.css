@@ -513,7 +513,7 @@ body {
     border-radius: 12px;
 }
 
-.left_sidebar__left_top_ungle{
+.sidebar__left_top_ungle{
     position: absolute;
     width: 70px;
     height: 70px;
@@ -523,7 +523,7 @@ body {
     background: url("../images/png/sidebar__ungle.png");
 }
 
-.left_sidebar__right_top_ungle{
+.sidebar__right_top_ungle{
     position: absolute;
     width: 70px;
     height: 70px;
@@ -534,7 +534,7 @@ body {
     background: url("../images/png/sidebar__ungle.png");
 }
 
-.left_sidebar__right_bottom_ungle{
+.sidebar__right_bottom_ungle{
     position: absolute;
     width: 70px;
     height: 70px;
@@ -545,7 +545,7 @@ body {
     background: url("../images/png/sidebar__ungle.png");
 }
 
-.left_sidebar__left_bottom_ungle{
+.sidebar__left_bottom_ungle{
     position: absolute;
     width: 70px;
     height: 70px;
@@ -565,12 +565,11 @@ body {
     font-weight: 400;
     font-size: 22px;
     line-height: 140%;
-    /* or 34px */
 
     color: #FFFFFF;
 }
 
-.left_sidebar__separator {
+.sidebar__separator {
     height: 0px;
     margin: 30px;
     border: 1px dashed #A2A2A2;
@@ -584,7 +583,6 @@ body {
     font-weight: 400;
     font-size: 22px;
     line-height: 140%;
-    /* or 34px */
 
     color: #FFFFFF;
 }
@@ -600,12 +598,11 @@ body {
 }
 
 .left-sidebar__character-bag {
-    font-family: 'Gabriela';
+    font-family: 'Gabriela', serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 140%;
-    /* or 34px */
     align-items: center;
     text-align: center;
     color: #FFFFFF;
@@ -617,4 +614,127 @@ body {
 
 .character-bag__item {
 
+}
+
+.right_sidebar {
+    position: absolute;
+    width: 193px;
+    height: 333px;
+    right: 20px;
+    top: 80px;
+    bottom: 80px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2.5px);
+
+    border-radius: 12px;
+}
+
+.right_sidebar__weapon {
+    margin-top: 60px;
+    height: 28px;
+
+    font-family: 'Gabriela', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.right_sidebar__luck_pouch {
+    align-items: center;
+    text-align: center;
+
+    font-family: 'Gabriela', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+    color: #FFFFFF;
+}
+
+.luck_pouch_container {
+    width: 130px;
+    height: 95px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.luck_pouch_line {
+    display: inline-block; /*Задаем блочно-строчное отображение*/
+    width: 130px; /*задаем ширину блока*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.luck_pouch_item {
+    width: 35px;
+    height: 50px;
+    margin-left: 0px;
+    padding: 10px;
+}
+
+.book-body {
+    background-color: burlywood;
+}
+
+
+.luck_horizontal_separator {
+    position: absolute;
+    width: 123px;
+    height: 0px;
+    left: calc(50% - 123px/2);
+    bottom: 93px;
+
+    border: 1px solid #A2A2A2;
+}
+
+.luck_vertical_left_separator {
+    position: absolute;
+    width: 102px;
+    height: 0px;
+    left: 25px;
+
+    border: 1px solid #A2A2A2;
+    transform: rotate(90deg);
+}
+
+
+.luck_vertical_right_separator {
+    position: absolute;
+    width: 102px;
+    height: 0px;
+    right: 25px;
+
+    border: 1px solid #A2A2A2;
+    transform: rotate(90deg);
+}
+
+del.cross {
+    display:inline-block; /* запрещает перенос текста на следующую строку */
+    text-decoration:none;
+    position:relative;
+}
+
+.del-cross {
+    position:relative;
+    overflow:hidden; /* запрещает обтекать другие блоки */
+}
+
+del.cross:before,
+.del-cross:before {
+    content:'';
+    position:absolute;
+    display:block;
+    width:auto;
+    height:auto;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,0) url("../images/svg/cross.svg") no-repeat;
+    background-size:100% 100%; /* растягивает фон на всю ширину и высоту блока */
 }
