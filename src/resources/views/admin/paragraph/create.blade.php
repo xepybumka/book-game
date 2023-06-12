@@ -21,7 +21,7 @@
         @csrf
 
         <div class="form-group">
-            <label for="paragraph_number">Номер параграфа</label>
+            <label for="number">Номер параграфа</label>
             <input type="text" class="form-control @error('position') is-invalid @enderror" id="position"
                    name="position" placeholder="12345">
             @error('position')
@@ -29,7 +29,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="paragraph_text">Example textarea</label>
+            <label for="text">Example textarea</label>
             <textarea class="form-control @error('text') is-invalid @enderror" id="text" name="text" rows="3"
                       placeholder="Какой-то текст параграфа"></textarea>
             @error('text')

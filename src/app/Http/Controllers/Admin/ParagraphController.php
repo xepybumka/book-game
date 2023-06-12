@@ -36,7 +36,7 @@ class ParagraphController extends Controller
     public function show(int $id): View
     {
         $title = 'Параграф №' . $id;
-        $paragraph = '';
+        $paragraph = Paragraph::find($id);
         return view('admin.paragraph.show', [
             'title' => $title,
             'paragraph' => $paragraph

@@ -17,21 +17,13 @@
         </div>
     @endif
 
-    <form method="post" action="{{ route('paragraph.update',['id' => $paragraph->id]) }}">
+    <form method="post" action="{{ route('note.update',['id' => $note->id]) }}">
         @csrf
         {{ method_field('PUT') }}
         <div class="form-group">
-            <label for="number">Номер параграфа</label>
-            <input type="text" class="form-control @error('position') is-invalid @enderror" id="position"
-                   value="{{$paragraph->position}}" name="position" placeholder="12345">
-            @error('position')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-        <div class="form-group">
             <label for="text">Какой-то текст заметки</label>
             <textarea class="form-control @error('text') is-invalid @enderror" id="text" name="text" rows="3"
-                      placeholder="Какой-то текст параграфа">{{$paragraph->text}}</textarea>
+                      placeholder="Какой-то текст параграфа">{{$note->text}}</textarea>
             @error('text')
             <span class="text-danger">{{ $message }}</span>
             @enderror
