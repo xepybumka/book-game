@@ -36,7 +36,7 @@ class WeaponController extends Controller
     public function show(int $id): View
     {
         $title = 'Оружие №' . $id;
-        $weapon = '';
+        $weapon = Weapon::find($id);
         return view('admin.weapon.show', [
             'title' => $title,
             'weapon' => $weapon

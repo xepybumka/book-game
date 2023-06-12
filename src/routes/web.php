@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\EnemyController;
 use App\Http\Controllers\Admin\ItemController;
+use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\ParagraphController;
 use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\BookController;
@@ -67,5 +68,19 @@ Route::prefix('admin')->group(function () {
         Route::patch('/enemy/{id}', 'update')->name('enemy.update');
         Route::delete('/enemy/{id}', 'destroy')->name('enemy.destroy');
     });
+
+    Route::controller(NoteController::class)->group(function () {
+        Route::get('/note/', 'index')->name('note.list');
+
+        Route::get('/note/create', 'create')->name('note.create');
+        Route::post('/note/create', 'store')->name('note.store');
+
+        Route::get('/note/{id}', 'show')->name('note.show');
+        Route::get('/note/{id}/edit', 'edit')->name('note.edit');
+        Route::put('/note/{id}', 'update')->name('note.update');
+        Route::patch('/note/{id}', 'update')->name('note.update');
+        Route::delete('/note/{id}', 'destroy')->name('note.destroy');
+    });
+
 });
 
