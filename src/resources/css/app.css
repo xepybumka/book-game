@@ -1,4 +1,4 @@
-    /* Reset */
+/* Reset */
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
@@ -248,7 +248,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
-    *overflow: visible;  /* 4 */
+    *overflow: visible; /* 4 */
 }
 
 /**
@@ -367,7 +367,7 @@ textarea {
     padding: 0.2em 0;
 }
 
-    /* Fonts */
+/* Fonts */
 
 /* gabriela-regular - latin */
 @font-face {
@@ -375,24 +375,24 @@ textarea {
     font-family: 'Gabriela';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/gabriela-v14-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/gabriela-v14-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: url('../fonts/gabriela-v14-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */ url('../fonts/gabriela-v14-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* salsa-regular - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Salsa';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/salsa-v17-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/salsa-v17-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: url('../fonts/salsa-v17-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */ url('../fonts/salsa-v17-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-    /* Styles */
+/* Styles */
 
 html {
     box-sizing: border-box;
 }
+
 *, *::before, *::after {
     box-sizing: inherit;
 }
