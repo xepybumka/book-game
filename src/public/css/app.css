@@ -505,7 +505,7 @@ body {
 .left_sidebar {
     float: left;
     width: 242px;
-    height: 762px;
+    height: 800px;
     margin-left: 20px;
 
     background: rgba(0, 0, 0, 0.4);
@@ -620,9 +620,8 @@ body {
 .right_sidebar {
     float: left;
     margin-right: 20px;
-    width: 193px;
-    height: 333px;
-    right: 20px;
+    width: 100%;
+    height: 330px;
 
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(2.5px);
@@ -741,9 +740,9 @@ del.cross:before,
 
 .content_wrap {
     width: 100%;
-    margin-top: 12px;
+    margin-top: 15px;
     margin-bottom: 78px;
-    height: 750px;
+    height: 800px;
     text-align: center;
 }
 
@@ -753,7 +752,7 @@ del.cross:before,
     width: 100%;
     top: 50%;
     left: 50%;
-    height: 500px;
+    height: 535px;
 
     background: linear-gradient(62.25deg, rgba(247, 232, 215, 0.7) 44.12%, rgba(247, 232, 215, 0.042) 101.53%);
     /* Background Blur */
@@ -765,7 +764,6 @@ del.cross:before,
 .text_wrap {
     margin: 40px 50px 30px;
     overflow-y: auto;
-
     font-family: 'Sabon', serif;
     font-style: normal;
     font-weight: 400;
@@ -781,26 +779,62 @@ del.cross:before,
 
 .text_and_chooses_wrap {
     float: left;
-    width: 1230px;
+    width: 1200px;
     height: 100%;
-    margin-right: 12px;
-    margin-left: 12px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
-
 
 .choose_wrapper {
     float: left;
-
+    width: 100%;
+    text-align: left;
     height: 250px;
     left: 274px;
     right: 225px;
     bottom: 78px;
 
-    margin-top: 12px;
+    margin-top: 15px;
 
     background: linear-gradient(87.75deg, #D9B185 0%, #E2B78D 88.66%);
     /* Background Blur */
 
     box-shadow: inset 0px 0px 10px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+.right_sidebar_wrapper {
+    float: left;
+    margin-right: 20px;
+    width: 200px;
+    height: 800px;
+    right: 20px;
+}
+
+.right_sidebar_picture_block {
+    float: left;
+    margin-right: 20px;
+    margin-top: 15px;
+
+    width: 100%;
+    height: 250px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2.5px);
+
+    border-radius: 12px;
+}
+
+
+.right_sidebar_note_block {
+    float: left;
+    margin-top: 15px;
+    margin-right: 20px;
+    width: 100%;
+    height: 190px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2.5px);
+
     border-radius: 12px;
 }

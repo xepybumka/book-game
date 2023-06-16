@@ -1,10 +1,25 @@
 <div class="choose_wrapper">
     <div class="text_wrap">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam neque lacus, rutrum sit amet venenatis in,
-            cursus eleifend libero. In nec massa in nulla posuere tincidunt. Vestibulum ante nibh, lobortis non dolor et,
-            euismod scelerisque lectus. Aenean luctus feugiat est. Nam magna sem, sodales nec ipsum non, tincidunt laoreet
-            metus.
-        </p>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="w-100">На Север 14</td>
+                </tr>
+                <tr>
+                    <td class="w-100">На Восток 109</td>
+                </tr>
+                <tr>
+                    <td class="w-100">На Запад 84</td>
+                </tr>
+                <tr>
+                    <td class="w-100">На Юг 54</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
