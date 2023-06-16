@@ -248,7 +248,7 @@ input[type="reset"],
 input[type="submit"] {
     -webkit-appearance: button; /* 2 */
     cursor: pointer; /* 3 */
-    *overflow: visible;  /* 4 */
+    *overflow: visible; /* 4 */
 }
 
 /**
@@ -375,17 +375,16 @@ textarea {
     font-family: 'Gabriela';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/gabriela-v14-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/gabriela-v14-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: url('../fonts/gabriela-v14-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */ url('../fonts/gabriela-v14-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
+
 /* salsa-regular - latin */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Salsa';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/salsa-v17-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
-    url('../fonts/salsa-v17-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    src: url('../fonts/salsa-v17-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */ url('../fonts/salsa-v17-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* Styles */
@@ -393,6 +392,7 @@ textarea {
 html {
     box-sizing: border-box;
 }
+
 *, *::before, *::after {
     box-sizing: inherit;
 }
@@ -411,6 +411,8 @@ body {
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: space-between;
+    width: 100%;
+    height: 67px;
 }
 
 .top-menu {
@@ -467,7 +469,7 @@ body {
 }
 
 .menu {
-    background:rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     position: fixed;
     width: 100%;
@@ -479,13 +481,13 @@ body {
     align-items: center;
 }
 
-.menu__list{
+.menu__list {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.menu__item{
+.menu__item {
     margin-top: 20px;
 }
 
@@ -501,11 +503,9 @@ body {
 }
 
 .left_sidebar {
-    position: absolute;
+    float: left;
     width: 242px;
-    left: 20px;
-    top: 80px;
-    bottom: 80px;
+    margin-left: 20px;
 
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(2.5px);
@@ -513,7 +513,7 @@ body {
     border-radius: 12px;
 }
 
-.sidebar__left_top_ungle{
+.sidebar__left_top_ungle {
     position: absolute;
     width: 70px;
     height: 70px;
@@ -523,7 +523,7 @@ body {
     background: url("../images/png/sidebar__ungle.png");
 }
 
-.sidebar__right_top_ungle{
+.sidebar__right_top_ungle {
     position: absolute;
     width: 70px;
     height: 70px;
@@ -534,7 +534,7 @@ body {
     background: url("../images/png/sidebar__ungle.png");
 }
 
-.sidebar__right_bottom_ungle{
+.sidebar__right_bottom_ungle {
     position: absolute;
     width: 70px;
     height: 70px;
@@ -545,7 +545,7 @@ body {
     background: url("../images/png/sidebar__ungle.png");
 }
 
-.sidebar__left_bottom_ungle{
+.sidebar__left_bottom_ungle {
     position: absolute;
     width: 70px;
     height: 70px;
@@ -617,12 +617,11 @@ body {
 }
 
 .right_sidebar {
-    position: absolute;
+    float: left;
+    margin-right: 20px;
     width: 193px;
     height: 333px;
     right: 20px;
-    top: 80px;
-    bottom: 80px;
 
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(2.5px);
@@ -686,7 +685,7 @@ body {
     position: absolute;
     width: 123px;
     height: 0px;
-    left: calc(50% - 123px/2);
+    left: calc(50% - 123px / 2);
     bottom: 93px;
 
     border: 1px solid #A2A2A2;
@@ -714,27 +713,93 @@ body {
 }
 
 del.cross {
-    display:inline-block; /* запрещает перенос текста на следующую строку */
-    text-decoration:none;
-    position:relative;
+    display: inline-block; /* запрещает перенос текста на следующую строку */
+    text-decoration: none;
+    position: relative;
 }
 
 .del-cross {
-    position:relative;
-    overflow:hidden; /* запрещает обтекать другие блоки */
+    position: relative;
+    overflow: hidden; /* запрещает обтекать другие блоки */
 }
 
 del.cross:before,
 .del-cross:before {
-    content:'';
-    position:absolute;
-    display:block;
-    width:auto;
-    height:auto;
-    left:0;
-    top:0;
-    right:0;
-    bottom:0;
-    background: rgba(0,0,0,0) url("../images/svg/cross.svg") no-repeat;
-    background-size:100% 100%; /* растягивает фон на всю ширину и высоту блока */
+    content: '';
+    position: absolute;
+    display: block;
+    width: auto;
+    height: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0) url("../images/svg/cross.svg") no-repeat;
+    background-size: 100% 100%; /* растягивает фон на всю ширину и высоту блока */
+}
+
+.content_wrap {
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 78px;
+    height: 750px;
+    text-align: center;
+}
+
+.text_part {
+    float: left;
+
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    height: 500px;
+
+    background: linear-gradient(62.25deg, rgba(247, 232, 215, 0.7) 44.12%, rgba(247, 232, 215, 0.042) 101.53%);
+    /* Background Blur */
+
+    box-shadow: inset 0px 0px 10px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+.text_wrap {
+    margin: 40px 50px 30px;
+    overflow-y: auto;
+
+    font-family: 'Sabon', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    /* or 28px */
+
+    text-indent: 50px;
+
+    color: #2F281D;
+}
+
+
+.text_and_chooses_wrap {
+    float: left;
+    width: 1230px;
+    height: 100%;
+    margin-right: 12px;
+    margin-left: 12px;
+}
+
+
+.choose_wrapper {
+    float: left;
+
+    height: 250px;
+    left: 274px;
+    right: 225px;
+    bottom: 78px;
+
+    margin-top: 12px;
+
+    background: linear-gradient(87.75deg, #D9B185 0%, #E2B78D 88.66%);
+    /* Background Blur */
+
+    box-shadow: inset 0px 0px 10px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
 }
