@@ -505,6 +505,7 @@ body {
 .left_sidebar {
     float: left;
     width: 242px;
+    height: 762px;
     margin-left: 20px;
 
     background: rgba(0, 0, 0, 0.4);
