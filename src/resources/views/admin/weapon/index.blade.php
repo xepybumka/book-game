@@ -31,20 +31,20 @@
         <tbody>
         @foreach ($weapons as $weapon)
             <tr>
-                <td class="w-5">{{$weapon['id']}}</td>
-                <td class="w-30 text-wrap">{{$weapon['name']}}</td>
-                <td class="w-50 text-wrap">{{$weapon['power']}}</td>
+                <td class="w-5">{{$weapon->id}}</td>
+                <td class="w-30 text-wrap">{{$weapon->name}}</td>
+                <td class="w-50 text-wrap">{{$weapon->power}}</td>
                 <td class="w-5">
                     <div class="btn-group">
-                        <form method="get" action="{{ route('weapon.show', ['id'=>$weapon['id']]) }}">
+                        <form method="get" action="{{ route('weapon.show', ['id' => $weapon->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                         </form>
-                        <form method="get" action="{{ route('weapon.edit', ['id'=>$weapon['id']]) }}">
+                        <form method="get" action="{{ route('weapon.edit', ['id' => $weapon->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
-                        <form method="post" action="{{ route('weapon.destroy', ['id'=>$weapon['id']]) }}">
+                        <form method="post" action="{{ route('weapon.destroy', ['id' => $weapon->id]) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

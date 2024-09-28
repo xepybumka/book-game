@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TableNameEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,14 +13,18 @@ class Paragraph extends Model
     /**
      * @var string
      */
-    protected $table = 'paragraphs';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'position',
+        'number',
         'text',
-        'active',
         'created_at',
         'updated_at',
     ];
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->table = TableNameEnum::Paragraph->value;
+    }
 }

@@ -30,19 +30,19 @@
         <tbody>
         @foreach ($paragraphs as $paragraph)
             <tr>
-                <td>{{$paragraph['position']}}</td>
-                <td class="text-wrap">{{$paragraph['text']}}</td>
+                <td>{{$paragraph->number}}</td>
+                <td class="text-wrap">{{$paragraph->text}}</td>
                 <td>
                     <div class="btn-group btn-sm">
-                        <form method="get" action="{{ route('paragraph.show', ['id'=>$paragraph['id']]) }}">
+                        <form method="get" action="{{ route('paragraph.show', ['id'=>$paragraph->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                         </form>
-                        <form method="get" action="{{ route('paragraph.edit', ['id'=>$paragraph['id']]) }}">
+                        <form method="get" action="{{ route('paragraph.edit', ['id'=>$paragraph->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
-                        <form method="post" action="{{ route('paragraph.destroy', ['id'=>$paragraph['id']]) }}">
+                        <form method="post" action="{{ route('paragraph.destroy', ['id'=>$paragraph->id]) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

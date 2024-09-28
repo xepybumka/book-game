@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TableNameEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -10,12 +11,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('notes', function (Blueprint $table) {
+        Schema::create(TableNameEnum::Note->value, function (Blueprint $table) {
             $table->id();
-            $table->text('text');
-            $table->boolean('active');
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->text('text')->comment('Текст заметки');
+            $table->dateTime('created_at')->comment('Дата добавления');
+            $table->dateTime('updated_at')->comment('Дата редактирования');
             $table->index(['id']);
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('notes');
+        Schema::dropIfExists(TableNameEnum::Note->value);
     }
 };
