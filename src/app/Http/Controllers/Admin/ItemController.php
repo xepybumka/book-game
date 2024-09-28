@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
@@ -9,6 +10,7 @@ use App\Models\Item;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ItemController extends Controller
@@ -20,11 +22,10 @@ class ItemController extends Controller
     public function index(): View
     {
         $title = 'Предметы';
-        $items = Item::where('active', true)
-            ->paginate(10);
+        $items = DB::table(TableNameEnum::Item->value)->paginate(10);
         return view('admin.item.index', [
             'title' => $title,
-            'items' => $items
+            'items' => $items,
         ]);
     }
 
@@ -35,10 +36,10 @@ class ItemController extends Controller
     public function show(int $id): View
     {
         $title = 'Предмет №' . $id;
-        $item = Item::find($id);
+        $item = DB::table(TableNameEnum::Item->value)->find($id);
         return view('admin.item.show', [
             'title' => $title,
-            'item' => $item
+            'item' => $item,
         ]);
     }
 
@@ -49,7 +50,7 @@ class ItemController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Предмет №' . $id;
-        $item = Item::find($id);
+        $item = DB::table(TableNameEnum::Item->value)->find($id);
         return view('admin.item.edit', [
             'title' => $title,
             'item' => $item
@@ -76,7 +77,6 @@ class ItemController extends Controller
     {
         $item = new Item();
         $item->name = (string)$request->name;
-        $item->active = true;
         $item->created_at = new DateTime();
         $item->updated_at = new DateTime();
 
@@ -109,7 +109,7 @@ class ItemController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        item::destroy($id);
+        DB::table(TableNameEnum::Item->value)->delete($id);
         return redirect()->route('item.list')->with('success', 'Предмет успешно удален!');
     }
 }

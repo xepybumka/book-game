@@ -29,18 +29,18 @@
         <tbody>
         @foreach ($notes as $note)
             <tr>
-                <td class="text-wrap">{{$note['text']}}</td>
+                <td class="text-wrap">{{$note->text}}</td>
                 <td>
                     <div class="btn-group btn-sm">
-                        <form method="get" action="{{ route('note.show', ['id'=>$note['id']]) }}">
+                        <form method="get" action="{{ route('note.show', ['id' => $note->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                         </form>
-                        <form method="get" action="{{ route('note.edit', ['id'=>$note['id']]) }}">
+                        <form method="get" action="{{ route('note.edit', ['id' => $note->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
-                        <form method="post" action="{{ route('note.destroy', ['id'=>$note['id']]) }}">
+                        <form method="post" action="{{ route('note.destroy', ['id' => $note->id]) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

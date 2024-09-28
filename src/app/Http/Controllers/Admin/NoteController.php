@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNoteRequest;
 use App\Http\Requests\UpdateNoteRequest;
@@ -9,6 +10,7 @@ use App\Models\Note;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class NoteController extends Controller
@@ -20,7 +22,7 @@ class NoteController extends Controller
     public function index(): View
     {
         $title = 'Заметки';
-        $notes = Note::where('active', true)
+        $notes = DB::table(TableNameEnum::Note->value)
             ->paginate(10);
         return view('admin.note.index', [
             'title' => $title,
@@ -35,7 +37,8 @@ class NoteController extends Controller
     public function show(int $id): View
     {
         $title = 'Заметка №' . $id;
-        $note = Note::find($id);
+        $note = DB::table(TableNameEnum::Note->value)
+            ->find($id);
         return view('admin.note.show', [
             'title' => $title,
             'note' => $note
@@ -49,7 +52,8 @@ class NoteController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Заметка №' . $id;
-        $note = Note::find($id);
+        $note = DB::table(TableNameEnum::Note->value)
+            ->find($id);
         return view('admin.note.edit', [
             'title' => $title,
             'note' => $note
@@ -76,13 +80,13 @@ class NoteController extends Controller
     {
         $note = new Note();
         $note->text = (string)$request->text;
-        $note->active = true;
         $note->created_at = new DateTime();
         $note->updated_at = new DateTime();
 
         if (!$note->save()) {
             throw new Exception();
         }
+
         return redirect()->route('note.list')->with('success', 'Заметка успешно добавлена!');
     }
 
@@ -92,7 +96,7 @@ class NoteController extends Controller
      * @return RedirectResponse
      * @throws Exception
      */
-    public function update(UpdateNoteRequest $request, int $id)
+    public function update(UpdateNoteRequest $request, int $id): RedirectResponse
     {
         $note = Note::find($id);
         $note->text = (string)$request->text;
@@ -109,7 +113,7 @@ class NoteController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        Note::destroy($id);
+        DB::table(TableNameEnum::Note->value)->delete($id);
         return redirect()->route('note.list')->with('success', 'Заметка успешно удален!');
     }
 }

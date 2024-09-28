@@ -26,28 +26,30 @@
             <th>#</th>
             <th>Название</th>
             <th>Сила</th>
-            <th>Ловкость</th>
+            <th>Сила атаки</th>
+            <th>Тип атаки</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach ($enemies as $enemy)
             <tr>
-                <td class="w-5">{{$enemy['id']}}</td>
-                <td class="w-50 text-wrap">{{$enemy['name']}}</td>
-                <td class="w-20 text-wrap">{{$enemy['power']}}</td>
-                <td class="w-20 text-wrap">{{$enemy['agility']}}</td>
+                <td class="w-5">{{$enemy->id}}</td>
+                <td class="w-30 text-wrap">{{$enemy->name}}</td>
+                <td class="w-20 text-wrap">{{$enemy->power}}</td>
+                <td class="w-20 text-wrap">{{$enemy->attack_power}}</td>
+                <td class="w-20 text-wrap">{{$enemy->enemy_attack_type}}</td>
                 <td class="w-5">
                     <div class="btn-group">
-                        <form method="get" action="{{ route('enemy.show', ['id'=>$enemy['id']]) }}">
+                        <form method="get" action="{{ route('enemy.show', ['id'=>$enemy->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
                         </form>
-                        <form method="get" action="{{ route('enemy.edit', ['id'=>$enemy['id']]) }}">
+                        <form method="get" action="{{ route('enemy.edit', ['id'=>$enemy->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
                         </form>
-                        <form method="post" action="{{ route('enemy.destroy', ['id'=>$enemy['id']]) }}">
+                        <form method="post" action="{{ route('enemy.destroy', ['id'=>$enemy->id]) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>

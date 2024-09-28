@@ -8,7 +8,7 @@
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Ошибка!</strong>
-            С некотороми полями возникли проблемы.<br><br>
+            С некоторыми полями возникли проблемы.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

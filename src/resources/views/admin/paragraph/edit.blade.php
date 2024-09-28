@@ -22,9 +22,9 @@
         {{ method_field('PUT') }}
         <div class="form-group">
             <label for="number">Номер параграфа</label>
-            <input type="text" class="form-control @error('position') is-invalid @enderror" id="position"
-                   value="{{$paragraph->position}}" name="position" placeholder="12345">
-            @error('position')
+            <input type="text" class="form-control @error('number') is-invalid @enderror" id="number"
+                   value="{{$paragraph->number}}" name="number" placeholder="12345">
+            @error('number')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>

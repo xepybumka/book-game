@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\EnemyAttackTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreEnemyRequest extends FormRequest
 {
@@ -22,7 +24,10 @@ class StoreEnemyRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'power' => ['required', 'integer'],
-            'agility' => ['required', 'integer'],
+            'attack_power' => ['required', 'integer'],
+            'enemy_attack_type' => [
+                'required', Rule::enum(EnemyAttackTypeEnum::class)
+            ],
         ];
     }
 
@@ -34,7 +39,8 @@ class StoreEnemyRequest extends FormRequest
         return [
             'name.required' => 'Обязательно наличие параметра "Название".',
             'power.required' => 'Обязательно наличие параметра "Сила".',
-            'agility.required' => 'Обязательно наличие параметра "Ловкость".',
+            'attack_power.required' => 'Обязательно наличие параметра "Сила атаки".',
+            'enemy_attack_type' => 'Обязательно наличие параметра "Тип атаки".',
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\EnemyAttackTypeEnum;
+use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEnemyRequest;
 use App\Http\Requests\UpdateEnemyRequest;
@@ -9,6 +11,7 @@ use App\Models\Enemy;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class EnemyController extends Controller
@@ -20,8 +23,7 @@ class EnemyController extends Controller
     public function index(): View
     {
         $title = 'Противники';
-        $enemies = Enemy::where('active', true)
-            ->paginate(10);
+        $enemies = DB::table(TableNameEnum::Enemy->value)->paginate(10);
         return view('admin.enemy.index', [
             'title' => $title,
             'enemies' => $enemies
@@ -35,7 +37,7 @@ class EnemyController extends Controller
     public function show(int $id): View
     {
         $title = 'Противник №' . $id;
-        $enemy = Enemy::find($id);
+        $enemy = DB::table(TableNameEnum::Enemy->value)->find($id);
         return view('admin.enemy.show', [
             'title' => $title,
             'enemy' => $enemy
@@ -49,10 +51,11 @@ class EnemyController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Противник №' . $id;
-        $enemy = Enemy::find($id);
+        $enemy = DB::table(TableNameEnum::Enemy->value)->find($id);
         return view('admin.enemy.edit', [
             'title' => $title,
-            'enemy' => $enemy
+            'enemy' => $enemy,
+            'attack_types' => EnemyAttackTypeEnum::cases()
         ]);
     }
 
@@ -61,9 +64,9 @@ class EnemyController extends Controller
      */
     public function create(): View
     {
-        $title = 'Создание: Противник';
         return view('admin.enemy.create', [
-            'title' => $title
+            'title' => 'Создание: Противник',
+            'attack_types' => EnemyAttackTypeEnum::cases()
         ]);
     }
 
@@ -77,8 +80,8 @@ class EnemyController extends Controller
         $enemy = new Enemy();
         $enemy->name = (string)$request->name;
         $enemy->power = (int)$request->power;
-        $enemy->agility = (int)$request->agility;
-        $enemy->active = true;
+        $enemy->enemy_attack_type = (int)$request->enemy_attack_type;
+        $enemy->attack_power = (int)$request->attack_power;
         $enemy->created_at = new DateTime();
         $enemy->updated_at = new DateTime();
 
@@ -99,11 +102,14 @@ class EnemyController extends Controller
         $enemy = Enemy::find($id);
         $enemy->name = (string)$request->name;
         $enemy->power = (int)$request->power;
-        $enemy->agility = (int)$request->agility;
+        $enemy->enemy_attack_type = (int)$request->enemy_attack_type;
+        $enemy->attack_power = (int)$request->attack_power;
         $enemy->updated_at = new DateTime();
+
         if (!$enemy->save()) {
             throw new Exception();
         }
+
         return redirect()->route('enemy.list')->with('success', 'Противник ' . $enemy->name . ' успешно обновлен!');
     }
 
@@ -113,7 +119,7 @@ class EnemyController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        Enemy::destroy($id);
+        DB::table(TableNameEnum::Enemy->value)->delete($id);
         return redirect()->route('enemy.list')->with('success', 'Предмет успешно удален!');
     }
 }

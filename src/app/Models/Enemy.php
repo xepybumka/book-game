@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\EnemyAttackTypeEnum;
+use App\Enums\TableNameEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,15 +14,24 @@ class Enemy extends Model
     /**
      * @var string
      */
-    protected $table = 'enemies';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'name',
-        'active',
         'power',
-        'agility',
+        'enemy_attack_type',
+        'attack_power',
         'created_at',
         'updated_at',
     ];
+
+    protected $casts = [
+        'enemy_attack_type' => EnemyAttackTypeEnum::class
+    ];
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->table = TableNameEnum::Enemy->value;
+    }
 }

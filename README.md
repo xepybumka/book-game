@@ -24,12 +24,13 @@
 1. Установить Docker последней версии.
 2. Скачать к себе исходный код приложения.
 3. Создать <strong>.env</strong> файл в корневой директории из файла <strong>.env.example/strong>.
-4. Проделать п.3 в директории <strong>/src</strong>.
+4. Копировать .env из п.3 в директории <strong>/src</strong>.
 5. Создать Docker контейнеры консольной командой из корневой директории <strong>docker-compose build</strong>.
 6. Выполнить запуск приложения консольной командой <strong>docker-compose up -d</strong> из корневой директории.
-7. Подключиться к локальному контейнеру командой <strong>docker exec -it book-game-php bash</strong>.
+7. Подключиться к локальному контейнеру php командой <strong>docker exec -it book-game-php bash</strong>.
 8. В контейнере выполняем команду <strong>php artisan migrate</strong>.
-9. Играть!
+9. Затем в контейнере выполняем команду <strong>php artisan db:seed</strong>.
+10. Играть!
 Игра будет доступна в браузере по адресу http://localhost:8081/
 
 Структура проекта:
@@ -40,7 +41,7 @@
 ------
 
 - Laravel v10.0.7 
-- PHP v8.1.17
+- PHP v8.2.18
 - Boostrap v4.*.*
 
 - ------

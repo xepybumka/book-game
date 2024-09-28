@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreWeaponRequest;
 use App\Http\Requests\UpdateWeaponRequest;
@@ -9,6 +10,7 @@ use App\Models\Weapon;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class WeaponController extends Controller
@@ -20,9 +22,8 @@ class WeaponController extends Controller
     public function index(): View
     {
         $title = 'Оружие';
-        $weapons = Weapon::where('active', true)
-            ->orderBy('id')
-            ->paginate(10);
+        $weapons = DB::table(TableNameEnum::Weapon->value)->orderBy('id')->paginate(10);
+
         return view('admin.weapon.index', [
             'title' => $title,
             'weapons' => $weapons
@@ -36,7 +37,7 @@ class WeaponController extends Controller
     public function show(int $id): View
     {
         $title = 'Оружие №' . $id;
-        $weapon = Weapon::find($id);
+        $weapon = DB::table(TableNameEnum::Weapon->value)->find($id);
         return view('admin.weapon.show', [
             'title' => $title,
             'weapon' => $weapon
@@ -50,7 +51,8 @@ class WeaponController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Оружие №' . $id;
-        $weapon = Weapon::find($id);
+        $weapon = DB::table(TableNameEnum::Weapon->value)
+            ->find($id);
         return view('admin.weapon.edit', [
             'title' => $title,
             'weapon' => $weapon
@@ -75,14 +77,13 @@ class WeaponController extends Controller
      */
     public function store(StoreWeaponRequest $request): RedirectResponse
     {
-        $paragraph = new Weapon();
-        $paragraph->name = (string)$request->name;
-        $paragraph->power = (int)$request->power;
-        $paragraph->active = true;
-        $paragraph->created_at = new DateTime();
-        $paragraph->updated_at = new DateTime();
+        $weapon = new Weapon();
+        $weapon->name = (string)$request->name;
+        $weapon->power = (int)$request->power;
+        $weapon->created_at = new DateTime();
+        $weapon->updated_at = new DateTime();
 
-        if (!$paragraph->save()) {
+        if (!$weapon->save()) {
             throw new Exception();
         }
         return redirect()->route('weapon.list')->with('success', 'Оружие успешно добавлено!');
@@ -94,13 +95,14 @@ class WeaponController extends Controller
      * @return RedirectResponse
      * @throws Exception
      */
-    public function update(UpdateWeaponRequest $request, int $id)
+    public function update(UpdateWeaponRequest $request, int $id): RedirectResponse
     {
-        $paragraph = Weapon::find($id);
-        $paragraph->name = (string)$request->name;
-        $paragraph->power = (int)$request->power;
-        $paragraph->updated_at = new DateTime();
-        if (!$paragraph->save()) {
+        $weapon = Weapon::find($id);
+        $weapon->name = (string)$request->name;
+        $weapon->power = (int)$request->power;
+        $weapon->updated_at = new DateTime();
+
+        if (!$weapon->save()) {
             throw new Exception();
         }
         return redirect()->route('weapon.list')->with('success', 'Оружие успешно обновлёно');
@@ -112,7 +114,7 @@ class WeaponController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        Weapon::destroy($id);
+        DB::table(TableNameEnum::Weapon->value)->delete($id);
         return redirect()->route('weapon.list')->with('success', 'Оружие успешно удален!');
     }
 }
