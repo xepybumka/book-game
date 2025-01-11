@@ -54,6 +54,6 @@
         @endforeach
         </tbody>
     </table>
-    {{$items->links('vendor.pagination.bootstrap-5')}}
+    {{$items->links('core.vendor.pagination.bootstrap-5')}}
 @endsection
 

@@ -504,7 +504,7 @@ body {
 
 .left_sidebar {
     float: left;
-    width: 242px;
+    width: 20%;
     height: 800px;
     margin-left: 20px;
 
@@ -617,7 +617,7 @@ body {
 
 }
 
-.right_sidebar {
+.right_sidebar_weapon_block {
     float: left;
     margin-right: 20px;
     width: 100%;
@@ -779,7 +779,7 @@ del.cross:before,
 
 .text_and_chooses_wrap {
     float: left;
-    width: 1200px;
+    width: 56%;
     height: 100%;
     margin-right: 15px;
     margin-left: 15px;
@@ -806,7 +806,7 @@ del.cross:before,
 .right_sidebar_wrapper {
     float: left;
     margin-right: 20px;
-    width: 200px;
+    width: 20%;
     height: 800px;
     right: 20px;
 }

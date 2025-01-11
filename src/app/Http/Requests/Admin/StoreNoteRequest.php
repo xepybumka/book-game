@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWeaponRequest extends FormRequest
+class StoreNoteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,13 +15,15 @@ class UpdateWeaponRequest extends FormRequest
     }
 
     /**
-     * @return array
+     * @return array[]
      */
     public function rules(): array
     {
         return [
-            'name' => ['required','string'],
-            'power' => ['required','integer']
+            'text' => [
+                'required',
+                'string'
+            ],
         ];
     }
 
@@ -31,8 +33,7 @@ class UpdateWeaponRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Обязательно наличие параметра "Название".',
-            'power.required' => 'Обязательно наличие параметра "Сила".'
+            'text.required' => 'Текст обязателен для ввода.',
         ];
     }
 }

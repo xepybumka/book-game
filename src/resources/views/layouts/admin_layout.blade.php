@@ -84,15 +84,6 @@
             </li>
         </ul>
         <hr class="horizontal light mt-0 mb-2">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link text-white " href="#!">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
-                    </div>
-                </a>
-            </li>
-        </ul>
     </div>
 </aside>
 <!-- End Sidebar -->

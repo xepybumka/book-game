@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreParagraphRequest;
-use App\Http\Requests\UpdateParagraphRequest;
+use App\Http\Requests\Admin\StoreParagraphRequest;
+use App\Http\Requests\Admin\UpdateParagraphRequest;
 use App\Models\Paragraph;
 use DateTime;
 use Exception;

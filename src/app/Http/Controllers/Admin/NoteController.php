@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreNoteRequest;
-use App\Http\Requests\UpdateNoteRequest;
+use App\Http\Requests\Admin\StoreNoteRequest;
+use App\Http\Requests\Admin\UpdateNoteRequest;
 use App\Models\Note;
 use DateTime;
 use Exception;

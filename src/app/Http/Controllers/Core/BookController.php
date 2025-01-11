@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Core;
 
+use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
 class BookController extends Controller
@@ -11,7 +12,7 @@ class BookController extends Controller
      * @return View
      */
     public function index() {
-        return view('index');
+        return view('core.index');
     }
 
     /**
@@ -19,6 +20,6 @@ class BookController extends Controller
      * @return View
      */
     public function book() {
-        return view('book.index');
+        return view('core.book.index');
     }
 }

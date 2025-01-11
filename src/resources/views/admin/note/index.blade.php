@@ -52,5 +52,5 @@
         @endforeach
         </tbody>
     </table>
-    {{$notes->links('vendor.pagination.bootstrap-5')}}
+    {{$notes->links('core.vendor.pagination.bootstrap-5')}}
 @endsection

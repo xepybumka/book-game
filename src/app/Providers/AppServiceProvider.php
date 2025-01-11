@@ -19,8 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/path/to/assets' => public_path('vendor/courier'),
-        ], 'public');
+        //
     }
 }
