@@ -1,6 +1,6 @@
 @extends('layouts.main_layout')
 
 @section('content')
-    @include('index.partials.content')
+    @include('core.index.partials.content')
 @endsection
 

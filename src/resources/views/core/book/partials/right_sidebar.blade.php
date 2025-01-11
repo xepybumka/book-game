@@ -1,5 +1,5 @@
 <div class="right_sidebar_wrapper">
-    <div class="right_sidebar">
+    <div class="right_sidebar_weapon_block">
         <a class="sidebar__left_top_ungle"></a>
         <a class="sidebar__right_top_ungle"></a>
 

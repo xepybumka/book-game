@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Core;
 
+use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
 class IndexController extends Controller
@@ -11,6 +12,6 @@ class IndexController extends Controller
      * @return View
      */
     public function index() {
-        return view('index');
+        return view('core.index');
     }
 }

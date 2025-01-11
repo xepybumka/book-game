@@ -6,12 +6,13 @@ use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\ParagraphController;
 use App\Http\Controllers\Admin\WeaponController;
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\Core\BookController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BookController::class, 'index']);
-Route::get('/book', [BookController::class, 'book']);
-Route::get('/rules', [BookController::class, 'rules']);
+// Основная часть
+    Route::get('/', [BookController::class, 'index']);
+    Route::get('/book', [BookController::class, 'book']);
+    Route::get('/rules', [BookController::class, 'rules']);
 
 // Административная панель
 Route::prefix('admin')->group(function () {
