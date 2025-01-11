@@ -56,6 +56,6 @@
         </tbody>
     </table>
 
-    {{$weapons->links('vendor.pagination.bootstrap-5')}}
+    {{$weapons->links('core.vendor.pagination.bootstrap-5')}}
 @endsection
 

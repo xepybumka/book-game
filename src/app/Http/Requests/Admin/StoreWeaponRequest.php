@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
-use App\Enums\EnemyAttackTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateEnemyRequest extends FormRequest
+class StoreWeaponRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +20,8 @@ class UpdateEnemyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
-            'power' => ['required', 'integer'],
-            'attack_power' => ['required', 'integer'],
-            'enemy_attack_type' => [
-                'required', Rule::enum(EnemyAttackTypeEnum::class)
-            ],
+            'name' => ['required','string'],
+            'power' => ['required','integer']
         ];
     }
 
@@ -39,8 +33,6 @@ class UpdateEnemyRequest extends FormRequest
         return [
             'name.required' => 'Обязательно наличие параметра "Название".',
             'power.required' => 'Обязательно наличие параметра "Сила".',
-            'attack_power.required' => 'Обязательно наличие параметра "Сила атаки".',
-            'enemy_attack_type' => 'Обязательно наличие параметра "Тип атаки".',
         ];
     }
 }

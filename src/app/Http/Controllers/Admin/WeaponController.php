@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreWeaponRequest;
-use App\Http\Requests\UpdateWeaponRequest;
+use App\Http\Requests\Admin\StoreWeaponRequest;
+use App\Http\Requests\Admin\UpdateWeaponRequest;
 use App\Models\Weapon;
 use DateTime;
 use Exception;

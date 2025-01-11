@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use App\Enums\EnemyAttackTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreEnemyRequest extends FormRequest
+class UpdateEnemyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

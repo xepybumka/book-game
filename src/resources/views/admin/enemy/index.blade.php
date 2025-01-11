@@ -60,6 +60,6 @@
         @endforeach
         </tbody>
     </table>
-    {{$enemies->links('vendor.pagination.bootstrap-5')}}
+    {{$enemies->links('core.vendor.pagination.bootstrap-5')}}
 @endsection
 
