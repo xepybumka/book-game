@@ -1,7 +1,7 @@
 ### PhpStorm ###
 /.idea/
 ### Configs ###
-.env
+src/.env
 
 ### Docker ###
 /docker
