@@ -28,9 +28,10 @@
 5. Создать Docker контейнеры консольной командой из корневой директории <strong>docker-compose build</strong>.
 6. Выполнить запуск приложения консольной командой <strong>docker-compose up -d</strong> из корневой директории.
 7. Подключиться к локальному контейнеру php командой <strong>docker exec -it book-game-php bash</strong>.
-8. В контейнере выполняем команду <strong>php artisan migrate</strong>.
-9. Затем в контейнере выполняем команду <strong>php artisan db:seed</strong>.
-10. Играть!
+8. В контейнере выполняем команду <strong>composer install</strong>.
+9. Затем контейнере выполняем команду <strong>php artisan migrate</strong>.
+10. Затем в контейнере выполняем команду <strong>php artisan db:seed</strong>.
+11. Играть!
 Игра будет доступна в браузере по адресу http://localhost:8081/
 
 Структура проекта:
