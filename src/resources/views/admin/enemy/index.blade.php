@@ -43,16 +43,16 @@
                     <div class="btn-group">
                         <form method="get" action="{{ route('enemy.show', ['id'=>$enemy->id]) }}">
                             @csrf
-                            <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
+                            <button type="submit" class="btn btn-facebook"><i class="far fa-eye">show</i></button>
                         </form>
                         <form method="get" action="{{ route('enemy.edit', ['id'=>$enemy->id]) }}">
                             @csrf
-                            <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
+                            <button type="submit" class="btn btn-info"><i class="fas fa-edit">edit</i></button>
                         </form>
                         <form method="post" action="{{ route('enemy.destroy', ['id'=>$enemy->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt">delete</i></button>
                         </form>
                     </div>
                 </td>

@@ -34,16 +34,16 @@
                     <div class="btn-group btn-sm">
                         <form method="get" action="{{ route('note.show', ['id' => $note->id]) }}">
                             @csrf
-                            <button type="submit" class="btn btn-facebook"><i class="far fa-eye"></i></button>
+                            <button type="submit" class="btn btn-facebook"><i class="far fa-eye">show</i></button>
                         </form>
                         <form method="get" action="{{ route('note.edit', ['id' => $note->id]) }}">
                             @csrf
-                            <button type="submit" class="btn btn-info"><i class="fas fa-edit"></i></button>
+                            <button type="submit" class="btn btn-info"><i class="fas fa-edit">edit</i></button>
                         </form>
                         <form method="post" action="{{ route('note.destroy', ['id' => $note->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt">delete</i></button>
                         </form>
                     </div>
                 </td>
