@@ -11,7 +11,6 @@ services:
         volumes:
             - ./src:/var/www/
             - ./.docker/php/php.ini:/usr/local/etc/php/conf.d/custom.ini
-
     nginx:
         image: nginx:latest
         container_name: nginx-${COMPOSE_PROJECT_NAME}
@@ -23,7 +22,6 @@ services:
             - "443:443"
         links:
             - php
-
     postgres:
         image: postgres:latest
         container_name: postgres-${COMPOSE_PROJECT_NAME}
@@ -35,8 +33,6 @@ services:
             - POSTGRES_DB=${POSTGRES_DB}
             - POSTGRES_USER=${POSTGRES_USER}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-        restart: always # always restart unless stopped manually
-
     pgadmin:
         container_name: pgadmin-${COMPOSE_PROJECT_NAME}
         image: dpage/pgadmin4
@@ -48,4 +44,3 @@ services:
             - postgres
         ports:
             - "${PGADMIN_PORT:-5050}:80"
-        restart: unless-stopped
