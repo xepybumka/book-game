@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\EnemyController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\ParagraphController;
+use App\Http\Controllers\Admin\TransitionController;
 use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\Core\BookController;
 use Illuminate\Support\Facades\Route;
@@ -81,6 +82,19 @@ Route::prefix('admin')->group(function () {
         Route::put('/note/{id}', 'update')->name('note.update');
         Route::patch('/note/{id}', 'update')->name('note.update');
         Route::delete('/note/{id}', 'destroy')->name('note.destroy');
+    });
+
+    Route::controller(TransitionController::class)->group(function () {
+        Route::get('/transition/', 'index')->name('transition.list');
+
+        Route::get('/transition/create', 'create')->name('transition.create');
+        Route::post('/transition/create', 'store')->name('transition.store');
+
+        Route::get('/transition/{id}', 'show')->name('transition.show');
+        Route::get('/transition/{id}/edit', 'edit')->name('transition.edit');
+        Route::put('/transition/{id}', 'update')->name('transition.update');
+        Route::patch('/transition/{id}', 'update')->name('transition.update');
+        Route::delete('/transition/{id}', 'destroy')->name('transition.destroy');
     });
 
 });
