@@ -39,7 +39,7 @@ class ItemController extends Controller
         $item = DB::table(TableNameEnum::Item->value)->find($id);
         return view('admin.item.show', [
             'title' => $title,
-            'item' => $item,
+            'item'  => $item,
         ]);
     }
 
@@ -53,7 +53,7 @@ class ItemController extends Controller
         $item = DB::table(TableNameEnum::Item->value)->find($id);
         return view('admin.item.edit', [
             'title' => $title,
-            'item' => $item
+            'item'  => $item
         ]);
     }
 

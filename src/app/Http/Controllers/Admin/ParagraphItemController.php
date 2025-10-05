@@ -23,7 +23,7 @@ class ParagraphItemController
         $title = 'Предметы в параграфах';
         $paragraphItems = DB::table(TableNameEnum::ParagraphItem->value)->orderBy('id')->paginate(10);
         return view('admin.paragraph_item.index', [
-            'title' => $title,
+            'title'          => $title,
             'paragraphItems' => $paragraphItems
         ]);
     }
@@ -37,7 +37,7 @@ class ParagraphItemController
         $paragraphItem = DB::table(TableNameEnum::ParagraphItem->value)->find($id);
         $title = 'Предмет в параграфе №' . $paragraphItem->paragraph_number;
         return view('admin.paragraph_item.show', [
-            'title' => $title,
+            'title'         => $title,
             'paragraphItem' => $paragraphItem
         ]);
     }
@@ -51,7 +51,7 @@ class ParagraphItemController
         $paragraphItem = DB::table(TableNameEnum::ParagraphItem->value)->find($id);
         $title = 'Редактирование: Предмет в параграфе №' . $paragraphItem->paragraph_number;
         return view('admin.paragraph_item.edit', [
-            'title' => $title,
+            'title'         => $title,
             'paragraphItem' => $paragraphItem
         ]);
     }

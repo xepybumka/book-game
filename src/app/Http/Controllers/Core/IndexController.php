@@ -11,7 +11,8 @@ class IndexController extends Controller
      *
      * @return View
      */
-    public function index() {
+    public function index()
+    {
         return view('core.index');
     }
 }

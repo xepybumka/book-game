@@ -24,7 +24,7 @@ class ParagraphController extends Controller
         $title = 'Параграфы';
         $paragraphs = DB::table(TableNameEnum::Paragraph->value)->orderBy('number')->paginate(10);
         return view('admin.paragraph.index', [
-            'title' => $title,
+            'title'      => $title,
             'paragraphs' => $paragraphs
         ]);
     }
@@ -38,7 +38,7 @@ class ParagraphController extends Controller
         $title = 'Параграф №' . $id;
         $paragraph = DB::table(TableNameEnum::Paragraph->value)->find($id);
         return view('admin.paragraph.show', [
-            'title' => $title,
+            'title'     => $title,
             'paragraph' => $paragraph
         ]);
     }
@@ -52,7 +52,7 @@ class ParagraphController extends Controller
         $title = 'Редактирование: Параграф №' . $id;
         $paragraph = DB::table(TableNameEnum::Paragraph->value)->find($id);
         return view('admin.paragraph.edit', [
-            'title' => $title,
+            'title'     => $title,
             'paragraph' => $paragraph
         ]);
     }

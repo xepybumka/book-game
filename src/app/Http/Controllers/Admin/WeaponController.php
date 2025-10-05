@@ -25,7 +25,7 @@ class WeaponController extends Controller
         $weapons = DB::table(TableNameEnum::Weapon->value)->orderBy('id')->paginate(10);
 
         return view('admin.weapon.index', [
-            'title' => $title,
+            'title'   => $title,
             'weapons' => $weapons
         ]);
     }
@@ -39,7 +39,7 @@ class WeaponController extends Controller
         $title = 'Оружие №' . $id;
         $weapon = DB::table(TableNameEnum::Weapon->value)->find($id);
         return view('admin.weapon.show', [
-            'title' => $title,
+            'title'  => $title,
             'weapon' => $weapon
         ]);
     }
@@ -54,7 +54,7 @@ class WeaponController extends Controller
         $weapon = DB::table(TableNameEnum::Weapon->value)
             ->find($id);
         return view('admin.weapon.edit', [
-            'title' => $title,
+            'title'  => $title,
             'weapon' => $weapon
         ]);
     }

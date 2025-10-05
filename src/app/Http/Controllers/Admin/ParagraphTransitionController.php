@@ -24,7 +24,7 @@ class ParagraphTransitionController extends Controller
         $title = 'Переходы параграфов';
         $paragraphTransitions = DB::table(TableNameEnum::ParagraphTransition->value)->orderBy('id')->paginate(10);
         return view('admin.paragraph_transition.index', [
-            'title' => $title,
+            'title'                => $title,
             'paragraphTransitions' => $paragraphTransitions
         ]);
     }
@@ -38,7 +38,7 @@ class ParagraphTransitionController extends Controller
         $paragraphTransition = DB::table(TableNameEnum::ParagraphTransition->value)->find($id);
         $title = 'Переход с параграфа №' . $paragraphTransition->paragraph_number;
         return view('admin.paragraph_transition.show', [
-            'title' => $title,
+            'title'               => $title,
             'paragraphTransition' => $paragraphTransition
         ]);
     }
@@ -52,7 +52,7 @@ class ParagraphTransitionController extends Controller
         $paragraphTransition = DB::table(TableNameEnum::ParagraphTransition->value)->find($id);
         $title = 'Редактирование: Перехода с параграфа №' . $paragraphTransition->paragraph_number;
         return view('admin.paragraph_transition.edit', [
-            'title' => $title,
+            'title'               => $title,
             'paragraphTransition' => $paragraphTransition
         ]);
     }

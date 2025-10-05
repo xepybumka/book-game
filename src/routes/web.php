@@ -12,9 +12,9 @@ use App\Http\Controllers\Core\BookController;
 use Illuminate\Support\Facades\Route;
 
 // Основная часть
-    Route::get('/', [BookController::class, 'index']);
-    Route::get('/book', [BookController::class, 'book']);
-    Route::get('/rules', [BookController::class, 'rules']);
+Route::get('/', [BookController::class, 'index']);
+Route::get('/book', [BookController::class, 'book']);
+Route::get('/rules', [BookController::class, 'rules']);
 
 // Административная панель
 Route::prefix('admin')->group(function () {
@@ -97,7 +97,6 @@ Route::prefix('admin')->group(function () {
         Route::patch('/paragraph_transition/{id}', 'update')->name('paragraph_transition.update');
         Route::delete('/paragraph_transition/{id}', 'destroy')->name('paragraph_transition.destroy');
     });
-
 
     Route::controller(ParagraphItemController::class)->group(function () {
         Route::get('/paragraph_item/', 'index')->name('paragraph_item.list');

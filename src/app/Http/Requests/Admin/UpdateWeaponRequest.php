@@ -20,8 +20,8 @@ class UpdateWeaponRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','string'],
-            'power' => ['required','integer']
+            'name'  => ['required', 'string'],
+            'power' => ['required', 'integer']
         ];
     }
 
@@ -31,7 +31,7 @@ class UpdateWeaponRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Обязательно наличие параметра "Название".',
+            'name.required'  => 'Обязательно наличие параметра "Название".',
             'power.required' => 'Обязательно наличие параметра "Сила".'
         ];
     }

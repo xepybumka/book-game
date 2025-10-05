@@ -21,7 +21,7 @@ class StoreParagraphTransitionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'paragraph_number' => [
+            'paragraph_number'    => [
                 'required',
                 'integer',
                 "exists:" . TableNameEnum::Paragraph->value . ",number",
@@ -31,7 +31,7 @@ class StoreParagraphTransitionRequest extends FormRequest
                 'integer',
                 "exists:" . TableNameEnum::Paragraph->value . ",number",
             ],
-            'title' => [
+            'title'               => [
                 'required',
                 'string'
             ],
@@ -44,11 +44,11 @@ class StoreParagraphTransitionRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'paragraph_number.required' => 'Номер параграфа обязателен для ввода.',
+            'paragraph_number.required'    => 'Номер параграфа обязателен для ввода.',
             'to_paragraph_number.required' => 'Номер параграфа обязателен для ввода.',
-            'text.required' => 'Текст параграфа обязателен для ввода.',
-            'paragraph_number.exists' => 'Указанный исходный параграф не существует.',
-            'to_paragraph_number.exists' => 'Указанный целевой параграф не существует.',
+            'text.required'                => 'Текст параграфа обязателен для ввода.',
+            'paragraph_number.exists'      => 'Указанный исходный параграф не существует.',
+            'to_paragraph_number.exists'   => 'Указанный целевой параграф не существует.',
         ];
     }
 }

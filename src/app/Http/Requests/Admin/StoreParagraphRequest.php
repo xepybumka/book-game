@@ -20,14 +20,8 @@ class StoreParagraphRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'number' => [
-                'required',
-                'unique:paragraph'
-            ],
-            'text' => [
-                'required',
-                'string'
-            ],
+            'number' => ['required', 'unique:paragraph'],
+            'text'   => ['required', 'string'],
         ];
     }
 
@@ -38,8 +32,8 @@ class StoreParagraphRequest extends FormRequest
     {
         return [
             'number.required' => 'Номер параграфа обязателен для ввода.',
-            'number.unique' => 'Номер должен быть уникальным.',
-            'text.required' => 'Текст параграфа обязателен для ввода.',
+            'number.unique'   => 'Номер должен быть уникальным.',
+            'text.required'   => 'Текст параграфа обязателен для ввода.',
         ];
     }
 }

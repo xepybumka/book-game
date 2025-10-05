@@ -15,12 +15,12 @@ class UpdateParagpaphItemRequest extends FormRequest
                 'integer',
                 "exists:" . TableNameEnum::Paragraph->value . ",number",
             ],
-            'item_id' => [
+            'item_id'          => [
                 'required',
                 'integer',
                 "exists:" . TableNameEnum::Item->value . ",id",
             ],
-            'title' => [
+            'title'            => [
                 'required',
                 'string'
             ],
@@ -34,10 +34,10 @@ class UpdateParagpaphItemRequest extends FormRequest
     {
         return [
             'paragraph_number.required' => 'Номер параграфа обязателен для ввода.',
-            'item_id.required' => 'Предмет обязателен для ввода.',
-            'text.required' => 'Текст параграфа обязателен для ввода.',
-            'paragraph_number.exists' => 'Указанный исходный параграф не существует.',
-            'item_id.exists' => 'Такого предмета не существует.',
+            'item_id.required'          => 'Предмет обязателен для ввода.',
+            'text.required'             => 'Текст параграфа обязателен для ввода.',
+            'paragraph_number.exists'   => 'Указанный исходный параграф не существует.',
+            'item_id.exists'            => 'Такого предмета не существует.',
         ];
     }
 }

@@ -22,12 +22,10 @@ class UpdateEnemyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
-            'power' => ['required', 'integer'],
-            'attack_power' => ['required', 'integer'],
-            'enemy_attack_type' => [
-                'required', Rule::enum(EnemyAttackTypeEnum::class)
-            ],
+            'name'              => ['required', 'string'],
+            'power'             => ['required', 'integer'],
+            'attack_power'      => ['required', 'integer'],
+            'enemy_attack_type' => ['required', Rule::enum(EnemyAttackTypeEnum::class)],
         ];
     }
 
@@ -37,10 +35,10 @@ class UpdateEnemyRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Обязательно наличие параметра "Название".',
-            'power.required' => 'Обязательно наличие параметра "Сила".',
+            'name.required'         => 'Обязательно наличие параметра "Название".',
+            'power.required'        => 'Обязательно наличие параметра "Сила".',
             'attack_power.required' => 'Обязательно наличие параметра "Сила атаки".',
-            'enemy_attack_type' => 'Обязательно наличие параметра "Тип атаки".',
+            'enemy_attack_type'     => 'Обязательно наличие параметра "Тип атаки".',
         ];
     }
 }
