@@ -6,7 +6,7 @@ use App\Enums\TableNameEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateParagpaphTransitionRequest extends FormRequest
+class UpdateParagraphTransitionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

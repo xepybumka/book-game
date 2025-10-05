@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreParagraphTransitionRequest;
-use App\Http\Requests\Admin\UpdateParagpaphTransitionRequest;
+use App\Http\Requests\Admin\UpdateParagraphTransitionRequest;
 use App\Models\ParagpaphTransition;
 use DateTime;
 use Exception;
@@ -89,12 +89,12 @@ class ParagraphTransitionController extends Controller
     }
 
     /**
-     * @param UpdateParagpaphTransitionRequest $request
+     * @param UpdateParagraphTransitionRequest $request
      * @param int $id
      * @return RedirectResponse
      * @throws Exception
      */
-    public function update(UpdateParagpaphTransitionRequest $request, int $id): RedirectResponse
+    public function update(UpdateParagraphTransitionRequest $request, int $id): RedirectResponse
     {
         $paragraphTransition = ParagpaphTransition::find($id);
         $paragraphTransition->paragraph_number = (int)$request->paragraph_number;
