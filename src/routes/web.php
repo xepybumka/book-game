@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\EnemyController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\ParagraphController;
-use App\Http\Controllers\Admin\TransitionController;
+use App\Http\Controllers\Admin\ParagraphTransitionController;
 use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\Core\BookController;
 use Illuminate\Support\Facades\Route;
@@ -84,17 +84,17 @@ Route::prefix('admin')->group(function () {
         Route::delete('/note/{id}', 'destroy')->name('note.destroy');
     });
 
-    Route::controller(TransitionController::class)->group(function () {
-        Route::get('/transition/', 'index')->name('transition.list');
+    Route::controller(ParagraphTransitionController::class)->group(function () {
+        Route::get('/paragraph_transition/', 'index')->name('paragraph_transition.list');
 
-        Route::get('/transition/create', 'create')->name('transition.create');
-        Route::post('/transition/create', 'store')->name('transition.store');
+        Route::get('/paragraph_transition/create', 'create')->name('paragraph_transition.create');
+        Route::post('/paragraph_transition/create', 'store')->name('paragraph_transition.store');
 
-        Route::get('/transition/{id}', 'show')->name('transition.show');
-        Route::get('/transition/{id}/edit', 'edit')->name('transition.edit');
-        Route::put('/transition/{id}', 'update')->name('transition.update');
-        Route::patch('/transition/{id}', 'update')->name('transition.update');
-        Route::delete('/transition/{id}', 'destroy')->name('transition.destroy');
+        Route::get('/paragraph_transition/{id}', 'show')->name('paragraph_transition.show');
+        Route::get('/paragraph_transition/{id}/edit', 'edit')->name('paragraph_transition.edit');
+        Route::put('/paragraph_transition/{id}', 'update')->name('paragraph_transition.update');
+        Route::patch('/paragraph_transition/{id}', 'update')->name('paragraph_transition.update');
+        Route::delete('/paragraph_transition/{id}', 'destroy')->name('paragraph_transition.destroy');
     });
 
 });

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Transition extends Model
+class ParagpaphTransition extends Model
 {
     use HasFactory;
 
@@ -22,6 +22,6 @@ class Transition extends Model
     public function __construct()
     {
         parent::__construct();
-        $this->table = TableNameEnum::Transition->value;
+        $this->table = TableNameEnum::ParagraphTransition->value;
     }
 }

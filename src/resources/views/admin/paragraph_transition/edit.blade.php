@@ -17,12 +17,13 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('transition.create') }}">
+    <form method="post" action="{{ route('paragraph_transition.update',['id' => $paragraphTransition->id]) }}">
         @csrf
-
+        {{ method_field('PUT') }}
         <div class="form-group">
             <label for="number">Номер параграфа, В КОТОРОМ расположен переход</label>
-            <input type="text" class="form-control @error('paragraph_number') is-invalid @enderror" id="paragraph_number" name="paragraph_number" placeholder="22">
+            <input type="text" class="form-control @error('paragraph_number') is-invalid @enderror" id="paragraph_number"
+                   value="{{$paragraphTransition->paragraph_number}}" name="paragraph_number" placeholder="22">
             @error('paragraph_number')
             <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -30,7 +31,8 @@
 
         <div class="form-group">
             <label for="number">Номер параграфа, КУДА переходим </label>
-            <input type="text" class="form-control @error('to_paragraph_number') is-invalid @enderror" id="to_paragraph_number" name="to_paragraph_number" placeholder="23">
+            <input type="text" class="form-control @error('to_paragraph_number') is-invalid @enderror" id="to_paragraph_number"
+                   value="{{$paragraphTransition->to_paragraph_number}}" name="to_paragraph_number" placeholder="23">
             @error('to_paragraph_number')
             <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -39,16 +41,14 @@
         <div class="form-group">
             <label for="title">Текст перехода</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                   name="title" placeholder="Текст перехода">
+                   value="{{$paragraphTransition->title}}" name="title" placeholder="Текст перехода">
             @error('name')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-
-        <!-- Equivalent to... -->
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
-            <button class="btn btn-success btn-submit">Добавить</button>
+            <button class="btn btn-success btn-submit">Обновить</button>
         </div>
     </form>
 @endsection

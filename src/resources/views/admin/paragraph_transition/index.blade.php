@@ -15,7 +15,7 @@
     @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="col-6 mb-2">
-        <a class="btn bg-gradient-dark mb-0" href="{{ route('transition.create') }}">
+        <a class="btn bg-gradient-dark mb-0" href="{{ route('paragraph_transition.create') }}">
             <i class="material-icons text-sm">add</i>
             Добавить</a>
     </div>
@@ -29,22 +29,22 @@
         </tr>
         </thead>
         <tbody>
-        @foreach ($transitions as $transition)
+        @foreach ($paragraphTransitions as $paragraphTransition)
             <tr>
-                <td class="text-wrap">{{$transition->paragraph_number}}</td>
-                <td class="text-wrap">{{$transition->to_paragraph_number}}</td>
-                <td class="text-wrap">{{$transition->title}}</td>
+                <td class="text-wrap">{{$paragraphTransition->paragraph_number}}</td>
+                <td class="text-wrap">{{$paragraphTransition->to_paragraph_number}}</td>
+                <td class="text-wrap">{{$paragraphTransition->title}}</td>
                 <td>
                     <div class="btn-group btn-sm">
-                        <form method="get" action="{{ route('transition.show', ['id'=>$transition->id]) }}">
+                        <form method="get" action="{{ route('paragraph_transition.show', ['id'=>$paragraphTransition->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-facebook"><i class="far fa-eye">show</i></button>
                         </form>
-                        <form method="get" action="{{ route('transition.edit', ['id'=>$transition->id]) }}">
+                        <form method="get" action="{{ route('paragraph_transition.edit', ['id'=>$paragraphTransition->id]) }}">
                             @csrf
                             <button type="submit" class="btn btn-info"><i class="fas fa-edit">edit</i></button>
                         </form>
-                        <form method="post" action="{{ route('transition.destroy', ['id'=>$transition->id]) }}">
+                        <form method="post" action="{{ route('paragraph_transition.destroy', ['id'=>$paragraphTransition->id]) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt">delete</i></button>
@@ -55,5 +55,5 @@
         @endforeach
         </tbody>
     </table>
-    {{$transitions->links('core.vendor.pagination.bootstrap-5')}}
+    {{$paragraphTransitions->links('core.vendor.pagination.bootstrap-5')}}
 @endsection

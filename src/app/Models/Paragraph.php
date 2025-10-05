@@ -28,7 +28,7 @@ class Paragraph extends Model
      */
     public function transitions(): HasMany
     {
-        return $this->hasMany(Transition::class);
+        return $this->hasMany(ParagpaphTransition::class);
     }
 
     public function __construct()

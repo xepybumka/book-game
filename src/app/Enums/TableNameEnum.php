@@ -8,5 +8,7 @@ enum TableNameEnum: string
     case Note = 'note';
     case Paragraph = 'paragraph';
     case Weapon = 'weapon';
-    case Transition = 'transition';
+    case ParagraphTransition = 'paragraph_transition';
+
+    case ParagraphItem = 'paragraph_item';
 }

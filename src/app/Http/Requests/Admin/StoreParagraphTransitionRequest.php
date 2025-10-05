@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Enums\TableNameEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTransitionRequest extends FormRequest
+class StoreParagraphTransitionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
