@@ -41,7 +41,7 @@ class NoteController extends Controller
             ->find($id);
         return view('admin.note.show', [
             'title' => $title,
-            'note' => $note
+            'note'  => $note
         ]);
     }
 
@@ -56,7 +56,7 @@ class NoteController extends Controller
             ->find($id);
         return view('admin.note.edit', [
             'title' => $title,
-            'note' => $note
+            'note'  => $note
         ]);
     }
 

@@ -22,14 +22,8 @@ class UpdateParagraphRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'number' => [
-                'required',
-                Rule::unique(TableNameEnum::Paragraph->value, 'number')->ignore($this->id)
-            ],
-            'text' => [
-                'required',
-                'string'
-            ],
+            'number' => ['required', Rule::unique(TableNameEnum::Paragraph->value, 'number')->ignore($this->id)],
+            'text'   => ['required', 'string'],
         ];
     }
 
@@ -40,8 +34,8 @@ class UpdateParagraphRequest extends FormRequest
     {
         return [
             'number.required' => 'Обязательно наличие параметра "Номер параграфа".',
-            'number.unique' => 'Номер должен быть уникальным.',
-            'text.required' => 'Обязательно наличие параметра "Текст".',
+            'number.unique'   => 'Номер должен быть уникальным.',
+            'text.required'   => 'Обязательно наличие параметра "Текст".',
         ];
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create(TableNameEnum::Transition->value, function (Blueprint $table) {
+        Schema::create(TableNameEnum::ParagraphTransition->value, function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('paragraph_number')->comment('Номер параграфа, в котором этот переход');
             $table->foreign('paragraph_number')->references('number')->on(TableNameEnum::Paragraph->value);
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(TableNameEnum::Transition->value);
+        Schema::dropIfExists(TableNameEnum::ParagraphTransition->value);
     }
 };

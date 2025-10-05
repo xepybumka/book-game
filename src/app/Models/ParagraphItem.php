@@ -7,21 +7,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Transition extends Model
+class ParagraphItem extends Model
 {
     use HasFactory;
 
     /**
-     * Get the paragraph that owns the transition.
+     * Вернет параграф, в котором находится предмет
      */
     public function paragraph(): BelongsTo
     {
         return $this->belongsTo(Paragraph::class);
     }
 
+    /**
+     * Вернет предмет
+     */
+    public function item(): BelongsTo
+    {
+        return $this->belongsTo(Item::class);
+    }
+
     public function __construct()
     {
         parent::__construct();
-        $this->table = TableNameEnum::Transition->value;
+        $this->table = TableNameEnum::ParagraphItem->value;
     }
 }

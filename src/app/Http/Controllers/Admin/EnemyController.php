@@ -25,7 +25,7 @@ class EnemyController extends Controller
         $title = 'Противники';
         $enemies = DB::table(TableNameEnum::Enemy->value)->paginate(10);
         return view('admin.enemy.index', [
-            'title' => $title,
+            'title'   => $title,
             'enemies' => $enemies
         ]);
     }
@@ -53,8 +53,8 @@ class EnemyController extends Controller
         $title = 'Редактирование: Противник №' . $id;
         $enemy = DB::table(TableNameEnum::Enemy->value)->find($id);
         return view('admin.enemy.edit', [
-            'title' => $title,
-            'enemy' => $enemy,
+            'title'        => $title,
+            'enemy'        => $enemy,
             'attack_types' => EnemyAttackTypeEnum::cases()
         ]);
     }
@@ -65,7 +65,7 @@ class EnemyController extends Controller
     public function create(): View
     {
         return view('admin.enemy.create', [
-            'title' => 'Создание: Противник',
+            'title'        => 'Создание: Противник',
             'attack_types' => EnemyAttackTypeEnum::cases()
         ]);
     }

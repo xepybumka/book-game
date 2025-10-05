@@ -11,7 +11,8 @@ class BookController extends Controller
      *
      * @return View
      */
-    public function index() {
+    public function index()
+    {
         return view('core.index');
     }
 
@@ -19,7 +20,8 @@ class BookController extends Controller
      *
      * @return View
      */
-    public function book() {
+    public function book()
+    {
         return view('core.book.index');
     }
 }

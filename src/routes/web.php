@@ -5,15 +5,16 @@ use App\Http\Controllers\Admin\EnemyController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\NoteController;
 use App\Http\Controllers\Admin\ParagraphController;
-use App\Http\Controllers\Admin\TransitionController;
+use App\Http\Controllers\Admin\ParagraphItemController;
+use App\Http\Controllers\Admin\ParagraphTransitionController;
 use App\Http\Controllers\Admin\WeaponController;
 use App\Http\Controllers\Core\BookController;
 use Illuminate\Support\Facades\Route;
 
 // Основная часть
-    Route::get('/', [BookController::class, 'index']);
-    Route::get('/book', [BookController::class, 'book']);
-    Route::get('/rules', [BookController::class, 'rules']);
+Route::get('/', [BookController::class, 'index']);
+Route::get('/book', [BookController::class, 'book']);
+Route::get('/rules', [BookController::class, 'rules']);
 
 // Административная панель
 Route::prefix('admin')->group(function () {
@@ -84,17 +85,30 @@ Route::prefix('admin')->group(function () {
         Route::delete('/note/{id}', 'destroy')->name('note.destroy');
     });
 
-    Route::controller(TransitionController::class)->group(function () {
-        Route::get('/transition/', 'index')->name('transition.list');
+    Route::controller(ParagraphTransitionController::class)->group(function () {
+        Route::get('/paragraph_transition/', 'index')->name('paragraph_transition.list');
 
-        Route::get('/transition/create', 'create')->name('transition.create');
-        Route::post('/transition/create', 'store')->name('transition.store');
+        Route::get('/paragraph_transition/create', 'create')->name('paragraph_transition.create');
+        Route::post('/paragraph_transition/create', 'store')->name('paragraph_transition.store');
 
-        Route::get('/transition/{id}', 'show')->name('transition.show');
-        Route::get('/transition/{id}/edit', 'edit')->name('transition.edit');
-        Route::put('/transition/{id}', 'update')->name('transition.update');
-        Route::patch('/transition/{id}', 'update')->name('transition.update');
-        Route::delete('/transition/{id}', 'destroy')->name('transition.destroy');
+        Route::get('/paragraph_transition/{id}', 'show')->name('paragraph_transition.show');
+        Route::get('/paragraph_transition/{id}/edit', 'edit')->name('paragraph_transition.edit');
+        Route::put('/paragraph_transition/{id}', 'update')->name('paragraph_transition.update');
+        Route::patch('/paragraph_transition/{id}', 'update')->name('paragraph_transition.update');
+        Route::delete('/paragraph_transition/{id}', 'destroy')->name('paragraph_transition.destroy');
+    });
+
+    Route::controller(ParagraphItemController::class)->group(function () {
+        Route::get('/paragraph_item/', 'index')->name('paragraph_item.list');
+
+        Route::get('/paragraph_item/create', 'create')->name('paragraph_item.create');
+        Route::post('/paragraph_item/create', 'store')->name('paragraph_item.store');
+
+        Route::get('/paragraph_item/{id}', 'show')->name('paragraph_item.show');
+        Route::get('/paragraph_item/{id}/edit', 'edit')->name('paragraph_item.edit');
+        Route::put('/paragraph_item/{id}', 'update')->name('paragraph_item.update');
+        Route::patch('/paragraph_item/{id}', 'update')->name('paragraph_item.update');
+        Route::delete('/paragraph_item/{id}', 'destroy')->name('paragraph_item.destroy');
     });
 
 });

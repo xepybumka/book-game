@@ -4,9 +4,8 @@ namespace App\Http\Requests\Admin;
 
 use App\Enums\TableNameEnum;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateTransitionRequest extends FormRequest
+class StoreParagraphItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,7 +16,7 @@ class UpdateTransitionRequest extends FormRequest
     }
 
     /**
-     * @return array
+     * @return array[]
      */
     public function rules(): array
     {
@@ -27,12 +26,12 @@ class UpdateTransitionRequest extends FormRequest
                 'integer',
                 "exists:" . TableNameEnum::Paragraph->value . ",number",
             ],
-            'to_paragraph_number' => [
+            'item_id'          => [
                 'required',
                 'integer',
-                "exists:" . TableNameEnum::Paragraph->value . ",number",
+                "exists:" . TableNameEnum::Item->value . ",id",
             ],
-            'title' => [
+            'title'            => [
                 'required',
                 'string'
             ],
@@ -46,10 +45,10 @@ class UpdateTransitionRequest extends FormRequest
     {
         return [
             'paragraph_number.required' => 'Номер параграфа обязателен для ввода.',
-            'to_paragraph_number.required' => 'Номер параграфа обязателен для ввода.',
-            'text.required' => 'Текст параграфа обязателен для ввода.',
-            'paragraph_number.exists' => 'Указанный исходный параграф не существует.',
-            'to_paragraph_number.exists' => 'Указанный целевой параграф не существует.',
+            'item_id.required'          => 'Предмет обязателен для ввода.',
+            'text.required'             => 'Текст параграфа обязателен для ввода.',
+            'paragraph_number.exists'   => 'Указанный исходный параграф не существует.',
+            'item_id.exists'            => 'Такого предмета не существует.',
         ];
     }
 }

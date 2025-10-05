@@ -51,14 +51,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="{{ route('transition.list') }}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Переходы параграфов</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('weapon.list') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
@@ -88,6 +80,25 @@
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
                     <span class="nav-link-text ms-1">Заметки</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-light font-weight-bolder opacity-5">Контент на страницах</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{ route('paragraph_transition.list') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Переходы параграфов</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{ route('paragraph_item.list') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Предметы на параграфах</span>
                 </a>
             </li>
         </ul>
