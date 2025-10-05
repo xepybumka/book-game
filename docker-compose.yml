@@ -26,7 +26,7 @@ services:
         image: postgres:latest
         container_name: postgres-${COMPOSE_PROJECT_NAME}
         volumes:
-            - ./docker/postgresql/data:/var/lib/postgresql/data
+            - pgdata:/var/lib/postgresql/data
         ports:
             - ${POSTGRES_PORT:-5432}:5432
         environment:
@@ -44,3 +44,5 @@ services:
             - postgres
         ports:
             - "${PGADMIN_PORT:-5050}:80"
+volumes:
+    pgdata:
