@@ -21,7 +21,7 @@ class ParagraphItemController
     public function index(): View
     {
         $title = 'Предметы в параграфах';
-        $paragraphItems = DB::table(TableNameEnum::ParagraphItem->value)->orderBy('id')->paginate(10);
+        $paragraphItems = ParagraphItem::orderBy('id')->paginate(10);
         return view('admin.paragraph_item.index', [
             'title'          => $title,
             'paragraphItems' => $paragraphItems
@@ -34,7 +34,7 @@ class ParagraphItemController
      */
     public function show(int $id): View
     {
-        $paragraphItem = DB::table(TableNameEnum::ParagraphItem->value)->find($id);
+        $paragraphItem = ParagraphItem::find($id);
         $title = 'Предмет в параграфе №' . $paragraphItem->paragraph_number;
         return view('admin.paragraph_item.show', [
             'title'         => $title,
@@ -48,7 +48,7 @@ class ParagraphItemController
      */
     public function edit(int $id): View
     {
-        $paragraphItem = DB::table(TableNameEnum::ParagraphItem->value)->find($id);
+        $paragraphItem = ParagraphItem::find($id);
         $title = 'Редактирование: Предмет в параграфе №' . $paragraphItem->paragraph_number;
         return view('admin.paragraph_item.edit', [
             'title'         => $title,
@@ -112,7 +112,7 @@ class ParagraphItemController
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::ParagraphItem->value)->delete($id);
+        ParagraphItem::destroy($id);
         return redirect()->route('paragraph_item.list')->with('success', 'Предмет успешно удален!');
     }
 }

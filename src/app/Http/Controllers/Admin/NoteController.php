@@ -22,8 +22,7 @@ class NoteController extends Controller
     public function index(): View
     {
         $title = 'Заметки';
-        $notes = DB::table(TableNameEnum::Note->value)
-            ->paginate(10);
+        $notes = Note::paginate(10);
         return view('admin.note.index', [
             'title' => $title,
             'notes' => $notes
@@ -37,8 +36,7 @@ class NoteController extends Controller
     public function show(int $id): View
     {
         $title = 'Заметка №' . $id;
-        $note = DB::table(TableNameEnum::Note->value)
-            ->find($id);
+        $note = Note::find($id);
         return view('admin.note.show', [
             'title' => $title,
             'note'  => $note
@@ -52,8 +50,7 @@ class NoteController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Заметка №' . $id;
-        $note = DB::table(TableNameEnum::Note->value)
-            ->find($id);
+        $note = Note::find($id);
         return view('admin.note.edit', [
             'title' => $title,
             'note'  => $note
@@ -113,7 +110,7 @@ class NoteController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::Note->value)->delete($id);
+        Note::destroy($id);
         return redirect()->route('note.list')->with('success', 'Заметка успешно удален!');
     }
 }

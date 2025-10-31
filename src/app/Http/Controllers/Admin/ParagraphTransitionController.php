@@ -22,7 +22,7 @@ class ParagraphTransitionController extends Controller
     public function index(): View
     {
         $title = 'Переходы параграфов';
-        $paragraphTransitions = DB::table(TableNameEnum::ParagraphTransition->value)->orderBy('id')->paginate(10);
+        $paragraphTransitions = ParagpaphTransition::orderBy('id')->paginate(10);
         return view('admin.paragraph_transition.index', [
             'title'                => $title,
             'paragraphTransitions' => $paragraphTransitions
@@ -35,7 +35,7 @@ class ParagraphTransitionController extends Controller
      */
     public function show(int $id): View
     {
-        $paragraphTransition = DB::table(TableNameEnum::ParagraphTransition->value)->find($id);
+        $paragraphTransition = ParagpaphTransition::find($id);
         $title = 'Переход с параграфа №' . $paragraphTransition->paragraph_number;
         return view('admin.paragraph_transition.show', [
             'title'               => $title,
@@ -49,7 +49,7 @@ class ParagraphTransitionController extends Controller
      */
     public function edit(int $id): View
     {
-        $paragraphTransition = DB::table(TableNameEnum::ParagraphTransition->value)->find($id);
+        $paragraphTransition = ParagpaphTransition::find($id);
         $title = 'Редактирование: Перехода с параграфа №' . $paragraphTransition->paragraph_number;
         return view('admin.paragraph_transition.edit', [
             'title'               => $title,
@@ -113,7 +113,7 @@ class ParagraphTransitionController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::ParagraphTransition->value)->delete($id);
+        ParagpaphTransition::destroy($id);
         return redirect()->route('paragraph_transition.list')->with('success', 'Переход успешно удален!');
     }
 }

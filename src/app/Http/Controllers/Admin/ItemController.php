@@ -22,7 +22,7 @@ class ItemController extends Controller
     public function index(): View
     {
         $title = 'Предметы';
-        $items = DB::table(TableNameEnum::Item->value)->paginate(10);
+        $items = Item::paginate(10);
         return view('admin.item.index', [
             'title' => $title,
             'items' => $items,
@@ -36,7 +36,7 @@ class ItemController extends Controller
     public function show(int $id): View
     {
         $title = 'Предмет №' . $id;
-        $item = DB::table(TableNameEnum::Item->value)->find($id);
+        $item = Item::find($id);
         return view('admin.item.show', [
             'title' => $title,
             'item'  => $item,
@@ -50,7 +50,7 @@ class ItemController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Предмет №' . $id;
-        $item = DB::table(TableNameEnum::Item->value)->find($id);
+        $item = Item::find($id);
         return view('admin.item.edit', [
             'title' => $title,
             'item'  => $item
@@ -109,7 +109,7 @@ class ItemController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::Item->value)->delete($id);
+        Item::destroy($id);
         return redirect()->route('item.list')->with('success', 'Предмет успешно удален!');
     }
 }
