@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreItemRequest;
 use App\Http\Requests\Admin\UpdateItemRequest;
@@ -10,7 +9,6 @@ use App\Models\Item;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ItemController extends Controller

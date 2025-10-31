@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\TableNameEnum;
 use App\Http\Requests\Admin\StoreParagraphItemRequest;
 use App\Http\Requests\Admin\UpdateParagpaphItemRequest;
 use App\Models\ParagraphItem;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ParagraphItemController

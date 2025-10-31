@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreParagraphRequest;
 use App\Http\Requests\Admin\UpdateParagraphRequest;
@@ -10,7 +9,6 @@ use App\Models\Paragraph;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ParagraphController extends Controller

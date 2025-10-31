@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\EnemyAttackTypeEnum;
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreEnemyRequest;
 use App\Http\Requests\Admin\UpdateEnemyRequest;
@@ -11,7 +10,6 @@ use App\Models\Enemy;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class EnemyController extends Controller
