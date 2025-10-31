@@ -42,6 +42,9 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-light font-weight-bolder opacity-5">Сущности</h6>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('paragraph.list') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -98,7 +101,42 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
-                    <span class="nav-link-text ms-1">Предметы на параграфах</span>
+                    <span class="nav-link-text ms-1">Предметы</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">События</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-light font-weight-bolder opacity-5">События</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Битвы</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Проверить удачу</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="#">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Торговля</span>
                 </a>
             </li>
         </ul>
@@ -152,5 +190,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ URL::asset('assets/js/material-dashboard.min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/admin-dropdown-helper.js') }}"></script>
+@yield('scripts')
 </body>
 </html>

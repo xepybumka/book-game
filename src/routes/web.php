@@ -16,6 +16,8 @@ Route::get('/', [BookController::class, 'index']);
 Route::get('/book', [BookController::class, 'book']);
 Route::get('/rules', [BookController::class, 'rules']);
 
+Route::get('/test', [BookController::class, 'test']);
+
 // Административная панель
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreParagraphRequest;
 use App\Http\Requests\Admin\UpdateParagraphRequest;
@@ -10,7 +9,6 @@ use App\Models\Paragraph;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ParagraphController extends Controller
@@ -22,7 +20,7 @@ class ParagraphController extends Controller
     public function index(): View
     {
         $title = 'Параграфы';
-        $paragraphs = DB::table(TableNameEnum::Paragraph->value)->orderBy('number')->paginate(10);
+        $paragraphs = Paragraph::orderBy('number')->paginate(10);
         return view('admin.paragraph.index', [
             'title'      => $title,
             'paragraphs' => $paragraphs
@@ -36,7 +34,7 @@ class ParagraphController extends Controller
     public function show(int $id): View
     {
         $title = 'Параграф №' . $id;
-        $paragraph = DB::table(TableNameEnum::Paragraph->value)->find($id);
+        $paragraph = Paragraph::find($id);
         return view('admin.paragraph.show', [
             'title'     => $title,
             'paragraph' => $paragraph
@@ -50,7 +48,7 @@ class ParagraphController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Параграф №' . $id;
-        $paragraph = DB::table(TableNameEnum::Paragraph->value)->find($id);
+        $paragraph = Paragraph::find($id);
         return view('admin.paragraph.edit', [
             'title'     => $title,
             'paragraph' => $paragraph
@@ -111,7 +109,7 @@ class ParagraphController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::Paragraph->value)->delete($id);
+        Paragraph::destroy($id);
         return redirect()->route('paragraph.list')->with('success', 'Параграф успешно удален!');
     }
 }

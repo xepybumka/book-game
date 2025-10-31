@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreParagraphTransitionRequest;
 use App\Http\Requests\Admin\UpdateParagraphTransitionRequest;
+use App\Models\Paragraph;
 use App\Models\ParagpaphTransition;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ParagraphTransitionController extends Controller
@@ -22,7 +21,7 @@ class ParagraphTransitionController extends Controller
     public function index(): View
     {
         $title = 'Переходы параграфов';
-        $paragraphTransitions = DB::table(TableNameEnum::ParagraphTransition->value)->orderBy('id')->paginate(10);
+        $paragraphTransitions = ParagpaphTransition::orderBy('id')->paginate(10);
         return view('admin.paragraph_transition.index', [
             'title'                => $title,
             'paragraphTransitions' => $paragraphTransitions
@@ -35,7 +34,7 @@ class ParagraphTransitionController extends Controller
      */
     public function show(int $id): View
     {
-        $paragraphTransition = DB::table(TableNameEnum::ParagraphTransition->value)->find($id);
+        $paragraphTransition = ParagpaphTransition::find($id);
         $title = 'Переход с параграфа №' . $paragraphTransition->paragraph_number;
         return view('admin.paragraph_transition.show', [
             'title'               => $title,
@@ -49,11 +48,13 @@ class ParagraphTransitionController extends Controller
      */
     public function edit(int $id): View
     {
-        $paragraphTransition = DB::table(TableNameEnum::ParagraphTransition->value)->find($id);
+        $paragraphTransition = ParagpaphTransition::find($id);
         $title = 'Редактирование: Перехода с параграфа №' . $paragraphTransition->paragraph_number;
+        $paragraphs = Paragraph::all();
         return view('admin.paragraph_transition.edit', [
             'title'               => $title,
-            'paragraphTransition' => $paragraphTransition
+            'paragraphTransition' => $paragraphTransition,
+            'paragraphs' => $paragraphs,
         ]);
     }
 
@@ -63,8 +64,10 @@ class ParagraphTransitionController extends Controller
     public function create(): View
     {
         $title = 'Создание: Переход между параграфами';
+        $paragraphs = Paragraph::all();
         return view('admin.paragraph_transition.create', [
-            'title' => $title
+            'title' => $title,
+            'paragraphs' => $paragraphs,
         ]);
     }
 
@@ -113,7 +116,7 @@ class ParagraphTransitionController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::ParagraphTransition->value)->delete($id);
+        ParagpaphTransition::destroy($id);
         return redirect()->route('paragraph_transition.list')->with('success', 'Переход успешно удален!');
     }
 }

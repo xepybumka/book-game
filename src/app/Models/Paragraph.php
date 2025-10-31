@@ -28,7 +28,15 @@ class Paragraph extends Model
      */
     public function transitions(): HasMany
     {
-        return $this->hasMany(ParagpaphTransition::class);
+        return $this->hasMany(ParagpaphTransition::class, 'paragraph_number', 'number');
+    }
+
+    /**
+     * Get the items for the paragraph.
+     */
+    public function items(): HasMany
+    {
+        return $this->hasMany(ParagpaphTransition::class, 'paragraph_number', 'number');
     }
 
     public function __construct()

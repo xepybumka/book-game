@@ -12,14 +12,6 @@ class ParagraphItem extends Model
     use HasFactory;
 
     /**
-     * Вернет параграф, в котором находится предмет
-     */
-    public function paragraph(): BelongsTo
-    {
-        return $this->belongsTo(Paragraph::class);
-    }
-
-    /**
      * Вернет предмет
      */
     public function item(): BelongsTo

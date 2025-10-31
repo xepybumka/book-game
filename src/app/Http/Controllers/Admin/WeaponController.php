@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreWeaponRequest;
 use App\Http\Requests\Admin\UpdateWeaponRequest;
@@ -10,7 +9,6 @@ use App\Models\Weapon;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class WeaponController extends Controller
@@ -22,7 +20,7 @@ class WeaponController extends Controller
     public function index(): View
     {
         $title = 'Оружие';
-        $weapons = DB::table(TableNameEnum::Weapon->value)->orderBy('id')->paginate(10);
+        $weapons = Weapon::orderBy('id')->paginate(10);
 
         return view('admin.weapon.index', [
             'title'   => $title,
@@ -37,7 +35,7 @@ class WeaponController extends Controller
     public function show(int $id): View
     {
         $title = 'Оружие №' . $id;
-        $weapon = DB::table(TableNameEnum::Weapon->value)->find($id);
+        $weapon = Weapon::find($id);
         return view('admin.weapon.show', [
             'title'  => $title,
             'weapon' => $weapon
@@ -51,8 +49,7 @@ class WeaponController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Оружие №' . $id;
-        $weapon = DB::table(TableNameEnum::Weapon->value)
-            ->find($id);
+        $weapon = Weapon::find($id);
         return view('admin.weapon.edit', [
             'title'  => $title,
             'weapon' => $weapon
@@ -114,7 +111,7 @@ class WeaponController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::Weapon->value)->delete($id);
+        Weapon::destroy($id);
         return redirect()->route('weapon.list')->with('success', 'Оружие успешно удален!');
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\EnemyAttackTypeEnum;
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreEnemyRequest;
 use App\Http\Requests\Admin\UpdateEnemyRequest;
@@ -11,7 +10,6 @@ use App\Models\Enemy;
 use DateTime;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class EnemyController extends Controller
@@ -23,7 +21,7 @@ class EnemyController extends Controller
     public function index(): View
     {
         $title = 'Противники';
-        $enemies = DB::table(TableNameEnum::Enemy->value)->paginate(10);
+        $enemies = Enemy::paginate(10);
         return view('admin.enemy.index', [
             'title'   => $title,
             'enemies' => $enemies
@@ -37,7 +35,7 @@ class EnemyController extends Controller
     public function show(int $id): View
     {
         $title = 'Противник №' . $id;
-        $enemy = DB::table(TableNameEnum::Enemy->value)->find($id);
+        $enemy = Enemy::find($id);
         return view('admin.enemy.show', [
             'title' => $title,
             'enemy' => $enemy
@@ -51,7 +49,7 @@ class EnemyController extends Controller
     public function edit(int $id): View
     {
         $title = 'Редактирование: Противник №' . $id;
-        $enemy = DB::table(TableNameEnum::Enemy->value)->find($id);
+        $enemy = Enemy::find($id);
         return view('admin.enemy.edit', [
             'title'        => $title,
             'enemy'        => $enemy,
@@ -119,7 +117,7 @@ class EnemyController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
-        DB::table(TableNameEnum::Enemy->value)->delete($id);
+        Enemy::destroy($id);
         return redirect()->route('enemy.list')->with('success', 'Предмет успешно удален!');
     }
 }
