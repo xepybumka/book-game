@@ -19,18 +19,28 @@
 
     <form method="POST" action="{{ route('paragraph_item.create') }}">
         @csrf
-
         <div class="form-group">
-            <label for="number">Номер параграфа, В КОТОРОМ находится предмет</label>
-            <input type="text" class="form-control @error('paragraph_number') is-invalid @enderror" id="paragraph_number" name="paragraph_number" placeholder="22">
+            <label for="number">Номер параграфа, в котором расположен предмет</label>
+            <select class="form-control @error('paragraph_number') is-invalid @enderror" id="selectParagraphNumber" name="paragraph_number" required focus>
+                <option value="" disabled selected>Выберите параграф</option>
+                @foreach($paragraphs as $paragraph)
+                    <option value="{{$paragraph->number}}">{{ $paragraph->number }}</option>
+                @endforeach
+            </select>
+            <input type="text" class="visually-hidden" id="paragraph_number" name="paragraph_number">
             @error('paragraph_number')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="number">Идентификатор предмета</label>
-            <input type="text" class="form-control @error('to_paragraph_number') is-invalid @enderror" id="item_id" name="item_id" placeholder="23">
+            <select class="form-control @error('item_id') is-invalid @enderror" id="selectItemId" name="item_id" required focus>
+                <option value="" disabled selected>Выберите предмет</option>
+                @foreach($items as $item)
+                    <option value="{{$item->id}}">(id:{{$item->id}})</option>
+                @endforeach
+            </select>
+            <input type="text" class="visually-hidden" id="item_id" name="item_id">
             @error('item_id')
             <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -51,4 +61,11 @@
             <button class="btn btn-success btn-submit">Добавить</button>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number')
+        addDropdownOnChangeListener('selectItemId', 'item_id')
+    </script>
 @endsection

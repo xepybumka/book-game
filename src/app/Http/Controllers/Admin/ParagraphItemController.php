@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\StoreParagraphItemRequest;
 use App\Http\Requests\Admin\UpdateParagpaphItemRequest;
+use App\Models\Item;
+use App\Models\Paragraph;
 use App\Models\ParagraphItem;
 use DateTime;
 use Exception;
@@ -48,9 +50,13 @@ class ParagraphItemController
     {
         $paragraphItem = ParagraphItem::find($id);
         $title = 'Редактирование: Предмет в параграфе №' . $paragraphItem->paragraph_number;
+        $paragraphs = Paragraph::all();
+        $items = Item::all();
         return view('admin.paragraph_item.edit', [
             'title'         => $title,
-            'paragraphItem' => $paragraphItem
+            'paragraphItem' => $paragraphItem,
+            'paragraphs' => $paragraphs,
+            'items' => $items
         ]);
     }
 
@@ -60,8 +66,12 @@ class ParagraphItemController
     public function create(): View
     {
         $title = 'Создание: Предмет в параграфе';
+        $paragraphs = Paragraph::all();
+        $items = Item::all();
         return view('admin.paragraph_item.create', [
-            'title' => $title
+            'title' => $title,
+            'paragraphs' => $paragraphs,
+            'items' => $items
         ]);
     }
 

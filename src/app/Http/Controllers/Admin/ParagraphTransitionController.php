@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreParagraphTransitionRequest;
 use App\Http\Requests\Admin\UpdateParagraphTransitionRequest;
+use App\Models\Paragraph;
 use App\Models\ParagpaphTransition;
 use DateTime;
 use Exception;
@@ -49,9 +50,11 @@ class ParagraphTransitionController extends Controller
     {
         $paragraphTransition = ParagpaphTransition::find($id);
         $title = 'Редактирование: Перехода с параграфа №' . $paragraphTransition->paragraph_number;
+        $paragraphs = Paragraph::all();
         return view('admin.paragraph_transition.edit', [
             'title'               => $title,
-            'paragraphTransition' => $paragraphTransition
+            'paragraphTransition' => $paragraphTransition,
+            'paragraphs' => $paragraphs,
         ]);
     }
 
@@ -61,8 +64,10 @@ class ParagraphTransitionController extends Controller
     public function create(): View
     {
         $title = 'Создание: Переход между параграфами';
+        $paragraphs = Paragraph::all();
         return view('admin.paragraph_transition.create', [
-            'title' => $title
+            'title' => $title,
+            'paragraphs' => $paragraphs,
         ]);
     }
 

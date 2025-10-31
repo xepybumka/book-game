@@ -22,22 +22,30 @@
         {{ method_field('PUT') }}
         <div class="form-group">
             <label for="number">Номер параграфа, В КОТОРОМ расположен переход</label>
-            <input type="text" class="form-control @error('paragraph_number') is-invalid @enderror" id="paragraph_number"
-                   value="{{$paragraphTransition->paragraph_number}}" name="paragraph_number" placeholder="22">
+            <select class="form-control @error('paragraph_number') is-invalid @enderror" id="selectParagraphNumber" name="paragraph_number" required focus>
+                <option value="" disabled selected>{{$paragraphTransition->paragraph_number}}</option>
+                @foreach($paragraphs as $paragraph)
+                    <option value="{{$paragraph->number}}">{{ $paragraph->number }}</option>
+                @endforeach
+            </select>
+            <input type="text" class="visually-hidden" id="paragraph_number" name="paragraph_number" value="{{$paragraphTransition->paragraph_number}}">
             @error('paragraph_number')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="number">Номер параграфа, КУДА переходим </label>
-            <input type="text" class="form-control @error('to_paragraph_number') is-invalid @enderror" id="to_paragraph_number"
-                   value="{{$paragraphTransition->to_paragraph_number}}" name="to_paragraph_number" placeholder="23">
+            <select class="form-control @error('to_paragraph_number') is-invalid @enderror" id="selectToParagraphNumber" name="to_paragraph_number" required focus>
+                <option value="" disabled selected>{{$paragraphTransition->to_paragraph_number}}</option>
+                @foreach($paragraphs as $paragraph)
+                    <option value="{{$paragraph->number}}">{{ $paragraph->number }}</option>
+                @endforeach
+            </select>
+            <input type="text" class="visually-hidden" id="paragraph_number" name="paragraph_number" value="{{$paragraphTransition->to_paragraph_number}}">
             @error('to_paragraph_number')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="title">Текст перехода</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
@@ -51,4 +59,11 @@
             <button class="btn btn-success btn-submit">Обновить</button>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number')
+        addDropdownOnChangeListener('selectToParagraphNumber', 'to_paragraph_number')
+    </script>
 @endsection
