@@ -190,7 +190,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ URL::asset('assets/js/material-dashboard.min.js') }}"></script>
-<script src="{{ URL::asset('assets/js/admin-dropdown-helper.js') }}"></script>
+<script src="{{ URL::asset('assets/js/admin/dropdown-helper.js') }}"></script>
 @yield('scripts')
 </body>
 </html>
