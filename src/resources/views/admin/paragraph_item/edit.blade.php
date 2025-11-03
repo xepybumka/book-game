@@ -63,10 +63,7 @@
 
 @section('scripts')
     <script type="text/javascript">
-        const selectParagraphDropdownHelper = new dropdownHelper('selectParagraphNumber', 'paragraph_number');
-        const selectItemDropdownHelper = new dropdownHelper('selectItemId', 'item_id');
-
-        selectParagraphDropdownHelper.addDropdownOnChangeListener()
-        selectItemDropdownHelper.addDropdownOnChangeListener()
+        new dropdownHelper('selectParagraphNumber', 'paragraph_number').addDropdownOnChangeListener();
+        new dropdownHelper('selectItemId', 'item_id').addDropdownOnChangeListener();
     </script>
 @endsection
