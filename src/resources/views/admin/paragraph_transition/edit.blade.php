@@ -63,7 +63,7 @@
 
 @section('scripts')
     <script type="text/javascript">
-        new dropdownHelper('selectParagraphNumber', 'paragraph_number').addDropdownOnChangeListener();
-        new dropdownHelper('selectToParagraphNumber', 'to_paragraph_number').addDropdownOnChangeListener();
+        new dropdownHelper().addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
+        new dropdownHelper().addDropdownOnChangeListener('selectToParagraphNumber', 'to_paragraph_number');
     </script>
 @endsection
