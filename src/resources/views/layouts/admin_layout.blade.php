@@ -16,8 +16,6 @@
     <link href="{{ URL::asset('assets/css/nucleo-icons.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"/>
 
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
@@ -173,7 +171,6 @@
     </div>
 </main>
 <!--   Core JS Files   -->
-<script src="{{ URL::asset('assets/js/core /popper.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/bootstrap.js') }}"></script>
 <script src="{{ URL::asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>

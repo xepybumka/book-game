@@ -16,5 +16,6 @@
         <footer class="footer">
             @yield('footer')
         </footer>
+        <script src="{{ URL::asset('assets/js/jquery-3.7.1.js') }}"></script>
     </body>
 </html>

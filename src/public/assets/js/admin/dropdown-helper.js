@@ -1,5 +1,5 @@
 class dropdownHelper {
-    addDropdownOnChangeListener (inputName,dropdownBlockId) {
+    addDropdownOnChangeListener (dropdownBlockId,inputName) {
         let input = document.getElementById(inputName);
         let dropdown = document.getElementById(dropdownBlockId);
         dropdown.onchange = function(){
