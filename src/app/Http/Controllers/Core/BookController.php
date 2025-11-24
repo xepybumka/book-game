@@ -40,4 +40,17 @@ class BookController extends Controller
             'paragraph' => $paragraph
         ]);
     }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function paragraph($id)
+    {
+        $paragraph = Paragraph::find($id);
+        return response()->json([
+            'paragraph'   => $paragraph,
+            'transitions' => $paragraph->transitions
+        ]);
+    }
 }

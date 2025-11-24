@@ -12,11 +12,15 @@ use App\Http\Controllers\Core\BookController;
 use Illuminate\Support\Facades\Route;
 
 // Основная часть
-Route::get('/', [BookController::class, 'index']);
-Route::get('/book', [BookController::class, 'book']);
-Route::get('/rules', [BookController::class, 'rules']);
+Route::controller(BookController::class)->group(function () {
+    Route::get('/',  'index');
+    Route::get('/book',  'book');
+    Route::get('/rules', 'rules');
 
-Route::get('/test', [BookController::class, 'test']);
+    Route::get('/test',  'test');
+    Route::get('/get_paragraph/{id}', 'paragraph');
+});
+
 
 // Административная панель
 Route::prefix('admin')->group(function () {
