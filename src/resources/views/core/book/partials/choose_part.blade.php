@@ -1,5 +1,5 @@
 <div class="choose_wrapper">
-    <div class="text_wrap">
+    <div class="choose_wrapper__text">
         <table class="table table-striped">
             <thead>
             <tr>
