@@ -1,6 +1,6 @@
 <div class="text_part">
     <div class="text_wrap">
-        <p>
+        <p id="mainParagraphText">
             <?=$paragraph->text?>
         </p>
     </div>

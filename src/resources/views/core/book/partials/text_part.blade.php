@@ -1,5 +1,5 @@
 <div class="text_part">
-    <div class="text_wrap">
+    <div class="text_part__text">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mauris augue, placerat nec augue et,
             sodales fringilla quam. Proin at velit mi. Ut posuere aliquam sapien, eu ultricies sem convallis eget.
