@@ -38,10 +38,14 @@
         <a class="sidebar__left_bottom_ungle"></a>
     </div>
     <div class="right_sidebar_picture_block">
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         <a class="sidebar__left_top_ungle"></a>
         <a class="sidebar__right_top_ungle"></a>
 
         <a class="sidebar__right_bottom_ungle"></a>
         <a class="sidebar__left_bottom_ungle"></a>
+        
+        <button id="dice_roll">Бросить кубики!</button>
+        <div id="dice-box"></div>
     </div>
 </div>
