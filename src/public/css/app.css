@@ -879,3 +879,11 @@ del.cross:before,
 
     border-radius: 12px;
 }
+
+#dice-box {
+  position: relative;
+  width: 85%;
+  height: 80%;
+  top: 1%;
+  left: 7%;
+}
