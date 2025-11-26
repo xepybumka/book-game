@@ -16,8 +16,9 @@
         <footer class="footer">
             @yield('footer')
         </footer>
-        <script src="{{ URL::asset('assets/js/jquery-3.7.1.js') }}"></script>
-        <script src="{{ URL::asset('assets/js/dice-box.js') }}"></script>
+         @vite(['public/assets/css/app.css', 'public/assets/js/app.js'])
+        <!-- <script src="{{ URL::asset('assets/js/jquery-3.7.1.js') }}"></script>
+        <script src="{{ URL::asset('assets/js/dice-box.js') }}"></script> -->
         @yield('scripts')
     </body>
 </html>
