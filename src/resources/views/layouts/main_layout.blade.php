@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Book game</title>
-        <link href="{{ URL::asset('assets/css/app.css') }}" rel="stylesheet"/>
     </head>
     <body class="book-body">
         <header class="header">
@@ -16,9 +15,10 @@
         <footer class="footer">
             @yield('footer')
         </footer>
-         @vite(['public/assets/css/app.css', 'public/assets/js/app.js'])
-        <!-- <script src="{{ URL::asset('assets/js/jquery-3.7.1.js') }}"></script>
-        <script src="{{ URL::asset('assets/js/dice-box.js') }}"></script> -->
+         @vite([
+            'public/assets/css/app.css',
+            'public/assets/js/app.js'
+        ])
         @yield('scripts')
     </body>
 </html>
