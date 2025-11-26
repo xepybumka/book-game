@@ -462,7 +462,7 @@ body {
 
 .wrapper {
     position: absolute;
-    background: url("../images/png/main_background.png");
+    background: url("../img/png/main_background.png");
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -521,7 +521,7 @@ body {
     left: 6px;
     top: 6px;
 
-    background: url("../images/png/sidebar__ungle.png");
+    background: url("../img/png/sidebar__ungle.png");
 }
 
 .sidebar__right_top_ungle {
@@ -532,7 +532,7 @@ body {
     top: 6px;
 
     transform: rotate(90deg);
-    background: url("../images/png/sidebar__ungle.png");
+    background: url("../img/png/sidebar__ungle.png");
 }
 
 .sidebar__right_bottom_ungle {
@@ -543,7 +543,7 @@ body {
     bottom: 6px;
 
     transform: rotate(180deg);
-    background: url("../images/png/sidebar__ungle.png");
+    background: url("../img/png/sidebar__ungle.png");
 }
 
 .sidebar__left_bottom_ungle {
@@ -554,7 +554,7 @@ body {
     bottom: 6px;
 
     transform: rotate(-90deg);
-    background: url("../images/png/sidebar__ungle.png");
+    background: url("../img/png/sidebar__ungle.png");
 }
 
 .left-sidebar__character-parameters {
@@ -574,7 +574,7 @@ body {
     height: 0px;
     margin: 30px;
     border: 1px dashed #A2A2A2;
-    background: url("../images/png/sidebar_separator.png");
+    background: url("../img/png/sidebar_separator.png");
 }
 
 .left-sidebar__character-pockets {
@@ -734,7 +734,7 @@ del.cross:before,
     top: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0) url("../images/svg/cross.svg") no-repeat;
+    background: rgba(0, 0, 0, 0) url("../img/svg/cross.svg") no-repeat;
     background-size: 100% 100%; /* растягивает фон на всю ширину и высоту блока */
 }
 
@@ -878,12 +878,4 @@ del.cross:before,
     backdrop-filter: blur(2.5px);
 
     border-radius: 12px;
-}
-
-#dice-box {
-  position: relative;
-  width: 85%;
-  height: 80%;
-  top: 1%;
-  left: 7%;
 }
