@@ -1,19 +1,22 @@
-install: env_from_example build start composer migrate seed
+install: copy_config build start composer npm migrate seed
 
-env_from_example:
+copy_config:
 	cp .env.example .env
 	cp .env.example src/.env
 
-build: env_from_example
+build: 
 	docker compose build
 
-composer: build
+composer: 
 	docker exec php-book-game sh -c "composer install"
 
-migrate: composer
+npm:
+	docker exec php-book-game sh -c "npm install && npm run build"
+
+migrate: 
 	docker exec php-book-game sh -c "php artisan migrate"
 
-seed: migrate
+seed: 
 	docker exec php-book-game sh -c "php artisan db:seed"
 
 start:
