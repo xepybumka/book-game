@@ -1,7 +1,7 @@
 <div class="top-menu">
     <div class="top-menu__arrow">
         <a class="top-menu__menu-arrow">
-            <img src="../../images/svg/menu_arrow.svg" alt="arrow" class="top-menu__arrow-pic">
+            <img src='/assets/img/svg/menu_arrow.svg' alt="arrow" class="top-menu__arrow-pic">
         </a>
     </div>
     <nav class="top-menu__nav">

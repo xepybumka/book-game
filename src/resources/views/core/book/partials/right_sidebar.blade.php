@@ -1,7 +1,7 @@
 <div class="right_sidebar_wrapper">
     <div class="right_sidebar_weapon_block">
-        <a class="sidebar__left_top_ungle"></a>
-        <a class="sidebar__right_top_ungle"></a>
+        <a class="sidebar__left_top_corner"></a>
+        <a class="sidebar__right_top_corner"></a>
 
         <div class="right_sidebar__weapon">
                 <span>
@@ -27,22 +27,23 @@
                 </div>
             </div>
         </div>
-        <a class="sidebar__right_bottom_ungle"></a>
-        <a class="sidebar__left_bottom_ungle"></a>
+        <a class="sidebar__right_bottom_corner"></a>
+        <a class="sidebar__left_bottom_corner"></a>
     </div>
     <div class="right_sidebar_note_block">
-        <a class="sidebar__left_top_ungle"></a>
-        <a class="sidebar__right_top_ungle"></a>
+        <a class="sidebar__left_top_corner"></a>
+        <a class="sidebar__right_top_corner"></a>
 
-        <a class="sidebar__right_bottom_ungle"></a>
-        <a class="sidebar__left_bottom_ungle"></a>
+        <a class="sidebar__right_bottom_corner"></a>
+        <a class="sidebar__left_bottom_corner"></a>
     </div>
     <div class="right_sidebar_picture_block">
-        <a class="sidebar__left_top_ungle"></a>
-        <a class="sidebar__right_top_ungle"></a>
+        @vite('resources/js/dice-box.js')
+        <a class="sidebar__left_top_corner"></a>
+        <a class="sidebar__right_top_corner"></a>
 
-        <a class="sidebar__right_bottom_ungle"></a>
-        <a class="sidebar__left_bottom_ungle"></a>
+        <a class="sidebar__right_bottom_corner"></a>
+        <a class="sidebar__left_bottom_corner"></a>
         
         <button id="dice_roll">Бросить кубики!</button>
         <div id="dice-box"></div>
