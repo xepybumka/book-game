@@ -38,6 +38,10 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
 
+    - name: npm install and build
+      working-directory: ./src
+      run: npm install && npm run build
+
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       working-directory: ./src
       env:
