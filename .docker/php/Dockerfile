@@ -1,4 +1,4 @@
-FROM node:21-alpine AS node
+FROM node:22.12-alpine AS node
 FROM php:8.2-fpm-alpine
 
 RUN apk add --no-cache libstdc++ libgcc zip unzip curl \
