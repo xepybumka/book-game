@@ -170,10 +170,6 @@
         </div>
     </div>
 </main>
-<!--   Core JS Files   -->
-<script src="{{ URL::asset('assets/js/bootstrap.js') }}"></script>
-<script src="{{ URL::asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ URL::asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -183,11 +179,7 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="{{ URL::asset('assets/js/material-dashboard.min.js') }}"></script>
-<script src="{{ URL::asset('assets/js/admin/dropdown-helper.js') }}"></script>
 @yield('scripts')
+@vite('resources/js/dropdown-helper.js')
 </body>
 </html>

@@ -1,6 +1,6 @@
 <div class="left_sidebar">
-    <a class="sidebar__left_top_ungle"></a>
-    <a class="sidebar__right_top_ungle"></a>
+    <a class="sidebar__left_top_corner"></a>
+    <a class="sidebar__right_top_corner"></a>
 
     <div class="left-sidebar__character-parameters">
         <ul class="sidebar-paramerers__list">
@@ -61,6 +61,6 @@
         </nav>
     </div>
 
-    <a class="sidebar__right_bottom_ungle"></a>
-    <a class="sidebar__left_bottom_ungle"></a>
+    <a class="sidebar__right_bottom_corner"></a>
+    <a class="sidebar__left_bottom_corner"></a>
 </div>
