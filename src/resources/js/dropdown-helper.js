@@ -8,6 +8,3 @@ class dropdownHelper {
         }
     }
 }
-
-new dropdownHelper().addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
-new dropdownHelper().addDropdownOnChangeListener('selectToParagraphNumber', 'to_paragraph_number');

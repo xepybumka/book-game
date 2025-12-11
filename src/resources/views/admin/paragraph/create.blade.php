@@ -27,6 +27,12 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
+        <select class="form-control @error('type') is-invalid @enderror" id="selectParagraphType" name="type" required focus>
+            <option value="" disabled selected>Выберите тип параграфа</option>
+            @foreach($types as $type)
+                <option value="{{$type->value}}">{{ $type->name }}</option>
+            @endforeach
+        </select>
         <div class="form-group">
             <label for="text">Example textarea</label>
             <textarea class="form-control @error('text') is-invalid @enderror" id="text" name="text" rows="3"
@@ -41,4 +47,10 @@
             <button class="btn btn-success btn-submit">Добавить</button>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        new dropdownHelper().addDropdownOnChangeListener('selectParagraphType', 'type');
+    </script>
 @endsection

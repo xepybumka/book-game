@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ParagraphTypeEnum;
 use App\Enums\TableNameEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,6 +17,7 @@ return new class extends Migration {
             $table->id();
             $table->integer('number')->unique()->comment('Номер параграфа');
             $table->text('text')->comment('Текст параграфа');
+            $table->integer('type')->default(ParagraphTypeEnum::Text)->comment('Тип параграфа (text/html');
             $table->dateTime('created_at')->comment('Дата добавления');
             $table->dateTime('updated_at')->comment('Дата редактирования');
             $table->index(['id', 'number']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\ParagraphTypeEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreParagraphRequest;
 use App\Http\Requests\Admin\UpdateParagraphRequest;
@@ -23,7 +24,7 @@ class ParagraphController extends Controller
         $paragraphs = Paragraph::orderBy('number')->paginate(10);
         return view('admin.paragraph.index', [
             'title'      => $title,
-            'paragraphs' => $paragraphs
+            'paragraphs' => $paragraphs,
         ]);
     }
 
@@ -51,7 +52,8 @@ class ParagraphController extends Controller
         $paragraph = Paragraph::find($id);
         return view('admin.paragraph.edit', [
             'title'     => $title,
-            'paragraph' => $paragraph
+            'paragraph' => $paragraph,
+            'types' => ParagraphTypeEnum::cases()
         ]);
     }
 
@@ -62,7 +64,8 @@ class ParagraphController extends Controller
     {
         $title = 'Создание: Параграф';
         return view('admin.paragraph.create', [
-            'title' => $title
+            'title' => $title,
+            'types' => ParagraphTypeEnum::cases()
         ]);
     }
 
@@ -76,6 +79,7 @@ class ParagraphController extends Controller
         $paragraph = new Paragraph();
         $paragraph->number = (int)$request->number;
         $paragraph->text = (string)$request->text;
+        $paragraph->type = (int)$request->type;
         $paragraph->created_at = new DateTime();
         $paragraph->updated_at = new DateTime();
 
@@ -96,11 +100,13 @@ class ParagraphController extends Controller
         $paragraph = Paragraph::find($id);
         $paragraph->number = (int)$request->number;
         $paragraph->text = (string)$request->text;
+        $paragraph->type = (int)$request->type;
         $paragraph->updated_at = new DateTime();
         if (!$paragraph->save()) {
             throw new Exception();
         }
-        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно обновлён');
+
+//        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно обновлён');
     }
 
     /**

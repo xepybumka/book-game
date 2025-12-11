@@ -23,7 +23,8 @@
         <thead>
         <tr>
             <th class="w-5">Номер</th>
-            <th class="w-90">Текст</th>
+            <th class="w-10">Тип</th>
+            <th class="w-80">Текст</th>
             <th class="w-5"></th>
         </tr>
         </thead>
@@ -31,6 +32,7 @@
         @foreach ($paragraphs as $paragraph)
             <tr>
                 <td>{{$paragraph->number}}</td>
+                <td>{{\App\Enums\ParagraphTypeEnum::from($paragraph->type->value)->name}}</td>
                 <td class="text-wrap">{{$paragraph->text}}</td>
                 <td>
                     <div class="btn-group btn-sm">

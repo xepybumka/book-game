@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\ParagraphTypeEnum;
 use App\Enums\TableNameEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -24,6 +25,7 @@ class UpdateParagraphRequest extends FormRequest
         return [
             'number' => ['required', Rule::unique(TableNameEnum::Paragraph->value, 'number')->ignore($this->id)],
             'text'   => ['required', 'string'],
+            'type' => ['required', Rule::enum(ParagraphTypeEnum::class)],
         ];
     }
 
@@ -36,6 +38,7 @@ class UpdateParagraphRequest extends FormRequest
             'number.required' => 'Обязательно наличие параметра "Номер параграфа".',
             'number.unique'   => 'Номер должен быть уникальным.',
             'text.required'   => 'Обязательно наличие параметра "Текст".',
+            'type.required'   => 'Обязательно наличие параметра "Тип параграфа".',
         ];
     }
 }

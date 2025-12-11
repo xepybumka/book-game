@@ -179,8 +179,8 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
+
 @yield('scripts')
-@vite(['resources/js/admin.js'])
-@vite('resources/js/dropdown-helper.js')
-</body>
+@vite('resources/js/admin.js')
+@vite('resources/js/dropdown-helper.js')</body>
 </html>

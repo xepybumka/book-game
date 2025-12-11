@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 
 // Основная часть
 Route::controller(BookController::class)->group(function () {
-    Route::get('/',  'index');
-    Route::get('/book',  'book');
+    Route::get('/',  'index')->name('main');
+    Route::get('/book',  'book')->name('book');
+    Route::get('/tutorial',  'tutorial')->name('tutorial');
     Route::get('/rules', 'rules');
 
-    Route::get('/test',  'test');
     Route::get('/get_paragraph/{id}', 'paragraph');
 });
 

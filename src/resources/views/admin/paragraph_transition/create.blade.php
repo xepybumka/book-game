@@ -60,3 +60,10 @@
         </div>
     </form>
 @endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        new dropdownHelper().addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
+        new dropdownHelper().addDropdownOnChangeListener('selectToParagraphNumber', 'to_paragraph_number');
+    </script>
+@endsection

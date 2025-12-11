@@ -29,6 +29,19 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="type">Тип параграфа</label>
+            <select class="form-control @error('type') is-invalid @enderror" id="selectParagraphType" name="type" required focus>
+                <option value="" disabled selected>{{\App\Enums\ParagraphTypeEnum::from($paragraph->type->value)->name}}</option>
+                @foreach($types as $type)
+                    <option value="{{$type->value}}">{{$type->name}}</option>
+                @endforeach
+            </select>
+            <input type="text" class="visually-hidden" id="type" name="type" value="{{$paragraph->type->value}}">
+            @error('type')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group">
             <label for="text">Какой-то текст заметки</label>
             <textarea class="form-control @error('text') is-invalid @enderror" id="text" name="text" rows="3"
                       placeholder="Какой-то текст параграфа">{{$paragraph->text}}</textarea>
@@ -41,4 +54,10 @@
             <button class="btn btn-success btn-submit">Обновить</button>
         </div>
     </form>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        new dropdownHelper().addDropdownOnChangeListener('selectParagraphType', 'type');
+    </script>
 @endsection
