@@ -182,5 +182,5 @@
 
 @yield('scripts')
 @vite('resources/js/admin.js')
-@vite('resources/js/dropdown-helper.js')</body>
+</body>
 </html>

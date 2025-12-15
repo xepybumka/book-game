@@ -8,3 +8,5 @@ class dropdownHelper {
         }
     }
 }
+
+window.dropdownHelper = dropdownHelper;
