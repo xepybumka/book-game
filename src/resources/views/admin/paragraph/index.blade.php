@@ -32,7 +32,11 @@
         @foreach ($paragraphs as $paragraph)
             <tr>
                 <td>{{$paragraph->number}}</td>
-                <td>{{\App\Enums\ParagraphTypeEnum::from($paragraph->type->value)->name}}</td>
+                <td>
+                    @if($paragraph->type)
+                        {{\App\Enums\ParagraphTypeEnum::from($paragraph->type->value)->name}}
+                    @endif
+                </td>
                 <td class="text-wrap">{{$paragraph->text}}</td>
                 <td>
                     <div class="btn-group btn-sm">

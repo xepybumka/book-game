@@ -56,7 +56,9 @@
     </form>
 @endsection
 
-@vite('resources/js/dropdown-helper.js')
-<script type="module">
-    window.dropdownHelper.addDropdownOnChangeListener('selectParagraphType', 'type');
-</script>
+@section('script-module')
+    @vite('resources/js/dropdown-helper.js')
+    <script type="module">
+        window.dropdownHelper.addDropdownOnChangeListener('selectParagraphType', 'type');
+    </script>
+@endsection
