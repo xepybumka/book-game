@@ -106,7 +106,7 @@ class ParagraphController extends Controller
             throw new Exception();
         }
 
-//        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно обновлён');
+        return redirect()->route('paragraph.list')->with('success', 'Параграф успешно обновлён');
     }
 
     /**

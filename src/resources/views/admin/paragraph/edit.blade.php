@@ -58,5 +58,5 @@
 
 @vite('resources/js/dropdown-helper.js')
 <script type="module">
-    new dropdownHelper().addDropdownOnChangeListener('selectParagraphType', 'type');
+    window.dropdownHelper.addDropdownOnChangeListener('selectParagraphType', 'type');
 </script>

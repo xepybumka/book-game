@@ -65,6 +65,6 @@
 
 @vite('resources/js/dropdown-helper.js')
 <script type="module">
-    new dropdownHelper().addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
-    new dropdownHelper().addDropdownOnChangeListener('selectItemId', 'item_id');
+    window.dropdownHelper.addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
+    window.dropdownHelper.addDropdownOnChangeListener('selectItemId', 'item_id');
 </script>
