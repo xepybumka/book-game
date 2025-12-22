@@ -1,7 +1,9 @@
 <div class="text_part">
     <div class="text_part__text">
-        <p id="mainParagraphText">
+        @if(\App\Enums\ParagraphTypeEnum::isText($paragraph->type->value))
+            <p id="mainParagraphText"><?=$paragraph->text?></p>
+        @else
             <?=$paragraph->text?>
-        </p>
+        @endif
     </div>
 </div>

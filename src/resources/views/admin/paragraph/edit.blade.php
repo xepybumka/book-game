@@ -28,6 +28,7 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
+
         <div class="form-group">
             <label for="type">Тип параграфа</label>
             <select class="form-control @error('type') is-invalid @enderror" id="selectParagraphType" name="type" required focus>
@@ -41,6 +42,7 @@
                 <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
+
         <div class="form-group">
             <label for="text">Какой-то текст заметки</label>
             <textarea class="form-control @error('text') is-invalid @enderror" id="text" name="text" rows="3"
@@ -59,6 +61,6 @@
 @section('script-module')
     @vite('resources/js/dropdown-helper.js')
     <script type="module">
-        window.dropdownHelper.addDropdownOnChangeListener('selectParagraphType', 'type');
+        dropdownHelper.addDropdownOnChangeListener('selectParagraphType', 'type');
     </script>
 @endsection

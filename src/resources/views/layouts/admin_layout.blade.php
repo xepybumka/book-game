@@ -181,7 +181,7 @@
 </script>
 
 @yield('scripts')
-@yield('scripts-module')
+@yield('script-module')
 @vite('resources/js/admin.js')
 </body>
 </html>

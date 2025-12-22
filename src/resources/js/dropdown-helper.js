@@ -9,4 +9,4 @@ class dropdownHelper {
     }
 }
 
-window.dropdownHelper = new dropdownHelper;
+window.dropdownHelper = new dropdownHelper();
