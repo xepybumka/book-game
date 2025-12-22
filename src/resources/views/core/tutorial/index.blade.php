@@ -35,16 +35,25 @@
         }
 
         const replaceParagraphContent = function (data) {
-            setParagraphContent(data.paragraph);
-            setTransitionContent(data.transitions);
+            if (data.paragraph_type == 'Html'){
+                setParagraphHtml(data.paragraph);
+            } else {
+                setParagraphText(data.paragraph);
+            }
+            setTransition(data.transitions);
         }
 
-        const setParagraphContent = function (paragraph) {
+        const setParagraphText = function (paragraph) {
             let mainParagraphTextId = 'mainParagraphText';
             $(`#${mainParagraphTextId}`).text(paragraph.text);
         }
 
-        const setTransitionContent = function (transitions) {
+        const setParagraphHtml = function (paragraph) {
+            let mainParagraphTextId = 'mainParagraphText';
+            $(`#${mainParagraphTextId}`).html(paragraph.text);
+        }
+
+        const setTransition = function (transitions) {
             const tbody = document.getElementById('mainParagraphTransition');
             tbody.innerHTML = ''; // очищаем
 
