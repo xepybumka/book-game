@@ -10,8 +10,8 @@
     <div class="content_wrap">
         @include('core.book.partials.left_sidebar')
         <div class="text_and_chooses_wrap">
-            @include('core.test.partials.text_part')
-            @include('core.test.partials.choose_part')
+            @include('core.book.partials.text_part')
+            @include('core.book.partials.choose_part')
         </div>
         @include('core.book.partials.right_sidebar')
     </div>
@@ -19,32 +19,41 @@
 
 @section('scripts')
     <script type="text/javascript">
-        const goToParagraphNumber = function(number) {
+        const goToParagraphNumber = function (number) {
             getParagraphContent(number);
         }
 
-        const getParagraphContent = function (number)  {
+        const getParagraphContent = function (number) {
             $.ajax({
-                url: '/get_paragraph/'+ number,
+                url: '/get_paragraph/' + number,
                 type: "get",
                 data: {},
-                success: function(data) {
+                success: function (data) {
                     replaceParagraphContent(data);
                 }
             });
         }
 
-        const replaceParagraphContent = function(data) {
-            setParagraphContent(data.paragraph);
-            setTransitionContent(data.transitions);
+        const replaceParagraphContent = function (data) {
+            if (data.paragraph_type == 'Html'){
+                setParagraphHtml(data.paragraph);
+            } else {
+                setParagraphText(data.paragraph);
+            }
+            setTransition(data.transitions);
         }
 
-        const setParagraphContent = function(paragraph) {
+        const setParagraphText = function (paragraph) {
             let mainParagraphTextId = 'mainParagraphText';
             $(`#${mainParagraphTextId}`).text(paragraph.text);
         }
 
-        const setTransitionContent = function(transitions) {
+        const setParagraphHtml = function (paragraph) {
+            let mainParagraphTextId = 'mainParagraphText';
+            $(`#${mainParagraphTextId}`).html(paragraph.text);
+        }
+
+        const setTransition = function (transitions) {
             const tbody = document.getElementById('mainParagraphTransition');
             tbody.innerHTML = ''; // очищаем
 

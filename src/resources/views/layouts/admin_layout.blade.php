@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ URL::asset('assets/css/material-dashboard.css') }}" rel="stylesheet"/>
-    <link id="pagestyle" href="{{ URL::asset('assets/css/bootstrap.css') }}" rel="stylesheet"/>
+    @vite(['resources/css/bootstrap.css'])
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -179,7 +179,9 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
+
 @yield('scripts')
-@vite('resources/js/dropdown-helper.js')
+@yield('script-module')
+@vite('resources/js/admin.js')
 </body>
 </html>

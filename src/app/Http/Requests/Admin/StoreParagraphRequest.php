@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enums\ParagraphTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreParagraphRequest extends FormRequest
 {
@@ -22,6 +24,8 @@ class StoreParagraphRequest extends FormRequest
         return [
             'number' => ['required', 'unique:paragraph'],
             'text'   => ['required', 'string'],
+            'type' => ['required', Rule::enum(ParagraphTypeEnum::class)],
+
         ];
     }
 
@@ -34,6 +38,7 @@ class StoreParagraphRequest extends FormRequest
             'number.required' => 'Номер параграфа обязателен для ввода.',
             'number.unique'   => 'Номер должен быть уникальным.',
             'text.required'   => 'Текст параграфа обязателен для ввода.',
+            'type.required'   => 'Обязательно наличие параметра "Тип параграфа".',
         ];
     }
 }

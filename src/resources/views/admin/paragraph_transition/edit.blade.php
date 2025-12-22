@@ -60,3 +60,12 @@
         </div>
     </form>
 @endsection
+
+@section('script-module')
+    @vite('resources/js/dropdown-helper.js')
+    <script type="module">
+        window.dropdownHelper.addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
+        window.dropdownHelper.addDropdownOnChangeListener('selectToParagraphNumber', 'to_paragraph_number');
+    </script>
+@endsection
+

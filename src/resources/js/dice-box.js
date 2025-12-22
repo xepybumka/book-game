@@ -1,6 +1,6 @@
 import DiceBox from "@3d-dice/dice-box";
 
-let Box = new DiceBox({
+let diceBox = new DiceBox({
     assetPath: "/assets/",
     container: "#dice-box",
     offscreen: true,
@@ -11,9 +11,10 @@ let Box = new DiceBox({
     spinForce: 3,
 });
 
-Box.init()
+diceBox.init()
 
 const button = document.getElementById("dice_roll");
 button.addEventListener("click", (e) => {
-    Box.roll("2d6")
+    diceBox.roll("2d6");
+    diceBox.onRollComplete = (rollResult) => alert(rollResult[0].value);
 });

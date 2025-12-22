@@ -62,3 +62,11 @@
         </div>
     </form>
 @endsection
+
+@section('script-module')
+    @vite('resources/js/dropdown-helper.js')
+    <script type="module">
+        dropdownHelper.addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
+        dropdownHelper.addDropdownOnChangeListener('selectItemId', 'item_id');
+    </script>
+@endsection

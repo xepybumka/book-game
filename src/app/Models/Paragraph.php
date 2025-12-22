@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\EnemyAttackTypeEnum;
+use App\Enums\ParagraphTypeEnum;
 use App\Enums\TableNameEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -19,8 +21,13 @@ class Paragraph extends Model
     protected $fillable = [
         'number',
         'text',
+        'type',
         'created_at',
         'updated_at',
+    ];
+
+    protected $casts = [
+        'type' => ParagraphTypeEnum::class
     ];
 
     /**

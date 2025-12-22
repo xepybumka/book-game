@@ -43,7 +43,7 @@
             </select>
             <input type="text" class="visually-hidden" id="item_id" name="item_id" value="{{$paragraphItem->item_id}}">
             @error('item_id')
-            <span class="text-danger">{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
@@ -59,4 +59,12 @@
             <button class="btn btn-success btn-submit">Обновить</button>
         </div>
     </form>
+@endsection
+
+@section('script-module')
+    @vite('resources/js/dropdown-helper.js')
+    <script type="module">
+        dropdownHelper.addDropdownOnChangeListener('selectParagraphNumber', 'paragraph_number');
+        dropdownHelper.addDropdownOnChangeListener('selectItemId', 'item_id');
+    </script>
 @endsection

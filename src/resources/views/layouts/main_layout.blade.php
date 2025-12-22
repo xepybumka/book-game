@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Book game</title>
+        @vite('resources/css/app.css')
     </head>
     <body class="book-body">
         <header class="header">
@@ -15,7 +16,7 @@
         <footer class="footer">
             @yield('footer')
         </footer>
-         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite('resources/js/app.js')
         @yield('scripts')
     </body>
 </html>

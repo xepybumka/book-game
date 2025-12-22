@@ -10,4 +10,6 @@ enum TableNameEnum: string
     case Weapon = 'weapon';
     case ParagraphTransition = 'paragraph_transition';
     case ParagraphItem = 'paragraph_item';
+    case Event = 'event';
+    case EventType = 'event_type';
 }

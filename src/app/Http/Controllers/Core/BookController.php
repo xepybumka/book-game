@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Core;
 
-use App\Enums\TableNameEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Paragraph;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class BookController extends Controller
@@ -23,20 +21,21 @@ class BookController extends Controller
      *
      * @return View
      */
-    public function book()
+    public function book($paragraphNumber = null)
     {
-        return view('core.book.index');
+        $paragraph = Paragraph::where('id', $paragraphNumber ?? 1)->first();
+        return view('core.book.index', [
+            'paragraph' => $paragraph
+        ]);
     }
 
     /**
-     * @deprecated
-     *
      * @return View
      */
-    public function test()
+    public function tutorial()
     {
-        $paragraph = Paragraph::where('id', 2)->first();
-        return view('core.test.index', [
+        $paragraph = Paragraph::where('id', 1000)->first();
+        return view('core.tutorial.index', [
             'paragraph' => $paragraph
         ]);
     }
@@ -49,8 +48,9 @@ class BookController extends Controller
     {
         $paragraph = Paragraph::find($id);
         return response()->json([
-            'paragraph'   => $paragraph,
-            'transitions' => $paragraph->transitions
+            'paragraph'     => $paragraph,
+            'paragraph_type' => $paragraph->type->name,
+            'transitions'   => $paragraph->transitions
         ]);
     }
 }

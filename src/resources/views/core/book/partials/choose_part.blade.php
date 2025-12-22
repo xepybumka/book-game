@@ -1,25 +1,29 @@
 <div class="choose_wrapper">
     <div class="choose_wrapper__text">
-        <table class="table table-striped">
+        <table class="table table-striped" id="mainParagraphTransitionTable">
             <thead>
-            <tr>
-                <th></th>
-            </tr>
+            <tr><th></th></tr>
             </thead>
-            <tbody>
+            <tbody id="mainParagraphTransition">
+            <!-- сюда будут подставляться кнопки -->
+            @foreach($paragraph->transitions as $transition)
                 <tr>
-                    <td class="w-100">На Север 14</td>
+                    <td class="w-100">
+                        <div class="choose_wrapper__button">
+                            <button class="btn" onclick="onclickTransition({{$transition->to_paragraph_number}})">
+                                {{$transition->title}}
+                            </button>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td class="w-100">На Восток 109</td>
-                </tr>
-                <tr>
-                    <td class="w-100">На Запад 84</td>
-                </tr>
-                <tr>
-                    <td class="w-100">На Юг 54</td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+    let onclickTransition = function (number) {
+        goToParagraphNumber(number);
+    }
+</script>

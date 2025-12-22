@@ -44,9 +44,14 @@ QA и консультант: Евгений Баскаков.
 Список используемых библиотек
 ------
 
-- Laravel v10.0.7
-- PHP v8.2.18
-- Boostrap v4.*.*
+- Laravel v12.40.2 .
+- PHP v8.2.29 .
+- Boostrap v4.0.0 .
+- npm v10.9.0 .
+- node v22.12.0 .
+- jquery-3.7.1.js .
+- Dice-Box: https://github.com/3d-dice/dice-box?tab=readme-ov-file
+
 
 - ------
 
