@@ -16,5 +16,5 @@ diceBox.init()
 const button = document.getElementById("dice_roll");
 button.addEventListener("click", (e) => {
     diceBox.roll("2d6");
-    diceBox.onRollComplete = (rollResult) => alert(rollResult[0].value);
+    diceBox.onRollComplete = (rollResult) => console.log(rollResult[0].value);
 });

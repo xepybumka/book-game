@@ -1,3 +1,7 @@
+@php
+    $diceBtnClass = false ? '' : 'disabled';
+@endphp
+
 <div class="right_sidebar_wrapper">
     <div class="right_sidebar_weapon_block">
         <a class="sidebar__left_top_corner"></a>
@@ -44,8 +48,7 @@
 
         <a class="sidebar__right_bottom_corner"></a>
         <a class="sidebar__left_bottom_corner"></a>
-        
-        <button id="dice_roll">Бросить кубики!</button>
+        <button id="dice_roll" class="{{ $diceBtnClass }}">Бросить кубики!</button>
         <div id="dice-box"></div>
     </div>
 </div>

@@ -11,17 +11,17 @@ class ParagraphItem extends Model
 {
     use HasFactory;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->table = TableNameEnum::ParagraphItem->value;
+    }
+
     /**
      * Вернет предмет
      */
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class);
-    }
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->table = TableNameEnum::ParagraphItem->value;
     }
 }

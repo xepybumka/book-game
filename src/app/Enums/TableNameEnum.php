@@ -12,4 +12,6 @@ enum TableNameEnum: string
     case ParagraphItem = 'paragraph_item';
     case Event = 'event';
     case EventType = 'event_type';
+    case Character = 'character';
+    case CharacterItem = 'character_item';
 }
