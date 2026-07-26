@@ -4,23 +4,23 @@ copy_config:
 	cp .env.example .env
 	cp .env.example src/.env
 
-build: 
-	docker compose build
+build:
+	docker-compose build
 
-composer: 
+composer:
 	docker exec php-book-game sh -c "composer install"
 
 npm:
 	docker exec php-book-game sh -c "npm install && npm run build"
 
-migrate: 
+migrate:
 	docker exec php-book-game sh -c "php artisan migrate"
 
-seed: 
+seed:
 	docker exec php-book-game sh -c "php artisan db:seed"
 
 start:
-	docker compose up -d
+	docker-compose up -d
 
 stop:
-	docker compose down
+	docker-compose down
